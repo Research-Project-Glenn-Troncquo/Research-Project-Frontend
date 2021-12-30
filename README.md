@@ -1,27 +1,31 @@
 # DrinkBuddy
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
+## Practical Info
 
-## Development server
+In this Research Project I'll be researching how completely can be tested in a Frontend Pipeline.
+How completely can a test-driven Angular application be tested in a frontend pipeline
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Test Driven Development
 
-## Code scaffolding
+Test-driven development (TDD) is a software development method in which tests are written first and then the code.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In this ReadMe file I'll be documenting my test-driven thought process for each component.
 
-## Build
+## App Header
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Is Not Logged In
 
-## Running unit tests
+- [] Contains an h3 tag > Drink Buddy > onClick brings user to Home page
+- [] Contains a button > Login > onCick brings user to the Login page
+- [] Contains a button > Register > onCick brings user to the Register page
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Is Logged In
 
-## Running end-to-end tests
+- [] Contains an h3 tag > Drink Buddy > onClick brings user to Home page
+- [] Contains a profile button > onHover > Option between different onClicks > My Profile - Settings - Log Out
+- [] Contains a + button > onClick brings user to Upload page
+- [] Contains a search input > onInput searches through users backend
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## App Footer
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Home
