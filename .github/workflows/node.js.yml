@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.15
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
       - run: npm ci
       - run: npm run test
       - run: npm run build
