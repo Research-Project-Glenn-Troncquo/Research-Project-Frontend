@@ -15,15 +15,16 @@ In this ReadMe file I'll be documenting my test-driven thought process for each 
 
 ### Is Not Logged In
 
-- [] Contains a h3 tag > Drink Buddy > onClick brings user to Home page
+- [] Contains an h3 tag > Drink Buddy > onClick brings user to Home page
 - [] Contains a button > Login > onCick brings user to the Login page
 - [] Contains a button > Register > onCick brings user to the Register page
 
 ### Is Logged In
 
-- [] Contains a h3 tag > Drink Buddy > onClick brings user to Home page
+- [] Contains an h3 tag > Drink Buddy > onClick brings user to Home page
 - [] Contains a profile button > onHover > Option between different onClicks > My Profile - Settings - Log Out
 - [] Contains a + button > onClick brings user to Upload page
+- [] Contains a search input > onInput searches through users backend
 
 ## App Footer
 
