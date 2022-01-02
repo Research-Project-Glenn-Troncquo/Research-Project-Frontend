@@ -15,9 +15,9 @@ In this ReadMe file I'll be documenting my test-driven thought process for each 
 
 ### Is Not Logged In
 
-- [] Contains an h3 tag `Drink Buddy` > Drink Buddy > onClick brings user to Home page
-- [] Contains an anchor tag > Login > onCick brings user to the Login page
-- [] Contains an anchor tag > Register > onCick brings user to the Register page
+- [] Contains an h3 tag `Drink Buddy` > onClick brings user to Home page
+- [] Contains an anchor tag `Login`> onCick brings user to the Login page
+- [] Contains an anchor tag `Register` > onCick brings user to the Register page
 
 ### Is Logged In
 
