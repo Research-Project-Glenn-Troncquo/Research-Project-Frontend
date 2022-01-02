@@ -1,8 +1,15 @@
 import { Location } from '@angular/common'
 import { DebugElement } from '@angular/core'
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
+import { Router } from '@angular/router'
 import { RouterTestingModule } from '@angular/router/testing'
+import { routes } from 'src/app/app-routing.module'
 import { HeaderComponent } from './header.component'
 
 describe('AppHeaderComponent', () => {
@@ -11,12 +18,14 @@ describe('AppHeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>
   let de: DebugElement
   let spy: jasmine.Spy
+  let location: Location
+  let router: Router
 
   beforeEach(async () => {
     // testbed is our testing environment
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule.withRoutes(routes)],
     }).compileComponents() // compiles html and css
   })
 
@@ -24,6 +33,9 @@ describe('AppHeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent)
     component = fixture.componentInstance
     de = fixture.debugElement
+    router = TestBed.inject(Router)
+    location = TestBed.inject(Location)
+    router.initialNavigation()
     fixture.detectChanges()
   })
 
@@ -43,19 +55,22 @@ describe('AppHeaderComponent', () => {
     expect(de.queryAll(By.css('a'))[1].nativeElement.innerText).toBe('Register')
   })
 
-  // it('login button should go to login page', () => {
-  //   const location: Location = TestBed.inject(Location)
+  it('register button should go to register page', fakeAsync(() => {
+    let registerButton = de.queryAll(By.css('a'))[1].nativeElement
 
-  //   expect(location.path()).toBe('')
-  // })
+    registerButton.click()
+    tick()
 
-  // it('onClick login should call method', () => {
-  //   spy = spyOn<AppHeaderComponent, any>(component, 'handeLogin')
-  //   let loginButton = de.nativeElement.querySelector('a')
-  //   loginButton.click()
+    expect(location.path()).toBe('/register')
+  }))
 
-  //   fixture.whenStable().then(() => {
-  //     expect(component.handeLogin).toHaveBeenCalled()
-  //   })
-  // })
+  it('login button should go to login page', fakeAsync(() => {
+    // spy = spyOn<HeaderComponent, any>(component, 'handleLogin')
+    let loginButton = de.queryAll(By.css('a'))[0].nativeElement
+
+    loginButton.click()
+    tick()
+
+    expect(location.path()).toBe('/login')
+  }))
 })
