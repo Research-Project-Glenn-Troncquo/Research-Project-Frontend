@@ -15,9 +15,10 @@ In this ReadMe file I'll be documenting my test-driven thought process for each 
 
 ### Is Not Logged In
 
-- [] Contains an h3 tag `Drink Buddy` > onClick brings user to Home page
-- [] Contains an anchor tag `Login`> onCick brings user to the Login page
-- [] Contains an anchor tag `Register` > onCick brings user to the Register page
+- [x] Contains an h3 tag `Drink Buddy` > onClick brings user to Home page
+- [x] Contains an anchor tag `Login`> onCick brings user to the Login page
+- [x] Contains an anchor tag `Register` > onCick brings user to the Register page
+- [x] Contains an anchor tag `Home` > onCick brings user to the Home page
 
 ### Is Logged In
 
@@ -29,3 +30,11 @@ In this ReadMe file I'll be documenting my test-driven thought process for each 
 ## App Footer
 
 ## Home
+
+- [x] Contains the App Header
+- [x] Contains the App Footer
+- [x] Contains an h3 tag `Drink Buddy`
+- [x] Contains a p tag `Drink Buddy is a social app where you can share your drinks with your friends.`
+- [x] Contains a button `Login` > onClick brings user to the Login page
+- [x] Contains a button `Register` > onClick brings user to the register page
+- [x] Contains an img with src `beer.png`

@@ -47,30 +47,44 @@ describe('AppHeaderComponent', () => {
     expect(de.query(By.css('h3')).nativeElement.innerText).toBe('DrinkBuddy')
   })
 
+  it('should have an anchor tag of `Home`', () => {
+    expect(de.queryAll(By.css('a'))[0].nativeElement.innerText).toBe('Home')
+  })
+
   it('should have an anchor tag of `Log in`', () => {
-    expect(de.queryAll(By.css('a'))[0].nativeElement.innerText).toBe('Log in')
+    expect(de.queryAll(By.css('a'))[1].nativeElement.innerText).toBe('Log in')
   })
 
   it('should have an anchor tag of `Register`', () => {
-    expect(de.queryAll(By.css('a'))[1].nativeElement.innerText).toBe('Register')
+    expect(de.queryAll(By.css('a'))[2].nativeElement.innerText).toBe('Register')
   })
 
-  it('register button should go to register page', fakeAsync(() => {
-    let registerButton = de.queryAll(By.css('a'))[1].nativeElement
-
-    registerButton.click()
-    tick()
-
-    expect(location.path()).toBe('/register')
-  }))
-
-  it('login button should go to login page', fakeAsync(() => {
+  it('home button should go to home page', fakeAsync(() => {
     // spy = spyOn<HeaderComponent, any>(component, 'handleLogin')
     let loginButton = de.queryAll(By.css('a'))[0].nativeElement
 
     loginButton.click()
     tick()
 
+    expect(location.path()).toBe('/')
+  }))
+
+  it('login button should go to login page', fakeAsync(() => {
+    // spy = spyOn<HeaderComponent, any>(component, 'handleLogin')
+    let loginButton = de.queryAll(By.css('a'))[1].nativeElement
+
+    loginButton.click()
+    tick()
+
     expect(location.path()).toBe('/login')
+  }))
+
+  it('register button should go to register page', fakeAsync(() => {
+    let registerButton = de.queryAll(By.css('a'))[2].nativeElement
+
+    registerButton.click()
+    tick()
+
+    expect(location.path()).toBe('/register')
   }))
 })
