@@ -11,4 +11,8 @@
 ::selection {
   background-color: lightsalmon;
   color: white;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
 }

@@ -1,69 +1,71 @@
-<nav>
-  <div class="flex justify-between">
-    <h3
-      routerLink="/"
-      class="
-        font-semibold
-        text-3xl
-        cursor-pointer
-        hover:transform hover:scale-105
-        ease-in-out
-        duration-200
-      "
-    >
-      <span class="text-p-orange">Drink</span>Buddy
-    </h3>
-
-    <ul class="flex gap-4 items-center text-gray-600 font-semibold">
-      <li
-        class="relative"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
+<header>
+  <nav>
+    <div class="flex justify-between">
+      <h3
+        routerLink="/"
+        class="
+          font-semibold
+          text-3xl
+          cursor-pointer
+          hover:transform hover:scale-105
+          ease-in-out
+          duration-200
+        "
       >
-        <a routerLink="/">Home</a>
-        <div
-          class="
-            mt-1
-            w-2
-            h-2
-            absolute
-            left-1/2
-            transform
-            -translate-x-1/2
-            rounded-full
-          "
-        ></div>
-      </li>
-      <li class="relative" routerLinkActive="active">
-        <a class="cursor-pointer" routerLink="/login">Log in</a>
-        <div
-          class="
-            mt-1
-            w-2
-            h-2
-            absolute
-            left-1/2
-            transform
-            -translate-x-1/2
-            rounded-full
-          "
-        ></div>
-      </li>
-      <li class="relative" routerLinkActive="active">
-        <a class="cursor-pointer" routerLink="/register">Register</a>
-        <div
-          class="
-            mt-1
-            w-2
-            h-2
-            absolute
-            left-1/2
-            transform
-            -translate-x-1/2
-            rounded-full
-          "
-        ></div>
-      </li>
-    </ul>
-  </div>
-</nav>
+        <span class="text-p-orange">Drink</span>Buddy
+      </h3>
+
+      <ul class="flex gap-4 items-center text-gray-600 font-semibold">
+        <li
+          class="relative"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="/">Home</a>
+          <div
+            class="
+              mt-1
+              w-2
+              h-2
+              absolute
+              left-1/2
+              transform
+              -translate-x-1/2
+              rounded-full
+            "
+          ></div>
+        </li>
+        <li class="relative" routerLinkActive="active">
+          <a class="cursor-pointer" routerLink="/login">Log in</a>
+          <div
+            class="
+              mt-1
+              w-2
+              h-2
+              absolute
+              left-1/2
+              transform
+              -translate-x-1/2
+              rounded-full
+            "
+          ></div>
+        </li>
+        <li class="relative" routerLinkActive="active">
+          <a class="cursor-pointer" routerLink="/register">Register</a>
+          <div
+            class="
+              mt-1
+              w-2
+              h-2
+              absolute
+              left-1/2
+              transform
+              -translate-x-1/2
+              rounded-full
+            "
+          ></div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

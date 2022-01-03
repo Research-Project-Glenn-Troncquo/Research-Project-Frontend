@@ -5,9 +5,13 @@ import { LoginComponent } from './screens/login/login.component'
 import { RegisterComponent } from './screens/register/register.component'
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data: { animation: 'isLeft' } },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: { animation: 'isRight' },
+  },
 ]
 
 @NgModule({

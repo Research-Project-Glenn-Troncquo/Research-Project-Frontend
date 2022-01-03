@@ -1,44 +1,46 @@
-<app-header></app-header>
-<div class="mt-20 sm:flex">
-  <div class="w-1/2">
-    <div class="font-semibold text-6xl mb-8">
-      <h3 class="text-p-orange">Drink</h3>
-      <h3 class="-mt-2">Buddy</h3>
+<div class="container mx-auto pt-8 px-4">
+  <!-- <app-header></app-header> -->
+  <div class="mt-20 sm:flex mb-20">
+    <div class="w-1/2">
+      <div class="font-semibold text-6xl mb-8">
+        <h3 class="text-p-orange">Drink</h3>
+        <h3 class="-mt-2">Buddy</h3>
+      </div>
+
+      <p class="text-3xl mb-20">
+        <span class="text-p-orange">Drink</span> Buddy is a social app where you
+        can share your drinks with your friends.
+      </p>
+
+      <div class="flex gap-4">
+        <app-button
+          class="w-full"
+          name="Log in"
+          (buttonClickEvent)="handleLogin()"
+        ></app-button>
+
+        <app-button
+          class="w-full"
+          name="Register"
+          (buttonClickEvent)="handleRegister()"
+        ></app-button>
+      </div>
     </div>
-
-    <p class="text-3xl mb-20">
-      <span class="text-p-orange">Drink</span> Buddy is a social app where you
-      can share your drinks with your friends.
-    </p>
-
-    <div class="flex gap-4">
-      <app-button
-        class="w-full"
-        name="Log in"
-        (buttonClickEvent)="handleLogin()"
-      ></app-button>
-
-      <app-button
-        class="w-full"
-        name="Register"
-        (buttonClickEvent)="handleRegister()"
-      ></app-button>
+    <div class="w-1/2 justify-center hidden sm:flex">
+      <img
+        class="
+          h-96
+          md:max-h-[550px]
+          -mt-10
+          ml-16
+          hover:transform hover:rotate-[359deg]
+          ease-in-out
+          duration-1000
+        "
+        src="../../../assets/beer.png"
+        alt="beer image"
+      />
     </div>
   </div>
-  <div class="w-1/2 justify-center hidden sm:flex">
-    <img
-      class="
-        h-96
-        md:max-h-[550px]
-        -mt-10
-        ml-16
-        hover:transform hover:rotate-[359deg]
-        ease-in-out
-        duration-1000
-      "
-      src="../../../assets/beer.png"
-      alt="beer image"
-    />
-  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
