@@ -1,0 +1,11 @@
+<div class="" [formGroup]="formGroup">
+  <label class="block text-lg font-semibold" [for]="name">{{
+    name | titlecase
+  }}</label>
+  <input
+    class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+    [id]="name"
+    [type]="type"
+    [formControlName]="name.replace(' ', '')"
+  />
+</div>

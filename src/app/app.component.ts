@@ -8,6 +8,12 @@ import { slider } from './route-animations'
   animations: [slider],
 })
 export class AppComponent {
+  ngOnInit(): void {
+    console.log('global app component is called everytime')
+  }
+
+  loading = true
+
   prepareRoute(outlet: RouterOutlet) {
     return (
       outlet &&

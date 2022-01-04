@@ -6,7 +6,7 @@ import { RegisterComponent } from './screens/register/register.component'
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'isLeft' } },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, data: { animation: 'isMiddle' } },
   {
     path: 'register',
     component: RegisterComponent,

@@ -8,10 +8,12 @@ import {
 } from '@angular/animations'
 
 export const slider = trigger('routeAnimations', [
-  transition('* => isLeft', slideTo('left')),
-  transition('* => isRight', slideTo('right')),
-  transition('isRight => *', slideTo('left')),
-  transition('isLeft => *', slideTo('right')),
+  transition('isMiddle => isLeft', slideTo('left')),
+  transition('isMiddle => isRight', slideTo('right')),
+  transition('isRight => isMiddle', slideTo('left')),
+  transition('isLeft => isMiddle', slideTo('right')),
+  transition('isLeft => isRight', slideTo('left')),
+  transition('isRight => isLeft', slideTo('right')),
 ])
 
 function slideTo(direction: any) {
