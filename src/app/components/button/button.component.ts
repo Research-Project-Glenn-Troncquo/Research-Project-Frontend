@@ -8,7 +8,9 @@ export class ButtonComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {}
 
-  @Input() name = ''
+  @Input() name: string = ''
+  @Input() type: string = ''
+  @Input() loading: boolean = false
   @Output() buttonClickEvent = new EventEmitter()
 
   handleClick() {

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core'
-import { RouterOutlet } from '@angular/router'
+import { Auth } from '@angular/fire/auth'
+import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { Router, RouterOutlet } from '@angular/router'
 import { slider } from './route-animations'
+import { AuthService } from './auth/auth.service'
 
 @Component({
   selector: 'app-root',
@@ -8,11 +11,33 @@ import { slider } from './route-animations'
   animations: [slider],
 })
 export class AppComponent {
-  ngOnInit(): void {
-    console.log('global app component is called everytime')
+  loading = true
+
+  get notLoggedInHeader(): boolean {
+    return this.router.url === '/' ||
+      this.router.url === '/login' ||
+      this.router.url === '/register'
+      ? true
+      : false
   }
 
-  loading = true
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.onLoadingState.subscribe((loadingState) => {
+      this.loading = loadingState
+    })
+  }
+  ngOnInit(): void {}
+
+  ngAfterContentInit(): void {}
+
+  async restoreAuth() {
+    await this.authService.restoreAuth()
+    console.log('auth completed')
+  }
+
+  handleLoading() {
+    this.loading = false
+  }
 
   prepareRoute(outlet: RouterOutlet) {
     return (

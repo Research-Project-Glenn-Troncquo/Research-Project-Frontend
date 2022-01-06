@@ -7,13 +7,15 @@ import { HomeModule } from './screens/home/home.module'
 import { LoginModule } from './screens/login/login.module'
 import { RegisterModule } from './screens/register/register.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ComponentsModule } from './components/components.module';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth'
+import { ComponentsModule } from './components/components.module'
+import { environment } from '../environments/environment'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
+import { provideAuth, getAuth } from '@angular/fire/auth'
+import { OverviewComponent } from './screens/overview/overview.component'
+import { LoadingComponent } from './screens/loading/loading.component'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, OverviewComponent, LoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

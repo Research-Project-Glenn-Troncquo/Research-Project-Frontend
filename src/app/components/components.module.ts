@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module'
 import { InputComponent } from './input/input.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
+import { InputErrorComponent } from './input-error/input-error.component'
 
 @NgModule({
   declarations: [
@@ -13,8 +14,15 @@ import { CommonModule } from '@angular/common'
     FooterComponent,
     ButtonComponent,
     InputComponent,
+    InputErrorComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
-  exports: [HeaderComponent, FooterComponent, ButtonComponent, InputComponent],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    ButtonComponent,
+    InputComponent,
+    InputErrorComponent,
+  ],
 })
 export class ComponentsModule {}
