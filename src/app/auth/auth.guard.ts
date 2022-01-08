@@ -15,6 +15,8 @@ import { AuthService } from './auth.service'
 })
 export class AuthGuard implements CanActivate {
   isFirstTime: boolean = true
+  promiseResolve?: any
+  promiseReject?: any
 
   constructor(private authService: AuthService, private router: Router) {}
   canActivate(
@@ -25,20 +27,37 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    let path: string
+
+    try {
+      path = route.url[0].path
+    } catch (error) {
+      path = ''
+    }
+
     if (this.isFirstTime) {
       return new Promise((resolve, reject) => {
+        this.promiseResolve = resolve
+        this.promiseReject = reject
         this.isFirstTime = false
+
         this.authService.restoreAuth().then(() => {
-          console.log('auth completed guard')
-          return this.authService.isLoggedIn ? resolve(true) : resolve(false)
+          this.authService.onLoadingState.emit(false)
+          resolve(this.checkRoute(path))
         })
       })
     }
 
-    if (this.authService.isLoggedIn !== true) {
-      this.router.navigate(['login'])
+    return this.checkRoute(path)
+  }
+
+  checkRoute(route: string) {
+    if (route === '' || route === 'login' || route === 'register') {
+      return this.authService.isLoggedIn
+        ? this.router.navigate(['/dashboard'])
+        : true
     }
 
-    return true
+    return this.authService.isLoggedIn ? true : this.router.navigate(['/'])
   }
 }

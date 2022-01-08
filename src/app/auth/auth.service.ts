@@ -10,10 +10,6 @@ import {
   signInWithCustomToken,
   sendPasswordResetEmail,
 } from '@angular/fire/auth'
-import {
-  AngularFireAuthModule,
-  AngularFireAuth,
-} from '@angular/fire/compat/auth'
 import { HttpService } from '../http/http.service'
 import { User } from '../interface/user'
 
@@ -21,20 +17,19 @@ import { User } from '../interface/user'
 export class AuthService {
   user: any
   onLoadingState = new EventEmitter()
-  constructor(private auth: Auth, private httpService: HttpService) {}
+  constructor(public auth: Auth, private httpService: HttpService) {}
 
-  get isLoggedIn(): boolean {
-    console.log(this.user)
-    return this.user === null || this.user === undefined ? false : true
-  }
+  // get isLoggedIn(): boolean {
+  //   return this.user === null || this.user === undefined ? false : true
+  // }
 
+  isLoggedIn: boolean = true
   async restoreAuth() {
     return new Promise(async (resolve, reject) => {
       try {
         this.auth.onAuthStateChanged(async (res) => {
           console.log(await res?.getIdToken())
           this.user = res
-          this.onLoadingState.emit(false)
           resolve(true)
         })
       } catch (error) {
@@ -43,7 +38,19 @@ export class AuthService {
     })
   }
 
-  async login() {}
+  async login(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      signInWithEmailAndPassword(this.auth, email, password)
+        .then(async (userCredential) => {
+          this.user = userCredential.user
+          console.log(this.user)
+          resolve(true)
+        })
+        .catch((error) => {
+          resolve(error)
+        })
+    })
+  }
 
   async register(user: User) {
     try {
@@ -65,5 +72,10 @@ export class AuthService {
         })
         .catch((error) => reject(false))
     })
+  }
+
+  signOut() {
+    this.user = null
+    return signOut(this.auth)
   }
 }

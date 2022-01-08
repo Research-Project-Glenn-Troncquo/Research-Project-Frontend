@@ -8,12 +8,23 @@ import { OverviewComponent } from './screens/overview/overview.component'
 import { RegisterComponent } from './screens/register/register.component'
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, data: { animation: 'isLeft' } },
-  { path: 'login', component: LoginComponent, data: { animation: 'isMiddle' } },
+  {
+    path: '',
+    component: HomeComponent,
+    data: { animation: 'isLeft' },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { animation: 'isMiddle' },
+    canActivate: [AuthGuard],
+  },
   {
     path: 'register',
     component: RegisterComponent,
     data: { animation: 'isRight' },
+    canActivate: [AuthGuard],
   },
 
   {

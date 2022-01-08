@@ -9,7 +9,11 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { User } from 'src/app/interface/user'
 import { AuthService } from 'src/app/auth/auth.service'
-import { forbiddenNameValidator, passwordValidator } from './validator.service'
+import {
+  forbiddenNameValidator,
+  passwordValidator,
+} from '../../services/validator.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -49,7 +53,8 @@ export class RegisterComponent implements OnInit {
   errorMsg: string = ''
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -108,9 +113,9 @@ export class RegisterComponent implements OnInit {
       res.errorMsg
         ? (this.errorMsg = res.errorMsg)
         : await this.authService.loginId(res.token)
-      this.loading = true
+      this.loading = false
 
-      console.log(this.authService.user)
+      this.router.navigate(['dashboard'])
     } else this.validateAllFormFields(this.registerForm)
   }
 

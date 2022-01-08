@@ -24,20 +24,10 @@ export class AppComponent {
   constructor(private authService: AuthService, private router: Router) {
     this.authService.onLoadingState.subscribe((loadingState) => {
       this.loading = loadingState
+      this.authService.onLoadingState.unsubscribe()
     })
   }
   ngOnInit(): void {}
-
-  ngAfterContentInit(): void {}
-
-  async restoreAuth() {
-    await this.authService.restoreAuth()
-    console.log('auth completed')
-  }
-
-  handleLoading() {
-    this.loading = false
-  }
 
   prepareRoute(outlet: RouterOutlet) {
     return (

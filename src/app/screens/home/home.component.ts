@@ -8,9 +8,7 @@ import { Router } from '@angular/router'
 export class HomeComponent implements OnInit {
   constructor(public router: Router) {}
 
-  ngOnInit(): void {
-    console.log('home component is called')
-  }
+  ngOnInit(): void {}
 
   handleLogin() {
     this.router.navigateByUrl('login')
