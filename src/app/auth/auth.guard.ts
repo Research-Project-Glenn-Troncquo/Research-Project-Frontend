@@ -53,11 +53,18 @@ export class AuthGuard implements CanActivate {
 
   checkRoute(route: string) {
     if (route === '' || route === 'login' || route === 'register') {
-      return this.authService.isLoggedIn
-        ? this.router.navigate(['/dashboard'])
-        : true
+      if (this.authService.isLoggedIn) {
+        this.router.navigate(['/dashboard'])
+        return false
+      }
+
+      return true
     }
 
-    return this.authService.isLoggedIn ? true : this.router.navigate(['/'])
+    if (this.authService.isLoggedIn) {
+      return true
+    }
+    this.router.navigate(['/'])
+    return false
   }
 }

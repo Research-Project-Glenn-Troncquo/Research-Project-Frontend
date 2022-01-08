@@ -6,7 +6,13 @@ import {
   tick,
 } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
-import { Router } from '@angular/router'
+import {
+  ActivatedRouteSnapshot,
+  ParamMap,
+  Router,
+  RouterStateSnapshot,
+  UrlSegment,
+} from '@angular/router'
 import { RouterTestingModule } from '@angular/router/testing'
 import { routes } from 'src/app/app-routing.module'
 import { Location } from '@angular/common'
@@ -47,10 +53,6 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy()
   })
 
-  // it('should have the `app-header`', () => {
-  //   expect(de.query(By.css('app-header')).nativeElement).toBeDefined()
-  // })
-
   it('should have the `app-footer`', () => {
     expect(de.query(By.css('app-footer')).nativeElement).toBeDefined()
   })
@@ -78,27 +80,96 @@ describe('HomeComponent', () => {
     )
   })
 
-  //   it('login button should go to login page', fakeAsync(() => {
-  //     // spy = spyOn<HeaderComponent, any>(component, 'handleLogin')
-  //     let loginButton = de.queryAll(By.css('button'))[0].nativeElement
-
-  //     loginButton.click()
-  //     tick()
-
-  //     expect(location.path()).toBe('/login')
-  //   }))
-
-  // it('register button should go to register page', fakeAsync(() => {
-  //   // spy = spyOn<HeaderComponent, any>(component, 'handleLogin')
-  //   let loginButton = de.queryAll(By.css('button'))[1].nativeElement
-
-  //   loginButton.click()
-  //   tick()
-
-  //   expect(location.path()).toBe('/register')
-  // }))
-
   it('should contain an img with src `beer.png`', () => {
     expect(de.query(By.css('img')).nativeElement.src).toContain('beer.png')
+  })
+
+  describe('Integration with Auth Service + Auth Guard', () => {
+    const paramMap: ParamMap = {
+      has(name: string): boolean {
+        return true
+      },
+      get(): string | null {
+        return null
+      },
+
+      getAll(): string[] {
+        return []
+      },
+      keys: [],
+    }
+
+    const urlSegment: UrlSegment = {
+      path: '',
+      parameters: {},
+      parameterMap: paramMap,
+    }
+
+    const dummyRoute = { url: [urlSegment] } as ActivatedRouteSnapshot
+    const fakeUrl = 'login'
+    let guard: AuthGuard
+    let routerSpy: jasmine.SpyObj<Router>
+    let serviceStub: Partial<AuthService>
+
+    function fakeRouterState(url: string): RouterStateSnapshot {
+      return {
+        url,
+      } as RouterStateSnapshot
+    }
+
+    beforeEach(() => {
+      routerSpy = jasmine.createSpyObj<Router>('Router', ['navigate'])
+      serviceStub = {}
+      guard = new AuthGuard(serviceStub as AuthService, routerSpy)
+      guard.isFirstTime = false
+      serviceStub.isLoggedIn = false
+    })
+
+    it('login button click should go to login page when the user is logged out', fakeAsync(() => {
+      spy = spyOn<HomeComponent, any>(component, 'handleLogin')
+      let loginButton = de.queryAll(By.css('button'))[0]
+
+      loginButton.triggerEventHandler('click', null)
+      tick()
+
+      expect(spy).toHaveBeenCalled()
+
+      const isAccessGranted = guard.checkRoute(fakeUrl)
+
+      expect(isAccessGranted).toBeTrue()
+
+      dummyRoute.url[0].path = fakeUrl
+      const canActivate = guard.canActivate(
+        dummyRoute,
+        fakeRouterState(fakeUrl)
+      )
+
+      expect(canActivate).toBeTrue()
+    }))
+
+    it('register button click should go to register page when the user is logged out', fakeAsync(() => {
+      spy = spyOn<HomeComponent, any>(component, 'handleRegister')
+      let registerButton = de.queryAll(By.css('button'))[1]
+
+      registerButton.triggerEventHandler('click', null)
+      tick()
+
+      expect(spy).toHaveBeenCalled()
+
+      const isAccessGranted = guard.checkRoute(fakeUrl)
+
+      expect(isAccessGranted).toBeTrue()
+
+      dummyRoute.url[0].path = fakeUrl
+      const canActivate = guard.canActivate(
+        dummyRoute,
+        fakeRouterState(fakeUrl)
+      )
+
+      expect(canActivate).toBeTrue()
+
+      tick()
+      console.log(location.path())
+    }))
   })
 })

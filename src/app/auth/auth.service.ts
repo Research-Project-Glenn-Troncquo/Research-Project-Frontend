@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core'
+import { EventEmitter, Injectable, Input } from '@angular/core'
 import { Observable, of } from 'rxjs'
 import {
   Auth,
@@ -17,13 +17,24 @@ import { User } from '../interface/user'
 export class AuthService {
   user: any
   onLoadingState = new EventEmitter()
-  constructor(public auth: Auth, private httpService: HttpService) {}
+  constructor(public auth: Auth, private httpService: HttpService) {
+    this._isLoggedIn =
+      this.user === null || this.user === undefined ? false : true
+  }
 
-  // get isLoggedIn(): boolean {
-  //   return this.user === null || this.user === undefined ? false : true
-  // }
+  private _isLoggedIn: boolean
+  get isLoggedIn(): boolean {
+    return this._isLoggedIn
+  }
 
-  isLoggedIn: boolean = true
+  // @Input()
+  set isLoggedIn(value: boolean) {
+    this._isLoggedIn =
+      this.user === null || this.user === undefined ? false : true
+    value ? (this._isLoggedIn = value) : null
+  }
+
+  // isLoggedIn: boolean = true
   async restoreAuth() {
     return new Promise(async (resolve, reject) => {
       try {

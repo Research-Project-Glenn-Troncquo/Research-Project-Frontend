@@ -32,7 +32,8 @@ describe('AuthGuard + AuthService', () => {
   }
 
   const dummyRoute = { url: [urlSegment] } as ActivatedRouteSnapshot
-  const fakeUrls = ['/dashboard']
+  const protectedFakeUrls = ['/dashboard']
+  const fakeUrls = ['register', '', 'login']
   let guard: AuthGuard
   let routerSpy: jasmine.SpyObj<Router>
   let serviceStub: Partial<AuthService>
@@ -54,11 +55,12 @@ describe('AuthGuard + AuthService', () => {
       serviceStub.isLoggedIn = true
       guard.isFirstTime = false
     })
-    fakeUrls.forEach((fakeUrl) => {
+    protectedFakeUrls.forEach((fakeUrl) => {
       it('should grant acces', () => {
         const isAccessGranted = guard.checkRoute(fakeUrl)
 
         expect(isAccessGranted).toBeTrue()
+        // expect(routerSpy.navigate).toHaveBeenCalledWith([fakeUrl])
       })
 
       describe('should be able to activate route', () => {
@@ -96,6 +98,28 @@ describe('AuthGuard + AuthService', () => {
         // })
       })
     })
+
+    fakeUrls.forEach((fakeUrl) => {
+      it('should return to dashboard', () => {
+        const isAccessGranted = guard.checkRoute(fakeUrl)
+
+        expect(isAccessGranted).toBeFalse()
+        expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard'])
+      })
+
+      describe('should return to dashboard', () => {
+        it('grants route access', () => {
+          dummyRoute.url[0].path = fakeUrl
+          const canActivate = guard.canActivate(
+            dummyRoute,
+            fakeRouterState(fakeUrl)
+          )
+
+          expect(canActivate).toBeFalse()
+          expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard'])
+        })
+      })
+    })
   })
 
   describe('when the user is logged out', () => {
@@ -103,11 +127,12 @@ describe('AuthGuard + AuthService', () => {
       serviceStub.isLoggedIn = false
       guard.isFirstTime = false
     })
-    fakeUrls.forEach((fakeUrl) => {
+    protectedFakeUrls.forEach((fakeUrl) => {
       it('should not grant acces', () => {
         const isAccessGranted = guard.checkRoute(fakeUrl)
 
-        expect(isAccessGranted).toBeUndefined()
+        // expect(isAccessGranted).toBeUndefined()
+        expect(routerSpy.navigate).toHaveBeenCalledWith(['/'])
       })
 
       describe('should not be able to activate route', () => {
@@ -118,7 +143,30 @@ describe('AuthGuard + AuthService', () => {
             fakeRouterState(fakeUrl)
           )
 
-          expect(canActivate).toBeUndefined()
+          // expect(canActivate).toBeUndefined()
+          expect(routerSpy.navigate).toHaveBeenCalledWith(['/'])
+        })
+      })
+    })
+
+    fakeUrls.forEach((fakeUrl) => {
+      it('should grant acces', () => {
+        const isAccessGranted = guard.checkRoute(fakeUrl)
+
+        expect(isAccessGranted).toBeTrue()
+        // expect(routerSpy.navigate).toHaveBeenCalledWith([fakeUrl])
+      })
+
+      describe('should be able to activate route', () => {
+        it('grants route access', () => {
+          dummyRoute.url[0].path = fakeUrl
+          const canActivate = guard.canActivate(
+            dummyRoute,
+            fakeRouterState(fakeUrl)
+          )
+
+          expect(canActivate).toBeTrue()
+          // expect(routerSpy.navigate).toHaveBeenCalledWith([`${fakeUrl}`])
         })
       })
     })
