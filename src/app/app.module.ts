@@ -11,12 +11,12 @@ import { ComponentsModule } from './components/components.module'
 import { environment } from '../environments/environment'
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideAuth, getAuth } from '@angular/fire/auth'
-import { OverviewComponent } from './screens/overview/overview.component'
 import { LoadingComponent } from './screens/loading/loading.component'
 import { LottieModule } from 'ngx-lottie'
+import { DashboardModule } from './screens/dashboard/dashboard.module'
 
 @NgModule({
-  declarations: [AppComponent, OverviewComponent, LoadingComponent],
+  declarations: [AppComponent, LoadingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +24,7 @@ import { LottieModule } from 'ngx-lottie'
     LoginModule,
     RegisterModule,
     BrowserAnimationsModule,
+    DashboardModule,
     ComponentsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

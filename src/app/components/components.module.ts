@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { InputErrorComponent } from './input-error/input-error.component'
+import { LoggedinHeaderComponent } from './loggedin-header/loggedin-header.component'
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { InputErrorComponent } from './input-error/input-error.component'
     FooterComponent,
     ButtonComponent,
     InputErrorComponent,
+    LoggedinHeaderComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
   exports: [
@@ -20,6 +22,7 @@ import { InputErrorComponent } from './input-error/input-error.component'
     FooterComponent,
     ButtonComponent,
     InputErrorComponent,
+    LoggedinHeaderComponent,
   ],
 })
 export class ComponentsModule {}

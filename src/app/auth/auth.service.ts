@@ -28,9 +28,7 @@ export class AuthService {
   }
 
   set isLoggedIn(value: boolean) {
-    this._isLoggedIn =
-      this.user === null || this.user === undefined ? false : true
-    value ? (this._isLoggedIn = value) : null
+    this._isLoggedIn = value
   }
 
   async restoreAuth(): Promise<boolean> {
@@ -39,6 +37,11 @@ export class AuthService {
         this.auth!.onAuthStateChanged(async (res) => {
           console.log(await res?.getIdToken())
           this.user = res
+          console.log(res)
+          res === undefined || res === null
+            ? (this.isLoggedIn = false)
+            : (this.isLoggedIn = true)
+
           resolve(true)
         })
       } catch (error) {
@@ -85,6 +88,7 @@ export class AuthService {
 
   signOut() {
     this.user = null
+    this.isLoggedIn = false
     return signOut(this.auth!)
   }
 }

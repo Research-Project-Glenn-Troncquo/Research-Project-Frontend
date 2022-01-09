@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from './auth/auth.guard'
+import { DashboardComponent } from './screens/dashboard/dashboard.component'
 import { HomeComponent } from './screens/home/home.component'
 import { LoadingComponent } from './screens/loading/loading.component'
 import { LoginComponent } from './screens/login/login.component'
-import { OverviewComponent } from './screens/overview/overview.component'
 import { RegisterComponent } from './screens/register/register.component'
 
 export const routes: Routes = [
@@ -29,7 +29,7 @@ export const routes: Routes = [
 
   {
     path: 'dashboard',
-    component: OverviewComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuard],
   },
 ]
