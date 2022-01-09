@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing'
+import { fakeAsync, TestBed, tick } from '@angular/core/testing'
 import {
   ActivatedRouteSnapshot,
   ParamMap,
@@ -37,6 +37,7 @@ describe('AuthGuard + AuthService', () => {
   let guard: AuthGuard
   let routerSpy: jasmine.SpyObj<Router>
   let serviceStub: Partial<AuthService>
+  let spy: jasmine.Spy
 
   beforeEach(() => {
     routerSpy = jasmine.createSpyObj<Router>('Router', ['navigate'])
@@ -142,7 +143,6 @@ describe('AuthGuard + AuthService', () => {
             dummyRoute,
             fakeRouterState(fakeUrl)
           )
-
           // expect(canActivate).toBeUndefined()
           expect(routerSpy.navigate).toHaveBeenCalledWith(['/'])
         })
@@ -164,7 +164,6 @@ describe('AuthGuard + AuthService', () => {
             dummyRoute,
             fakeRouterState(fakeUrl)
           )
-
           expect(canActivate).toBeTrue()
           // expect(routerSpy.navigate).toHaveBeenCalledWith([`${fakeUrl}`])
         })

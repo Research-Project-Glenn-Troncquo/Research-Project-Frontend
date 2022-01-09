@@ -17,28 +17,26 @@ import { User } from '../interface/user'
 export class AuthService {
   user: any
   onLoadingState = new EventEmitter()
-  constructor(public auth: Auth, private httpService: HttpService) {
+  constructor(public auth?: Auth, public httpService?: HttpService) {
     this._isLoggedIn =
       this.user === null || this.user === undefined ? false : true
   }
 
-  private _isLoggedIn: boolean
+  public _isLoggedIn: boolean
   get isLoggedIn(): boolean {
     return this._isLoggedIn
   }
 
-  // @Input()
   set isLoggedIn(value: boolean) {
     this._isLoggedIn =
       this.user === null || this.user === undefined ? false : true
     value ? (this._isLoggedIn = value) : null
   }
 
-  // isLoggedIn: boolean = true
-  async restoreAuth() {
+  async restoreAuth(): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
       try {
-        this.auth.onAuthStateChanged(async (res) => {
+        this.auth!.onAuthStateChanged(async (res) => {
           console.log(await res?.getIdToken())
           this.user = res
           resolve(true)
@@ -49,9 +47,9 @@ export class AuthService {
     })
   }
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      signInWithEmailAndPassword(this.auth, email, password)
+      signInWithEmailAndPassword(this.auth!, email, password)
         .then(async (userCredential) => {
           this.user = userCredential.user
           console.log(this.user)
@@ -65,7 +63,7 @@ export class AuthService {
 
   async register(user: User) {
     try {
-      const res: any = await this.httpService.post('user', user)
+      const res: any = await this.httpService!.post('user', user)
       console.log(res)
       return res
     } catch (error) {
@@ -75,7 +73,7 @@ export class AuthService {
 
   async loginId(id: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      signInWithCustomToken(this.auth, id)
+      signInWithCustomToken(this.auth!, id)
         .then((userCredential) => {
           this.user = userCredential.user
 
@@ -87,6 +85,6 @@ export class AuthService {
 
   signOut() {
     this.user = null
-    return signOut(this.auth)
+    return signOut(this.auth!)
   }
 }

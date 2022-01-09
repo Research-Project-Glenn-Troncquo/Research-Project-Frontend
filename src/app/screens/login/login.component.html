@@ -7,7 +7,7 @@
     <div class="flex justify-between mb-12">
       <h3 class="text-3xl font-semibold">Log in</h3>
       <div
-        class="border rounded-full p-1 hover:shadow-md cursor-pointer"
+        class="border rounded-full p-1 hover:shadow-md cursor-pointer close"
         routerLink="/"
       >
         <svg
@@ -76,13 +76,6 @@
           errorName="email"
           (emitClickEvent)="handleErrorEmit($event)"
         ></app-input-error>
-
-        <app-input-error
-          errorMsg="Email is not valid"
-          [show]="email?.errors?.['email'] && email?.invalid && (email?.dirty || email?.touched) ? true : false"
-          errorName="email"
-          (emitClickEvent)="handleErrorEmit($event)"
-        ></app-input-error>
       </div>
 
       <div class="" [formGroup]="loginForm">
@@ -103,13 +96,6 @@
           errorName="password"
           (emitClickEvent)="handleErrorEmit($event)"
         ></app-input-error>
-
-        <app-input-error
-          errorMsg="Password must contain atleast 1 uppercase, 1 lowercase, 1 number and one 1 special character"
-          [show]="password?.value.length > 0 && password?.errors?.['notValid'] && password?.invalid && (password?.dirty || password?.touched) ? true : false"
-          errorName="password"
-          (emitClickEvent)="handleErrorEmit($event)"
-        ></app-input-error>
       </div>
     </div>
 
@@ -126,14 +112,15 @@
         type="submit"
         class="w-full"
         name="Log in"
+        (click)="onSubmit()"
       ></app-button>
     </div>
 
     <div class="pt-5 border-t-2">
-      <p class="text-center">Don't have an account?</p>
+      <p class="text-center">Don't have an account yet?</p>
       <p
         class="text-p-orange font-semibold text-center hover:underline cursor-pointer"
-        routerLink="/register"
+        (click)="handleRoute()"
       >
         Sign up
       </p>

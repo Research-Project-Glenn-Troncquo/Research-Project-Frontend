@@ -167,9 +167,6 @@ describe('HomeComponent', () => {
       )
 
       expect(canActivate).toBeTrue()
-
-      tick()
-      console.log(location.path())
     }))
   })
 })
