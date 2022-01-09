@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { AnimationOptions } from 'ngx-lottie'
 
 @Component({
   selector: 'app-home',
@@ -16,5 +17,9 @@ export class HomeComponent implements OnInit {
 
   handleRegister() {
     this.router.navigateByUrl('register')
+  }
+
+  options: AnimationOptions = {
+    path: './assets/drinking-man.json', // download the JSON version of animation in your project directory and add the path to it like ./assets/animations/example.json
   }
 }

@@ -44,23 +44,7 @@ In this ReadMe file I'll be documenting my test-driven thought process for each 
 
 ## Register
 
-- [x] Contains the App Header
-- [x] Contains the App Footer
-- [x] Contains an h3 tag `Drink Buddy`
-- [x] Contains a p tag `Drink Buddy is a social app where you can share your drinks with your friends.`
-- [x] Contains a button `Login` > onClick brings user to the Login page
-- [x] Contains a button `Register` > onClick brings user to the register page
-- [x] Contains an img with src `beer.png`
-
 ## Dashboard
-
-- [x] Contains the App Header
-- [x] Contains the App Footer
-- [x] Contains an h3 tag `Drink Buddy`
-- [x] Contains a p tag `Drink Buddy is a social app where you can share your drinks with your friends.`
-- [x] Contains a button `Login` > onClick brings user to the Login page
-- [x] Contains a button `Register` > onClick brings user to the register page
-- [x] Contains an img with src `beer.png`
 
 # Components
 

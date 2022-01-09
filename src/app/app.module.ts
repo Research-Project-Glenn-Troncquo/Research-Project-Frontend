@@ -13,6 +13,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideAuth, getAuth } from '@angular/fire/auth'
 import { OverviewComponent } from './screens/overview/overview.component'
 import { LoadingComponent } from './screens/loading/loading.component'
+import { LottieModule } from 'ngx-lottie'
 
 @NgModule({
   declarations: [AppComponent, OverviewComponent, LoadingComponent],
