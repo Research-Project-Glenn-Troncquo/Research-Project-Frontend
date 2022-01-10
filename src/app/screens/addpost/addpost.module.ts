@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { DashboardComponent } from './dashboard.component'
 import { ComponentsModule } from 'src/app/components/components.module'
+import { AddpostComponent } from './addpost.component'
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [AddpostComponent],
   imports: [CommonModule, ComponentsModule],
 })
-export class DashboardModule {}
+export class AddpostModule {}

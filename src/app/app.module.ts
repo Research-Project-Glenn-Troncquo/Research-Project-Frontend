@@ -13,10 +13,11 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideAuth, getAuth } from '@angular/fire/auth'
 import { LoadingComponent } from './screens/loading/loading.component'
 import { LottieModule } from 'ngx-lottie'
-import { DashboardModule } from './screens/dashboard/dashboard.module'
+import { DashboardModule } from './screens/dashboard/dashboard.module';
+import { AddpostComponent } from './screens/addpost/addpost.component'
 
 @NgModule({
-  declarations: [AppComponent, LoadingComponent],
+  declarations: [AppComponent, LoadingComponent, AddpostComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,74 @@
+<div class="container mx-auto pt-10 pb-0 px-2">
+  <form class="bg-white shadow-sm rounded-md p-4 max-w-[640px] w-full mx-auto">
+    <div class="flex justify-between mb-10">
+      <div class="flex gap-2 items-center">
+        <img
+          class="h-20"
+          src="../../../assets/no-profile.png"
+          alt="profile picture of the user"
+        />
+        <p class="text-gray-600">Glenn Troncquo</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-2 items-center">
+        <app-button name="Discard"></app-button>
+        <app-button name="Publish"></app-button>
+      </div>
+    </div>
+
+    <div class="relative pt-6 mb-3">
+      <input
+        class="outline-none w-full box-border p-2 border-2 placeholder-transparent text-gray-600"
+        type="text"
+        id="title"
+        placeholder="Add a title"
+      />
+      <label
+        class="absolute block text-gray-400 transition-all ease-out duration-300 pl-2"
+        for="title"
+        >Add a title</label
+      >
+    </div>
+    <div class="relative pt-6 mb-6">
+      <textarea
+        class="outline-none w-full box-border p-2 border-2 placeholder-transparent text-gray-600"
+        type="text"
+        rows="4"
+        id="description"
+        placeholder="Add a title"
+      ></textarea>
+
+      <label
+        class="absolute block text-gray-400 transition-all ease-out duration-300 pl-2"
+        for="description"
+        >Add a description</label
+      >
+    </div>
+
+    <div>
+      <input class="" type="file" name="" id="file-upload" />
+      <label class="w-full h-48 block border-dashed border-2" for="file-upload">
+        <div>hello</div>
+      </label>
+    </div>
+  </form>
+</div>
+
+<style>
+  label {
+    top: 0px;
+  }
+  input:focus ~ label {
+    top: 0px !important;
+  }
+  input:placeholder-shown ~ label {
+    top: 34px;
+  }
+
+  textarea:focus ~ label {
+    top: 0px !important;
+  }
+
+  textarea:placeholder-shown ~ label {
+    top: 34px;
+  }
+</style>
