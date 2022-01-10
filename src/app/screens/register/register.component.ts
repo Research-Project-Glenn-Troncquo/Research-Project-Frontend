@@ -8,7 +8,7 @@ import {
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { User } from 'src/app/interface/user'
-import { AuthService } from 'src/app/auth/auth.service'
+import { AuthService } from 'src/app/auth/firebase.service'
 import {
   forbiddenNameValidator,
   passwordValidator,
@@ -18,7 +18,7 @@ import { Router } from '@angular/router'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  animations: [
+    animations: [
     trigger('slideIn', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateX(-30px)' }),

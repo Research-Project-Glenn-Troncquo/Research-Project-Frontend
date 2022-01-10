@@ -8,7 +8,7 @@ import {
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { User } from 'src/app/interface/user'
-import { AuthService } from 'src/app/auth/auth.service'
+import { AuthService } from 'src/app/auth/firebase.service'
 import {
   forbiddenNameValidator,
   passwordValidator,

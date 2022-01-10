@@ -3,7 +3,7 @@ import { Auth } from '@angular/fire/auth'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router, RouterOutlet } from '@angular/router'
 import { slider } from './route-animations'
-import { AuthService } from './auth/auth.service'
+import { AuthService } from './auth/firebase.service'
 
 @Component({
   selector: 'app-root',

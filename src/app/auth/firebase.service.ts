@@ -1,4 +1,6 @@
 import { EventEmitter, Injectable, Input } from '@angular/core'
+import { FirebaseApp, initializeApp } from 'firebase/app'
+// import { randomBytes } from 'crypto'
 import { Observable, of } from 'rxjs'
 import {
   Auth,
@@ -12,11 +14,19 @@ import {
 } from '@angular/fire/auth'
 import { HttpService } from '../http/http.service'
 import { User } from '../interface/user'
+import {
+  getDownloadURL,
+  getStorage,
+  ref as stRef,
+  uploadBytes,
+} from 'firebase/storage'
+import { environment } from 'src/environments/environment'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user: any
   onLoadingState = new EventEmitter()
+  app: FirebaseApp = initializeApp(environment.firebase)
   constructor(public auth?: Auth, public httpService?: HttpService) {
     this._isLoggedIn =
       this.user === null || this.user === undefined ? false : true
@@ -90,5 +100,25 @@ export class AuthService {
     this.user = null
     this.isLoggedIn = false
     return signOut(this.auth!)
+  }
+
+  async fileUpload(file: any) {
+    const storage = getStorage(this.app)
+
+    // const random_id = randomBytes(8).toString('base64')
+    const uploadImage = stRef(storage, `post-pictures/hell-world/${file.name}`)
+
+    await uploadBytes(uploadImage, file).then((snapshot) => {
+      console.log(snapshot)
+    })
+
+    const url = await getDownloadURL(
+      stRef(storage, `post-pictures/hell-world/${file.name}`)
+    ).then((url) => {
+      console.log(url)
+      return url
+    })
+
+    return url
   }
 }

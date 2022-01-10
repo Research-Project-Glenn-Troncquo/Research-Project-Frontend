@@ -8,7 +8,7 @@ import {
 } from '@angular/router'
 
 import { AuthGuard } from './auth.guard'
-import { AuthService } from './auth.service'
+import { AuthService } from './firebase.service'
 
 describe('AuthGuard + AuthService', () => {
   const paramMap: ParamMap = {

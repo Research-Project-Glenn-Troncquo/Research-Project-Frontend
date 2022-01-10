@@ -20,7 +20,7 @@ import { Location } from '@angular/common'
 import { HomeComponent } from './home.component'
 import { ComponentsModule } from 'src/app/components/components.module'
 import { AuthGuard } from 'src/app/auth/auth.guard'
-import { AuthService } from 'src/app/auth/auth.service'
+import { AuthService } from 'src/app/auth/firebase.service'
 
 describe('HomeComponent', () => {
   let component: HomeComponent
