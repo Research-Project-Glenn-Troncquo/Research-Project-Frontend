@@ -124,6 +124,38 @@
       </div>
 
       <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="username">
+          Username
+        </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          id="username"
+          type="text"
+          formControlName="username"
+        />
+        <app-input-error
+          errorMsg="Please fill in a last name"
+          [show]="username?.errors?.['required'] && username?.invalid && (username?.dirty || username?.touched) ? true : false"
+          errorName="username"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Last name must be at least 2 characters long"
+          [show]="username?.errors?.['minlength'] && username?.invalid && (username?.dirty || username?.touched) ? true : false"
+          errorName="username"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Last name can not contain special characters"
+          [show]="username?.errors?.['forbiddenName']&& username?.value.length>1 && username?.invalid && (username?.dirty || username?.touched) ? true : false"
+          errorName="username"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+
+      <div class="" [formGroup]="registerForm">
         <label class="block text-lg font-semibold" for="email-input">
           Email
         </label>

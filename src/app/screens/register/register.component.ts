@@ -18,7 +18,7 @@ import { Router } from '@angular/router'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-    animations: [
+  animations: [
     trigger('slideIn', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateX(-30px)' }),
@@ -70,6 +70,10 @@ export class RegisterComponent implements OnInit {
       Validators.minLength(2),
       forbiddenNameValidator(/^[a-z ,.'-]+$/i),
     ]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
@@ -85,6 +89,9 @@ export class RegisterComponent implements OnInit {
   }
   get lastname() {
     return this.registerForm.get('lastname')
+  }
+  get username() {
+    return this.registerForm.get('username')
   }
   get email() {
     return this.registerForm.get('email')
@@ -107,15 +114,16 @@ export class RegisterComponent implements OnInit {
         lastname: this.lastname!.value,
         email: this.email!.value,
         password: this.password!.value,
+        username: this.username!.value,
       }
       const res = await this.authService.register(user)
 
-      res.errorMsg
-        ? (this.errorMsg = res.errorMsg)
-        : await this.authService.loginId(res.token)
-      this.loading = false
+      if (!res.errorMsg) {
+        await this.authService.loginId(res.token)
+        this.router.navigate(['dashboard'])
+      } else this.errorMsg = res.errorMsg
 
-      this.router.navigate(['dashboard'])
+      this.loading = false
     } else this.validateAllFormFields(this.registerForm)
   }
 
