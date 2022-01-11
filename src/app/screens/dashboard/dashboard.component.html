@@ -76,12 +76,18 @@
       </div>
     </div>
     <div class="w-1/2">
+      <div *ngIf="!posts">loading posts ...</div>
+      <div *ngIf="posts !== undefined">
+        <div *ngFor="let post of posts">
+          <app-post [post]="post"></app-post>
+        </div>
+      </div>
+
+      <!-- <app-post></app-post>
       <app-post></app-post>
       <app-post></app-post>
       <app-post></app-post>
-      <app-post></app-post>
-      <app-post></app-post>
-      <app-post></app-post>
+      <app-post></app-post> -->
     </div>
     <div class="w-1/4 sticky top-20">
       <div>

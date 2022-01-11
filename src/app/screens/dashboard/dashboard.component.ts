@@ -11,7 +11,7 @@ import { HttpService } from 'src/app/http/http.service'
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  posts: any
+  posts?: Post[] 
   constructor(
     public authService: AuthService,
     private httpService: HttpService
