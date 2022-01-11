@@ -16,6 +16,7 @@ import { LottieModule } from 'ngx-lottie'
 import { DashboardModule } from './screens/dashboard/dashboard.module'
 import { AddpostComponent } from './screens/addpost/addpost.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent, LoadingComponent, AddpostComponent],
@@ -29,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     DashboardModule,
     ComponentsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],
