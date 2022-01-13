@@ -52,7 +52,7 @@ export class AuthService {
         this.auth!.onAuthStateChanged(async (res) => {
           console.log(await res?.getIdToken())
           this.user = res
-          console.log(res)
+
           res === undefined || res === null
             ? (this.isLoggedIn = false)
             : (this.isLoggedIn = true)
@@ -74,7 +74,6 @@ export class AuthService {
       signInWithEmailAndPassword(this.auth!, email, password)
         .then(async (userCredential) => {
           this.user = userCredential.user
-          console.log(this.user)
           resolve(true)
         })
         .catch((error) => {
@@ -86,7 +85,7 @@ export class AuthService {
   async register(user: User) {
     try {
       const res: any = await this.httpService!.post('user', user)
-      console.log(res)
+
       return res
     } catch (error) {
       console.log(error)
@@ -117,14 +116,11 @@ export class AuthService {
     // const random_id = randomBytes(8).toString('base64')
     const uploadImage = stRef(storage, `post-pictures/hell-world/${file.name}`)
 
-    await uploadBytes(uploadImage, file).then((snapshot) => {
-      console.log(snapshot)
-    })
+    await uploadBytes(uploadImage, file).then((snapshot) => {})
 
     const url = await getDownloadURL(
       stRef(storage, `post-pictures/hell-world/${file.name}`)
     ).then((url) => {
-      console.log(url)
       return url
     })
 

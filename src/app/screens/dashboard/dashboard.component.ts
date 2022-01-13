@@ -14,7 +14,7 @@ import { DataService } from 'src/app/data.service'
 })
 export class DashboardComponent implements OnInit {
   posts?: Post[]
-  user?: User
+  user: User = {}
   latestPost?: Post
 
   constructor(
@@ -23,8 +23,13 @@ export class DashboardComponent implements OnInit {
     private dataService: DataService
   ) {
     this.dataService.currentUser.subscribe((user) => {
-      console.log(user)
       this.user = user
+
+      // user.posts ? (this.latestPost = user.posts!.pop()) : null
+    })
+
+    this.dataService.latestPost.subscribe((post) => {
+      this.latestPost = post
     })
   }
 
@@ -38,9 +43,8 @@ export class DashboardComponent implements OnInit {
       .Get('post', await this.authService.user.getIdToken())
       .subscribe((res) => {
         this.posts = res
-        this.latestPost = this.posts!.pop()
-        console.log(this.posts)
-        console.log(this.latestPost)
+        // console.log(this.posts)
+        // console.log(this.latestPost)
       })
   }
 
@@ -49,12 +53,10 @@ export class DashboardComponent implements OnInit {
       .Get('user', await this.authService.user.getIdToken())
       .subscribe((res) => {
         this.user = res
-        console.log(this.user)
       })
   }
 
   handleSignOut() {
-    console.log('helo')
     this.authService.signOut()
   }
 

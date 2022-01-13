@@ -80,7 +80,7 @@
       <div *ngIf="!posts">loading posts ...</div>
       <div *ngIf="posts !== undefined">
         <div *ngFor="let post of posts">
-          <app-post [post]="post"></app-post>
+          <app-post [user]="post.user!" [post]="post"></app-post>
         </div>
       </div>
     </div>

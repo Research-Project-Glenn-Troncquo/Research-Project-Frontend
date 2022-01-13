@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
+import { Post } from './interface/post'
 import { User } from './interface/user'
 
 @Injectable({
@@ -9,11 +10,12 @@ export class DataService {
   private userSource = new BehaviorSubject<User>({})
   currentUser = this.userSource.asObservable()
 
+  private latestPostSource = new BehaviorSubject<Post>({})
+  latestPost = this.latestPostSource.asObservable()
+
   constructor() {}
   changeUser(user: any) {
-    console.log('changing source')
-    console.log(user)
     this.userSource.next(user)
-    console.log(this.currentUser)
+    user.posts ? this.latestPostSource.next(user.posts.pop()) : null
   }
 }
