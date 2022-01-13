@@ -60,7 +60,7 @@ describe('HomeComponent', () => {
 
   it('should have an h3 tag of `DrinkBuddy`', () => {
     expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Drink')
-    expect(de.queryAll(By.css('h3'))[1].nativeElement.innerText).toBe('Buddy')
+    expect(de.queryAll(By.css('h3'))[1].nativeElement.innerText).toBe('Buddyy')
   })
 
   it('should have a p tag with `DrinkBuddy is the #1...`', () => {
