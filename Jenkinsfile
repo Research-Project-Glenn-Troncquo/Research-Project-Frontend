@@ -3,6 +3,11 @@ pipeline {
   agent {
     docker { image 'node:latest' }
   }
+  stages{
+    stage('Start Docker'){
+      steps{ sh 'systemctl start docker' }
+    }
+  }
   stages {
     stage('Install') {
       steps { sh 'npm install' }
