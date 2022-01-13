@@ -1,7 +1,8 @@
 <div class="container mx-auto px-4">
   <button (click)="handleSignOut()">sign out</button>
   <div class="flex gap-8 mt-16 items-start">
-    <div class="w-1/4 sticky top-24">
+    <div class="w-1/4 sticky top-24" *ngIf="!user">Loading user...</div>
+    <div class="w-1/4 sticky top-24" *ngIf="user">
       <div class="bg-white shadow-md rounded-sm relative">
         <img
           class="rounded-full h-20 w-20 absolute left-1/2 transform -translate-x-1/2 -top-10 shadow-md"
@@ -12,7 +13,7 @@
         <div
           class="flex justify-center pt-14 font-semibold text-xl mb-4 transition-all ease-out duration-200 hover:text-p-orange cursor-pointer"
         >
-          Glenn Troncquo
+          {{ user.username }}
         </div>
         <ul class="flex pb-4 mb-4 border-b-[1px] group cursor-pointer">
           <li class="flex flex-col items-center border-r-2 w-1/3">
@@ -20,7 +21,7 @@
             <p
               class="group-hover:text-p-orange transition-all ease-out duration-200"
             >
-              22
+              {{ user.isfollowing ? user.isfollowing.length : 0 }}
             </p>
           </li>
           <li class="flex flex-col items-center border-r-2 w-1/3">
@@ -28,7 +29,7 @@
             <p
               class="group-hover:text-p-orange transition-all ease-out duration-200"
             >
-              16
+              {{ user.followers ? user.followers.length : 0 }}
             </p>
           </li>
           <li class="flex flex-col items-center w-1/3">
@@ -36,18 +37,18 @@
             <p
               class="group-hover:text-p-orange transition-all ease-out duration-200"
             >
-              152
+              {{ user.posts ? user.posts.length : 0 }}
             </p>
           </li>
         </ul>
         <div class="px-4 pb-4 mb-4 border-b-[1px]">
           <p class="text-gray-400 text-sm">Latest Activity</p>
-          <div class="flex text-sm gap-4 group">
+          <div class="flex text-sm justify-between group">
             <p class="font-semibold group-hover:text-p-orange cursor-pointer">
-              Drink met de ...
+              {{ latestPost ? latestPost.title : 'No activity yet...' }}
             </p>
             <p class="text-gray-400 group-hover:text-p-orange cursor-pointer">
-              August 22, 2021
+              {{ latestPost ? (latestPost.date | date: 'mediumDate') : '' }}
             </p>
           </div>
         </div>
@@ -82,12 +83,6 @@
           <app-post [post]="post"></app-post>
         </div>
       </div>
-
-      <!-- <app-post></app-post>
-      <app-post></app-post>
-      <app-post></app-post>
-      <app-post></app-post>
-      <app-post></app-post> -->
     </div>
     <div class="w-1/4 sticky top-20">
       <div>

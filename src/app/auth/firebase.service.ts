@@ -21,13 +21,18 @@ import {
   uploadBytes,
 } from 'firebase/storage'
 import { environment } from 'src/environments/environment'
+import { DataService } from '../data.service'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user: any
   onLoadingState = new EventEmitter()
   app: FirebaseApp = initializeApp(environment.firebase)
-  constructor(public auth?: Auth, public httpService?: HttpService) {
+  constructor(
+    public auth?: Auth,
+    public httpService?: HttpService,
+    public dataService?: DataService
+  ) {
     this._isLoggedIn =
       this.user === null || this.user === undefined ? false : true
   }
@@ -51,6 +56,10 @@ export class AuthService {
           res === undefined || res === null
             ? (this.isLoggedIn = false)
             : (this.isLoggedIn = true)
+
+          if (this.isLoggedIn) {
+            this.getUser()
+          } else this.dataService?.changeUser({})
 
           resolve(true)
         })
@@ -120,5 +129,14 @@ export class AuthService {
     })
 
     return url
+  }
+
+  async getUser() {
+    this.httpService
+      ?.Get('user', await this.user.getIdToken())
+      .subscribe((res) => {
+        // this.user = res
+        this.dataService?.changeUser(res)
+      })
   }
 }

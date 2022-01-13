@@ -26,13 +26,13 @@ describe('LoginComponent', () => {
   let component: LoginComponent
   let de: DebugElement
   let fixture: ComponentFixture<LoginComponent>
-  // let router: Router
   let spy: jasmine.Spy
   let authServiceStub: Partial<AuthService>
   let guard: AuthGuard
   let fakeService: FakeAuthService
   let location: Location
   let routerSpy: jasmine.SpyObj<Router>
+
   const paramMap: ParamMap = {
     has(name: string): boolean {
       return true
@@ -52,6 +52,7 @@ describe('LoginComponent', () => {
     parameters: {},
     parameterMap: paramMap,
   }
+
   const route = { url: [urlSegment] } as ActivatedRouteSnapshot
   function fakeRouterState(url: string): RouterStateSnapshot {
     return {
@@ -276,6 +277,7 @@ describe('LoginComponent', () => {
 
 @Injectable()
 class FakeAuthService implements AuthService {
+  app: any = ''
   user: any
   onLoadingState = new EventEmitter()
   public _isLoggedIn: boolean
@@ -311,5 +313,9 @@ class FakeAuthService implements AuthService {
 
   signOut(): any {
     this.user = null
+  }
+
+  fileUpload(file: any): Promise<string> {
+    return new Promise((resolve) => resolve('true'))
   }
 }
