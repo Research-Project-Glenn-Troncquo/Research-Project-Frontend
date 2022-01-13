@@ -13,11 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 14.15
-        # if: always()
-        continue-on-error: true
         uses: actions/setup-node@v1
         with:
           node-version: 14.15
+      - name: Install dependencies
+      - id: ci
       - run: npm ci
+      - name: Run Tests
+      continue-on-error: true
       - run: npm run test:unit
+
       - run: npm run build
