@@ -16,11 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.15
-      - name: Install dependencies
-      - id: ci
-      - run: npm ci
-      - name: Run Tests
-      continue-on-error: true
-      - run: npm run test:unit
-
-      - run: npm run build
+      - name: step 1
+        run: npm ci
+      - name: step 2
+        continue-on-error: true
+        run: npm run test:unit
+      - name: step 2
+        run: npm run build
