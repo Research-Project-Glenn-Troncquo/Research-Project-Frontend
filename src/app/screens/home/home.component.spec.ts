@@ -19,7 +19,7 @@ import { AuthService } from 'src/app/auth/firebase.service'
 import { LottieModule } from 'ngx-lottie'
 import { playerFactory } from './home.module'
 
-describe('HomeComponent', () => {
+describe('home.component.spec.ts', () => {
   let component: HomeComponent
   //fixture is the test environment for this component
   let fixture: ComponentFixture<HomeComponent>
