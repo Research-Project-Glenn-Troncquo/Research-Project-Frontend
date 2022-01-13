@@ -1,11 +1,17 @@
 module.exports = {
+  mode: 'jit',
   prefix: '',
   purge: {
     content: ['./src/**/*.{html,ts}'],
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'p-orange': '#CB5931',
+        'p-black': '#3C3D3D',
+      },
+    },
   },
   variants: {
     extend: {},

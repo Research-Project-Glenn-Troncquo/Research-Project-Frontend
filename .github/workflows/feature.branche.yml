@@ -1,0 +1,25 @@
+name: Anguler CI/CD
+
+on:
+  push:
+    branches: [feature/**]
+  pull_request:
+    branches: [feature/**]
+
+jobs:
+  build_angular:
+    runs-on: ubuntu-latest
+    name: Run Angular App Through CI/CD Pipeline
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.15
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.15
+      - name: step 1
+        run: npm ci
+      - name: step 2
+        continue-on-error: true
+        run: npm run test:unit
+      - name: step 2
+        run: npm run build

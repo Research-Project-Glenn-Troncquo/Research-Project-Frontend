@@ -1,0 +1,268 @@
+<div class="container mx-auto pt-8 px-4 flex justify-center">
+  <form
+    class="bg-white shadow-md rounded-md p-6 max-w-md w-full mb-6"
+    [formGroup]="registerForm"
+    (submit)="onSubmit()"
+  >
+    <div class="flex justify-between mb-12">
+      <h3 class="text-3xl font-semibold">Sign up</h3>
+      <div
+        class="border rounded-full p-1 hover:shadow-md cursor-pointer"
+        routerLink="/"
+      >
+        <svg
+          class="transform rotate-45"
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#969696"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </div>
+    </div>
+
+    <div
+      class="flex border-2 w-full p-2 rounded-md justify-center gap-2 hover:shadow-sm mb-5 cursor-pointer"
+    >
+      <svg
+        width="24px"
+        height="24px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <path
+          fill="#EA4335 "
+          d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2181818,5.50909091 16.4181818,6.49090909 L19.9090909,3 C17.7818182,1.14545455 15.0545455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z"
+        />
+        <path
+          fill="#34A853"
+          d="M16.0407269,18.0125889 C14.9509167,18.7163016 13.5660892,19.0909091 12,19.0909091 C8.86648613,19.0909091 6.21911939,17.076871 5.27698177,14.2678769 L1.23746264,17.3349879 C3.19279051,21.2936293 7.26500293,24 12,24 C14.9328362,24 17.7353462,22.9573905 19.834192,20.9995801 L16.0407269,18.0125889 Z"
+        />
+        <path
+          fill="#4A90E2"
+          d="M19.834192,20.9995801 C22.0291676,18.9520994 23.4545455,15.903663 23.4545455,12 C23.4545455,11.2909091 23.3454545,10.5272727 23.1818182,9.81818182 L12,9.81818182 L12,14.4545455 L18.4363636,14.4545455 C18.1187732,16.013626 17.2662994,17.2212117 16.0407269,18.0125889 L19.834192,20.9995801 Z"
+        />
+        <path
+          fill="#FBBC05"
+          d="M5.27698177,14.2678769 C5.03832634,13.556323 4.90909091,12.7937589 4.90909091,12 C4.90909091,11.2182781 5.03443647,10.4668121 5.26620003,9.76452941 L1.23999023,6.65002441 C0.43658717,8.26043162 0,10.0753848 0,12 C0,13.9195484 0.444780743,15.7301709 1.23746264,17.3349879 L5.27698177,14.2678769 Z"
+        />
+      </svg>
+
+      <p class="font-semibold">Sign up with Google</p>
+    </div>
+
+    <div class="border-t-2 mb-5 pt-5">
+      <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="name"> Name </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          id="name"
+          type="text"
+          formControlName="name"
+        />
+
+        <app-input-error
+          errorMsg="Please fill in a name"
+          [show]="name?.errors?.['required'] && name?.invalid && (name?.dirty || name?.touched) ? true : false"
+          errorName="name"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Name must be at least 2 characters long"
+          [show]="name?.errors?.['minlength'] && name?.invalid && (name?.dirty || name?.touched) ? true : false"
+          errorName="name"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Name can not contain special characters"
+          [show]="name?.errors?.['forbiddenName']&& name?.value.length>1 && name?.invalid && (name?.dirty || name?.touched) ? true : false"
+          errorName="name"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+
+      <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="lastname">
+          Last Name
+        </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          id="lastname"
+          type="text"
+          formControlName="lastname"
+        />
+        <app-input-error
+          errorMsg="Please fill in a last name"
+          [show]="lastname?.errors?.['required'] && lastname?.invalid && (lastname?.dirty || lastname?.touched) ? true : false"
+          errorName="lastname"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Last name must be at least 2 characters long"
+          [show]="lastname?.errors?.['minlength'] && lastname?.invalid && (lastname?.dirty || lastname?.touched) ? true : false"
+          errorName="lastname"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Last name can not contain special characters"
+          [show]="lastname?.errors?.['forbiddenName']&& lastname?.value.length>1 && lastname?.invalid && (lastname?.dirty || lastname?.touched) ? true : false"
+          errorName="lastname"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+
+      <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="username">
+          Username
+        </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          id="username"
+          type="text"
+          formControlName="username"
+        />
+        <app-input-error
+          errorMsg="Please fill in a last name"
+          [show]="username?.errors?.['required'] && username?.invalid && (username?.dirty || username?.touched) ? true : false"
+          errorName="username"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Last name must be at least 2 characters long"
+          [show]="username?.errors?.['minlength'] && username?.invalid && (username?.dirty || username?.touched) ? true : false"
+          errorName="username"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Last name can not contain special characters"
+          [show]="username?.errors?.['forbiddenName']&& username?.value.length>1 && username?.invalid && (username?.dirty || username?.touched) ? true : false"
+          errorName="username"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+
+      <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="email-input">
+          Email
+        </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          id="email-input"
+          type="text"
+          formControlName="email"
+        />
+        <app-input-error
+          errorMsg="Please fill in an email"
+          [show]="email?.errors?.['required'] && email?.invalid && (email?.dirty || email?.touched) ? true : false"
+          errorName="email"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Email is not valid"
+          [show]="email?.errors?.['email'] && email?.invalid && (email?.dirty || email?.touched) ? true : false"
+          errorName="email"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+
+      <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="password-input">
+          Password
+        </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          autocomplete="on"
+          id="password-input"
+          type="password"
+          formControlName="password"
+        />
+
+        <app-input-error
+          errorMsg="Please fill in a password"
+          [show]="password?.errors?.['required'] && password?.invalid && (password?.dirty || password?.touched) ? true : false"
+          errorName="password"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Password must contain atleast 1 uppercase, 1 lowercase, 1 number and one 1 special character"
+          [show]="password?.value.length > 0 && password?.errors?.['notValid'] && password?.invalid && (password?.dirty || password?.touched) ? true : false"
+          errorName="password"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+
+      <div class="" [formGroup]="registerForm">
+        <label class="block text-lg font-semibold" for="confirmpassword">
+          Confirm Password
+        </label>
+        <input
+          class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          autocomplete="on"
+          id="confirmpassword"
+          type="password"
+          formControlName="confirmpassword"
+        />
+
+        <app-input-error
+          errorMsg="Please confirm your password"
+          [show]="confirmpassword?.errors?.['required'] && confirmpassword?.invalid && (confirmpassword?.dirty || confirmpassword?.touched) ? true : false"
+          errorName="confirmpassword"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+
+        <app-input-error
+          errorMsg="Password does not match"
+          [show]="
+            confirmpassword?.value.length > 0 &&
+            confirmpassword?.value !== password?.value &&
+            (confirmpassword?.dirty || confirmpassword?.touched)
+              ? true
+              : false
+          "
+          errorName="confirmpassword"
+          (emitClickEvent)="handleErrorEmit($event)"
+        ></app-input-error>
+      </div>
+    </div>
+
+    <div class="text-gray-400 text-sm flex text-center">
+      <span *ngIf="errorMsg" @bounceIn>❗ </span>
+      <p class="mb-5 ml-1" *ngIf="errorMsg" @fadeIn>{{ errorMsg }}</p>
+    </div>
+
+    <div class="mb-5">
+      <app-button
+        [loading]="loading"
+        type="submit"
+        class="w-full"
+        name="Sign up"
+      ></app-button>
+    </div>
+
+    <div class="pt-5 border-t-2">
+      <p class="text-center">Already have an account?</p>
+      <p
+        class="text-p-orange font-semibold text-center hover:underline cursor-pointer"
+        routerLink="/login"
+      >
+        Log in
+      </p>
+    </div>
+  </form>
+</div>

@@ -3,12 +3,38 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { HeaderComponent } from './components/header/header.component'
 import { HomeModule } from './screens/home/home.module'
+import { LoginModule } from './screens/login/login.module'
+import { RegisterModule } from './screens/register/register.module'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ComponentsModule } from './components/components.module'
+import { environment } from '../environments/environment'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
+import { provideAuth, getAuth } from '@angular/fire/auth'
+import { LoadingComponent } from './screens/loading/loading.component'
+import { LottieModule } from 'ngx-lottie'
+import { DashboardModule } from './screens/dashboard/dashboard.module'
+import { AddpostComponent } from './screens/addpost/addpost.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeModule],
+  declarations: [AppComponent, LoadingComponent, AddpostComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ComponentsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
+    HomeModule,
+    LoginModule,
+    RegisterModule,
+    DashboardModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

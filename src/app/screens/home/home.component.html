@@ -1,1 +1,40 @@
-<p>home works!</p>
+<div class="container mx-auto pt-8 px-4">
+  <div class="sm:mt-20 mt-4 sm:flex mb-20">
+    <div class="sm:w-1/2">
+      <div class="font-semibold text-6xl mb-8">
+        <h3 class="text-p-orange">Drink</h3>
+        <h3 class="-mt-2">Buddy</h3>
+      </div>
+
+      <p class="text-3xl sm:mb-20 mb-10">
+        <span class="text-p-orange">Drink</span> Buddy is a social app where you
+        can share your drinks with your friends.
+      </p>
+
+      <div class="flex gap-4">
+        <app-button
+          class="w-full"
+          name="Log in"
+          (buttonClickEvent)="handleLogin()"
+        ></app-button>
+
+        <app-button
+          class="w-full"
+          name="Register"
+          (buttonClickEvent)="handleRegister()"
+        ></app-button>
+      </div>
+    </div>
+    <div
+      class="w-1/2 justify-end hidden sm:flex lg:-mt-20 absolute lg:right-14 right-0"
+    >
+      <!-- <img
+        class="h-96 md:max-h-[550px] -mt-10 ml-16 ease-in-out duration-1000"
+        src="../../../assets/beer.png"
+        alt="beer image"
+      /> -->
+      <ng-lottie height="auto" [options]="options"></ng-lottie>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
