@@ -19,7 +19,7 @@ import { AuthService } from 'src/app/auth/firebase.service'
 import { LottieModule } from 'ngx-lottie'
 import { playerFactory } from './home.module'
 
-describe('home.component.spec.ts', () => {
+describe('Home Component', () => {
   let component: HomeComponent
   //fixture is the test environment for this component
   let fixture: ComponentFixture<HomeComponent>
@@ -60,7 +60,7 @@ describe('home.component.spec.ts', () => {
 
   it('should have an h3 tag of `DrinkBuddy`', () => {
     expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Drink')
-    expect(de.queryAll(By.css('h3'))[1].nativeElement.innerText).toBe('Buddyy')
+    expect(de.queryAll(By.css('h3'))[1].nativeElement.innerText).toBe('Buddy')
   })
 
   it('should have a p tag with `DrinkBuddy is the #1...`', () => {
@@ -80,10 +80,6 @@ describe('home.component.spec.ts', () => {
       'Register'
     )
   })
-
-  // it('should contain an img with src `beer.png`', () => {
-  //   expect(de.query(By.css('img')).nativeElement.src).toContain('beer.png')
-  // })
 
   describe('Integration with Auth Service + Auth Guard', () => {
     const paramMap: ParamMap = {
@@ -131,7 +127,6 @@ describe('home.component.spec.ts', () => {
       let loginButton = de.queryAll(By.css('button'))[0]
 
       loginButton.triggerEventHandler('click', null)
-      // tick()
 
       expect(spy).toHaveBeenCalled()
 
@@ -153,7 +148,6 @@ describe('home.component.spec.ts', () => {
       let registerButton = de.queryAll(By.css('button'))[1]
 
       registerButton.triggerEventHandler('click', null)
-      // tick()
 
       expect(spy).toHaveBeenCalled()
 
