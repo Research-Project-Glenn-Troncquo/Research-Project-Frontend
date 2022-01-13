@@ -19,7 +19,7 @@ import { AuthService } from 'src/app/auth/firebase.service'
 import { LottieModule } from 'ngx-lottie'
 import { playerFactory } from './home.module'
 
-describe('HomeComponent', () => {
+describe('Home Component', () => {
   let component: HomeComponent
   //fixture is the test environment for this component
   let fixture: ComponentFixture<HomeComponent>
@@ -81,10 +81,6 @@ describe('HomeComponent', () => {
     )
   })
 
-  // it('should contain an img with src `beer.png`', () => {
-  //   expect(de.query(By.css('img')).nativeElement.src).toContain('beer.png')
-  // })
-
   describe('Integration with Auth Service + Auth Guard', () => {
     const paramMap: ParamMap = {
       has(name: string): boolean {
@@ -131,7 +127,6 @@ describe('HomeComponent', () => {
       let loginButton = de.queryAll(By.css('button'))[0]
 
       loginButton.triggerEventHandler('click', null)
-      // tick()
 
       expect(spy).toHaveBeenCalled()
 
@@ -153,7 +148,6 @@ describe('HomeComponent', () => {
       let registerButton = de.queryAll(By.css('button'))[1]
 
       registerButton.triggerEventHandler('click', null)
-      // tick()
 
       expect(spy).toHaveBeenCalled()
 
