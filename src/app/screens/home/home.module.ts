@@ -15,6 +15,5 @@ export function playerFactory() {
     ComponentsModule,
     LottieModule.forRoot({ player: playerFactory }),
   ],
-  exports: [HomeComponent],
 })
 export class HomeModule {}

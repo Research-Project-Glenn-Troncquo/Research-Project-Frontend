@@ -318,4 +318,8 @@ class FakeAuthService implements AuthService {
   fileUpload(file: any): Promise<string> {
     return new Promise((resolve) => resolve('true'))
   }
+
+  getUser(): Promise<any> {
+    return new Promise((resolve) => resolve(true))
+  }
 }
