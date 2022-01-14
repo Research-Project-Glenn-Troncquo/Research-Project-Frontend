@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 
@@ -19,30 +19,54 @@ export class HttpService {
     })
   }
 
-  async get(endpoint: string, bearer?: string) {
-    return await fetch(`${this.url}/${endpoint}`, {
-      method: 'GET',
+  delete(endpoint: string, body?: any, bearer?: string): Observable<any> {
+    return this.http.delete(`${this.url}/${endpoint}`, {
+      body: JSON.stringify(body),
       headers: {
         Authorization: `Bearer ${bearer}`,
         'Content-Type': 'application/json',
       },
-    }).then((res) => res.json())
+    })
   }
 
-  async put(endpoint: string, body?: any, bearer?: string) {
-    try {
-      return await fetch(`${this.url}/${endpoint}`, {
-        method: 'PUT',
-        body: JSON.stringify(body),
+  Post(endpoint: string, body?: any, bearer?: string): Observable<any> {
+    return this.http.post(
+      `${this.url}/${endpoint}`,
+
+      JSON.stringify(body),
+      {
         headers: {
           Authorization: `Bearer ${bearer}`,
           'Content-Type': 'application/json',
         },
-      }).then((res) => res.json())
-    } catch (error) {
-      return error
-    }
+      }
+    )
   }
+
+  // async get(endpoint: string, bearer?: string) {
+  //   return await fetch(`${this.url}/${endpoint}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: `Bearer ${bearer}`,
+  //       'Content-Type': 'application/json',
+  //     },
+  //   }).then((res) => res.json())
+  // }
+
+  // async put(endpoint: string, body?: any, bearer?: string) {
+  //   try {
+  //     return await fetch(`${this.url}/${endpoint}`, {
+  //       method: 'PUT',
+  //       body: JSON.stringify(body),
+  //       headers: {
+  //         Authorization: `Bearer ${bearer}`,
+  //         'Content-Type': 'application/json',
+  //       },
+  //     }).then((res) => res.json())
+  //   } catch (error) {
+  //     return error
+  //   }
+  // }
 
   async post(endpoint: string, body?: any, bearer?: string) {
     try {

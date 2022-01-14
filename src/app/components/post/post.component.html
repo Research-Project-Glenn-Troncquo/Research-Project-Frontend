@@ -43,20 +43,21 @@
   </div>
 
   <div class="flex justify-between items-center">
-    <p>{{ post?.likes?.length }} likes</p>
+    <p class="text-gray-400 text-sm">{{ post?.likes?.length }} likes</p>
     <div class="flex gap-2">
       <button
         class="bg-gray-100 p-2 rounded-md px-3 hover:bg-white border-2 border-gray-100 transition-all duration-150 ease-out"
+        (click)="handleLike()"
       >
         <svg
+          [@bounceIn]="animationState"
+          class=""
+          [class.liked]="postLiked"
+          [class.notliked]="!postLiked"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
-          fill="#FFF"
-          stroke="#000"
           width="16"
           height="16"
-          class="KudosAndComments--kudoed--wDIcO"
-          data-testid="filled_kudos"
         >
           <style></style>
           <g id="actions_kudo_highlighted_xsmall_svg__Icons">
