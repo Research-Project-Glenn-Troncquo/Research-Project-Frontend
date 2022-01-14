@@ -1,3 +1,4 @@
+import { Comment } from './comment'
 import { Like } from './like'
 import { User } from './user'
 
@@ -9,4 +10,5 @@ export interface Post {
   date?: string
   user?: User
   likes?: Like[]
+  comments?: Comment[]
 }

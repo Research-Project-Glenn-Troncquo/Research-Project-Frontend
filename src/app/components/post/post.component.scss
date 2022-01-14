@@ -7,3 +7,19 @@
   stroke: #000;
   fill: #fff;
 }
+
+.word-break {
+  word-break: break-word;
+}
+
+.hover {
+  opacity: 0;
+}
+
+.delete-hover:hover .hover {
+  opacity: 0.5;
+}
+
+.hover:hover {
+  opacity: 1 !important;
+}

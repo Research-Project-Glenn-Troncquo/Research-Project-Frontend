@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/auth/firebase.service'
 import {
   animate,
   keyframes,
+  query,
+  stagger,
   style,
   transition,
   trigger,
@@ -40,6 +42,28 @@ import {
         ),
       ]),
     ]),
+    trigger('listAnimation', [
+      transition('* <=> *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            stagger('60ms', animate('600ms ease-out', style({ opacity: 1 }))),
+          ],
+          { optional: true }
+        ),
+        query(':leave', animate('100ms', style({ opacity: 0 })), {
+          optional: true,
+        }),
+      ]),
+    ]),
+    trigger('slideIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-30px)' }),
+        animate('300ms', style({ opacity: 1, transform: 'translateX(0px)' })),
+      ]),
+      transition(':leave', [animate('100ms', style({ opacity: 0 }))]),
+    ]),
   ],
 })
 export class PostComponent implements OnInit {
@@ -48,6 +72,7 @@ export class PostComponent implements OnInit {
   loggedInUser: User = {}
   showOverlay: boolean = false
   animationState: boolean = false
+  showComment: boolean = false
 
   get postLiked() {
     let liked = null
@@ -72,8 +97,8 @@ export class PostComponent implements OnInit {
     })
     // console.log(this.post?.user?.name)
   }
-
   ngOnInit(): void {}
+
   async handleLike() {
     if (this.postLiked) {
       this.animationState = !this.animationState
@@ -108,5 +133,11 @@ export class PostComponent implements OnInit {
     //   this.renderer.addClass(document.body, 'overflow-hidden')
     //   this.showOverlay = true
     // }
+  }
+
+  async postComment() {}
+
+  toggleComment() {
+    this.showComment = !this.showComment
   }
 }
