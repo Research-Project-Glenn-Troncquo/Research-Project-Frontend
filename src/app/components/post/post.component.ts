@@ -105,7 +105,9 @@ export class PostComponent implements OnInit {
     })
     // console.log(this.post?.user?.name)
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.post)
+  }
 
   async handleLike() {
     if (this.postLiked) {
