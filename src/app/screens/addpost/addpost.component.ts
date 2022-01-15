@@ -79,7 +79,9 @@ export class AddpostComponent implements OnInit {
       console.log(this.fileData)
       console.log(this.file?.value)
 
-      const url = await this.firebaseSerive.fileUpload(this.fileData)
+      const url = await this.firebaseSerive.fileUpload(this.fileData, `post-pictures`)
+
+      console.log(url)
 
       const post: Post = {
         title: this.title!.value,

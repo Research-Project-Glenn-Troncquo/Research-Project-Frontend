@@ -110,19 +110,21 @@ export class AuthService {
     return signOut(this.auth!)
   }
 
-  async fileUpload(file: any) {
+  async fileUpload(file: any, folder: string) {
     const storage = getStorage(this.app)
 
-    // const random_id = randomBytes(8).toString('base64')
-    const uploadImage = stRef(storage, `post-pictures/hell-world/${file.name}`)
+    const random_id = Math.random().toString(36).substr(2, 9)
+    const uploadImage = stRef(storage, `${folder}/${random_id}-${file.name}`)
 
     await uploadBytes(uploadImage, file).then((snapshot) => {})
 
     const url = await getDownloadURL(
-      stRef(storage, `post-pictures/hell-world/${file.name}`)
+      stRef(storage, `${folder}/${random_id}-${file.name}`)
     ).then((url) => {
       return url
     })
+
+    console.log(url)
 
     return url
   }
