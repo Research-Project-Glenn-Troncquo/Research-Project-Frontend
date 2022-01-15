@@ -43,6 +43,32 @@ In this ReadMe file I'll be documenting my test-driven thought process for each 
 - [x] Should show error if an input is empty after submit
 
 ## Register
+- [] Contains the App Header
+- [] Contains an h3 tag `Register`
+- [] Contains a close button > onClick brings user to the Home page
+- [] Contains a div `Sign up with Google` > onClick user logs in with GOogle
+- [] Contains a label `Name`
+- [] Contains a label `Lastname`
+- [] Contains a label `Username`
+- [] Contains a label `Email`
+- [] Contains a label `Password`
+- [] Contains a label `Password`
+- [] Should show error message after blur Name `Please fill in an name`
+- [] Should show error message after empty input Name `Please fill in an name`
+- [] Should show error message after blur Lastname `Please fill in an last name`
+- [] Should show error message after empty input Last name `Please fill in an lastname`
+- [] Should show error message after blur Username `Please fill in a username`
+- [] Should show error message after empty input Username `Please fill in an ysername`
+- [] Should show error message after blur Email `Please fill in an email`
+- [] Should show error message after empty input Email `Please fill in an email`
+- [] Should show error message after blur Password `Please fill in an password`
+- [] Should show error message after empty input Password `Please fill in an password`
+- [] Should show error message after blur Confirm password `Please confirm your password`
+- [] Should show error message after empty input Password `Please confirm your password`
+- [] Contains a p tag `Already have an account?`
+- [] Contains an anchor tag `Sign up` > onClick brings user to the Register page
+- [] Contains a button `Register` > onClick submits the form
+- [] Should show error if an input is empty after submit
 
 ## Dashboard
 

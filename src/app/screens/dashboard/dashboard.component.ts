@@ -6,6 +6,7 @@ import { Post } from 'src/app/interface/post'
 import { HttpService } from 'src/app/http/http.service'
 import { User } from 'src/app/interface/user'
 import { DataService } from 'src/app/data.service'
+import { Renderer2 } from '@angular/core'
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private httpService: HttpService,
-    private dataService: DataService
+    private dataService: DataService,
+    private renderer: Renderer2
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.user = user

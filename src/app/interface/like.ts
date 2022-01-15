@@ -1,5 +1,7 @@
 import { User } from './user'
 
 export interface Like {
-  user: User
+  // user: User
+  post_id?: string
+  user_id?: string
 }

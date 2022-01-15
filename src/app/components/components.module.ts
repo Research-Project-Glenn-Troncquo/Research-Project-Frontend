@@ -7,7 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { InputErrorComponent } from './input-error/input-error.component'
 import { LoggedinHeaderComponent } from './loggedin-header/loggedin-header.component'
-import { PostComponent } from './post/post.component'
+import { PostComponent } from './post/post.component';
+import { PostCommentComponent } from './post-comment/post-comment.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PostComponent } from './post/post.component'
     InputErrorComponent,
     LoggedinHeaderComponent,
     PostComponent,
+    PostCommentComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
   exports: [

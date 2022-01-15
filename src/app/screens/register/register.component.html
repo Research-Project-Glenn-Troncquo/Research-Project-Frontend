@@ -7,7 +7,7 @@
     <div class="flex justify-between mb-12">
       <h3 class="text-3xl font-semibold">Sign up</h3>
       <div
-        class="border rounded-full p-1 hover:shadow-md cursor-pointer"
+        class="border rounded-full p-1 hover:shadow-md cursor-pointer close"
         routerLink="/"
       >
         <svg
@@ -134,14 +134,14 @@
           formControlName="username"
         />
         <app-input-error
-          errorMsg="Please fill in a last name"
+          errorMsg="Please fill in a username"
           [show]="username?.errors?.['required'] && username?.invalid && (username?.dirty || username?.touched) ? true : false"
           errorName="username"
           (emitClickEvent)="handleErrorEmit($event)"
         ></app-input-error>
 
         <app-input-error
-          errorMsg="Last name must be at least 2 characters long"
+          errorMsg="Username must be at least 2 characters long"
           [show]="username?.errors?.['minlength'] && username?.invalid && (username?.dirty || username?.touched) ? true : false"
           errorName="username"
           (emitClickEvent)="handleErrorEmit($event)"
@@ -242,7 +242,7 @@
     </div>
 
     <div class="text-gray-400 text-sm flex text-center">
-      <span *ngIf="errorMsg" @bounceIn>❗ </span>
+      <span *ngIf="errorMsg" sbounceIn>❗ </span>
       <p class="mb-5 ml-1" *ngIf="errorMsg" @fadeIn>{{ errorMsg }}</p>
     </div>
 

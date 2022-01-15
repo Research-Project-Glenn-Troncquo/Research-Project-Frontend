@@ -14,6 +14,5 @@ import { AppRoutingModule } from 'src/app/app-routing.module'
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  exports: [RegisterComponent],
 })
 export class RegisterModule {}
