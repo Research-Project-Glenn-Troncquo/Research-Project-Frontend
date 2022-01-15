@@ -1,6 +1,7 @@
 import { Post } from './post'
 
 export interface User {
+  user_id?: string
   name?: string
   lastname?: string
   username?: string
@@ -9,4 +10,5 @@ export interface User {
   posts?: Array<Post>
   isfollowing?: Array<string>
   followers?: Array<string>
+  img_url?: string
 }
