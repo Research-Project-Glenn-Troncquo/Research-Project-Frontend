@@ -48,7 +48,7 @@ import {
           ':enter',
           [
             style({ opacity: 0 }),
-            stagger('60ms', animate('600ms ease-out', style({ opacity: 1 }))),
+            stagger('50ms', animate('300ms ease-out', style({ opacity: 1 }))),
           ],
           { optional: true }
         ),
@@ -64,6 +64,13 @@ import {
       ]),
       transition(':leave', [animate('100ms', style({ opacity: 0 }))]),
     ]),
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('300ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('300ms', style({ opacity: 0 }))]),
+    ]),
   ],
 })
 export class PostComponent implements OnInit {
@@ -73,6 +80,7 @@ export class PostComponent implements OnInit {
   showOverlay: boolean = false
   animationState: boolean = false
   showComment: boolean = false
+  textAreaValue: string = ''
 
   get postLiked() {
     let liked = null
@@ -109,7 +117,6 @@ export class PostComponent implements OnInit {
           await this.firebaseService.user.getIdToken()
         )
         .subscribe((res) => {
-          console.log(res)
           const indexOfLike = this.post.likes?.indexOf(this.postLiked!)
           this.post.likes?.splice(indexOfLike!, 1)
         })
@@ -122,22 +129,47 @@ export class PostComponent implements OnInit {
           await this.firebaseService.user.getIdToken()
         )
         .subscribe((res) => {
-          console.log(res)
           this.post.likes?.push(res)
         })
     }
-    // if (this.showOverlay) {
-    //   this.renderer.removeClass(document.body, 'overflow-hidden')
-    //   this.showOverlay = false
-    // } else {
-    //   this.renderer.addClass(document.body, 'overflow-hidden')
-    //   this.showOverlay = true
-    // }
   }
 
-  async postComment() {}
+  async handleComment() {
+    console.log(this.loggedInUser)
+    console.log(this.textAreaValue)
+    if (this.textAreaValue) {
+      this.httpService
+        ?.Post(
+          'comment',
+          { post_id: this.post.post_id, comment: this.textAreaValue },
+          await this.firebaseService.user.getIdToken()
+        )
+        .subscribe((res) => {
+          console.log(res)
+          this.post.comments?.push(res)
+          this.textAreaValue = ''
+        })
+    }
+  }
+
+  async deleteComment(comment: any) {
+    this.httpService
+      ?.delete('comment', comment, await this.firebaseService.user.getIdToken())
+      .subscribe((res) => {
+        const indexOfComment = this.post.comments?.indexOf(comment)
+        this.post.comments?.splice(indexOfComment!, 1)
+      })
+  }
 
   toggleComment() {
     this.showComment = !this.showComment
+  }
+
+  doTextareaValueChange(ev: any) {
+    try {
+      this.textAreaValue = ev.target.value
+    } catch (e) {
+      console.info('could not set textarea-value')
+    }
   }
 }

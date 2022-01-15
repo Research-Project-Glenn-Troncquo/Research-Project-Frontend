@@ -10,4 +10,5 @@ export interface User {
   posts?: Array<Post>
   isfollowing?: Array<string>
   followers?: Array<string>
+  img_url?: string
 }
