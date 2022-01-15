@@ -34,6 +34,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'dashboard/:id',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'post/new',
     component: AddpostComponent,
     canActivate: [AuthGuard],

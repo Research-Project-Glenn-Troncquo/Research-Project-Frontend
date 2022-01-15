@@ -16,11 +16,12 @@ import { LottieModule } from 'ngx-lottie'
 import { DashboardModule } from './screens/dashboard/dashboard.module'
 import { AddpostComponent } from './screens/addpost/addpost.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'
 import { ActivityComponent } from './screens/activity/activity.component'
+import { LoadingModule } from './screens/loading/loading.module'
 
 @NgModule({
-  declarations: [AppComponent, LoadingComponent, AddpostComponent, ActivityComponent],
+  declarations: [AppComponent, AddpostComponent, ActivityComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +34,7 @@ import { ActivityComponent } from './screens/activity/activity.component'
     LoginModule,
     RegisterModule,
     DashboardModule,
+    LoadingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],

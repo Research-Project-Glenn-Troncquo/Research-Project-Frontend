@@ -1,5 +1,5 @@
 <div *ngIf="loading" class="h-full w-screen absolute z-50 flex justify-center">
-  <p class="mt-60">
+  <div class="mt-60 flex flex-col items-center">
     <!-- <lottie-player
       src="https://assets1.lottiefiles.com/private_files/lf30_z1LCCg.json"
       background="transparent"
@@ -9,7 +9,8 @@
       controls
       autoplay
     ></lottie-player> -->
+    <ng-lottie height="200px" width="200px" [options]="options"></ng-lottie>
 
-    Loading your page ...
-  </p>
+    <p class="text-white font-semibold">Loading DrinkBuddy ...</p>
+  </div>
 </div>

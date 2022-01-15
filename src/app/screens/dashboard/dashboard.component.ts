@@ -7,6 +7,8 @@ import { HttpService } from 'src/app/http/http.service'
 import { User } from 'src/app/interface/user'
 import { DataService } from 'src/app/data.service'
 import { Renderer2 } from '@angular/core'
+import { Location } from '@angular/common'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-dashboard',
@@ -17,13 +19,23 @@ export class DashboardComponent implements OnInit {
   posts?: Post[]
   user: User = {}
   latestPost?: Post
+  postOverlay: boolean = false
+  activePost?: Post
+  likeOverlay: boolean = false
 
   constructor(
     public authService: AuthService,
     private httpService: HttpService,
     private dataService: DataService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public router: Router
   ) {
+    this.router.navigate(['dashboard/idhello'])
+    // this._route.params.subscribe((params) => {
+    //   console.log(params)
+    //   // console.log(this.route.snapshot.data)
+    // })
+
     this.dataService.currentUser.subscribe((user) => {
       this.user = user
 
@@ -61,7 +73,34 @@ export class DashboardComponent implements OnInit {
   handleSignOut() {
     this.authService.signOut()
   }
+  closePostOverlay() {
+    this.activePost = {}
+    this.postOverlay = false
+  }
 
+  closeLikesOverlay() {
+    if (this.postOverlay === false) this.activePost = {}
+    this.likeOverlay = false
+  }
+
+  handlePostOverlay(post: Post) {
+    this.activePost = post
+    this.postOverlay = true
+  }
+  handleLikesOverlay(post: Post) {
+    this.activePost = post
+    this.likeOverlay = true
+  }
+
+  testFunction(user: User): boolean {
+    const filteredArr = this.user.isfollowing?.filter((follow) => {
+      return follow.isfollowing_id === user.user_id
+    })
+    console.log(filteredArr)
+
+    if (filteredArr!.length > 0) return true
+    return false
+  }
   options: AnimationOptions = {
     path: './assets/beer.json', // download the JSON version of animation in your project directory and add the path to it like ./assets/animations/example.json
   }

@@ -79,9 +79,14 @@
 
     <div class="xl:w-1/2 md:w-2/3 w-full">
       <div *ngIf="!posts">loading posts ...</div>
-      <div *ngIf="posts !== undefined">
+      <div *ngIf="posts">
         <div *ngFor="let post of posts">
-          <app-post [user]="post.user!" [post]="post"></app-post>
+          <app-post
+            (emitPostClick)="handlePostOverlay($event)"
+            (emitLikesClick)="handleLikesOverlay($event)"
+            [user]="post.user!"
+            [post]="post"
+          ></app-post>
         </div>
       </div>
     </div>
@@ -131,7 +136,106 @@
 </div>
 
 <div
-  class="bg-black bg-opacity-50 fixed w-screen h-full top-0 left-0 z-10 justify-center items-center fixedBackground hidden"
+  class="bg-black bg-opacity-50 fixed w-screen h-full z-10 top-0 left-0"
+  *ngIf="postOverlay"
 >
-  <div class="bg-white w-96 h-56">hello</div>
+  <div class="w-full h-full absolute" (click)="closePostOverlay()">
+    <div class="absolute right-5 top-5 rounded-full">
+      <svg
+        class="transform rotate-45 cursor-pointer"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#FFF"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </div>
+  </div>
+
+  <div
+    class="bg-white rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5"
+  >
+    hello
+  </div>
+</div>
+
+<div
+  class="bg-black bg-opacity-50 fixed w-screen h-full z-10 top-0 left-0"
+  *ngIf="likeOverlay"
+>
+  <div class="w-full h-full absolute" (click)="closeLikesOverlay()"></div>
+
+  <div
+    class="bg-white rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 p-4"
+  >
+    <div class="flex justify-between items-center w-full pb-4 border-b-2">
+      <div class="h-8 w-8"></div>
+      <h3 class="">Likes</h3>
+      <div class="w-8 h-8" (click)="closeLikesOverlay()">
+        <svg
+          class="transform rotate-45 cursor-pointer"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#000"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </div>
+    </div>
+
+    <div
+      class="flex justify-between items-center mt-4"
+      *ngFor="let like of activePost?.likes"
+    >
+      <div class="flex gap-2 items-center">
+        <img
+          class="w-10 h-10 rounded-full"
+          [src]="
+            like.user?.img_url
+              ? like.user?.img_url
+              : '../../../assets/no-profile.png'
+          "
+          alt="profile picture of the user"
+        />
+        <div>
+          <h3 class="font-semibold">{{ like?.user?.username }}</h3>
+          <p class="text-gray-400">
+            {{ like?.user?.name }} {{ like?.user?.lastname }}
+          </p>
+        </div>
+      </div>
+      <div class="like.user?.user_id !== user.user_id; else notFollowing">
+        <button
+          *ngIf="testFunction(like.user!)"
+          else
+          notFollowing
+          class="p-2 px-4 rounded-sm"
+          [class.bg-p-orange]="!testFunction(like.user!)"
+          [class.text-white]="!testFunction(like.user!)"
+          [class.text-gray-700]="testFunction(like.user!)"
+          [class.bg-white]="testFunction(like.user!)"
+          [class.border-2]="testFunction(like.user!)"
+        >
+          Following
+        </button>
+        <ng-template #notFollowing>
+          <button #notFollowing>Test else</button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
 </div>
