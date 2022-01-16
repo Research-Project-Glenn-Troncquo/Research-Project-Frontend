@@ -1,4 +1,4 @@
-<div class="container mx-auto px-4 fixedBackground">
+<div class="container mx-auto px-4">
   <button (click)="handleSignOut()">sign out</button>
   <div class="flex gap-8 mt-16 items-start">
     <div class="w-1/4 sticky top-24" *ngIf="!user">Loading user...</div>
@@ -138,6 +138,7 @@
 <div
   class="bg-black bg-opacity-50 fixed w-screen h-full z-10 top-0 left-0"
   *ngIf="postOverlay"
+  @fadeIn
 >
   <div class="w-full h-full absolute" (click)="closePostOverlay()">
     <div class="absolute right-5 top-5 rounded-full">
@@ -169,6 +170,7 @@
 <div
   class="bg-black bg-opacity-50 fixed w-screen h-full z-10 top-0 left-0"
   *ngIf="likeOverlay"
+  @fadeIn
 >
   <div class="w-full h-full absolute" (click)="closeLikesOverlay()"></div>
 
@@ -218,22 +220,65 @@
           </p>
         </div>
       </div>
-      <div class="like.user?.user_id !== user.user_id; else notFollowing">
+      <div *ngIf="like.user?.user_id !== user.user_id">
         <button
-          *ngIf="testFunction(like.user!)"
-          else
-          notFollowing
-          class="p-2 px-4 rounded-sm"
-          [class.bg-p-orange]="!testFunction(like.user!)"
-          [class.text-white]="!testFunction(like.user!)"
-          [class.text-gray-700]="testFunction(like.user!)"
-          [class.bg-white]="testFunction(like.user!)"
-          [class.border-2]="testFunction(like.user!)"
+          *ngIf="testFunction(like.user!); else notFollowing"
+          class="p-2 px-4 rounded-sm text-gray-700 bg-white border-2 w-24 flex justify-center items-center"
+          (click)="unfollowUser(like.user!)"
         >
-          Following
+          <svg
+            *ngIf="unfollowingLoading"
+            class="h-5 w-5 block animate-spin text-gray-300 stroke-current"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          <p *ngIf="!unfollowingLoading">Following</p>
         </button>
+
         <ng-template #notFollowing>
-          <button #notFollowing>Test else</button>
+          <button
+            class="p-2 px-4 rounded-sm bg-p-orange text-white w-20 flex justify-center items-center"
+            #notFollowing
+            (click)="followUser(like.user!)"
+          >
+            <svg
+              *ngIf="followingLoading"
+              class="h-5 w-5 text-white block animate-spin"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+
+            <p *ngIf="!followingLoading">Follow</p>
+          </button>
         </ng-template>
       </div>
     </div>

@@ -137,8 +137,6 @@ export class PostComponent implements OnInit {
   }
 
   async handleComment() {
-    console.log(this.loggedInUser)
-    console.log(this.textAreaValue)
     if (this.textAreaValue) {
       this.httpService
         ?.Post(
@@ -147,7 +145,6 @@ export class PostComponent implements OnInit {
           await this.firebaseService.user.getIdToken()
         )
         .subscribe((res) => {
-          console.log(res)
           this.post.comments?.push(res)
           this.textAreaValue = ''
         })

@@ -8,12 +8,23 @@ import { User } from 'src/app/interface/user'
 import { DataService } from 'src/app/data.service'
 import { Renderer2 } from '@angular/core'
 import { Location } from '@angular/common'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Route, Router } from '@angular/router'
+import { animate, style, transition, trigger } from '@angular/animations'
+import { IsFollowing } from 'src/app/interface/isfollowing'
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('150ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('150ms', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class DashboardComponent implements OnInit {
   posts?: Post[]
@@ -22,24 +33,20 @@ export class DashboardComponent implements OnInit {
   postOverlay: boolean = false
   activePost?: Post
   likeOverlay: boolean = false
+  followingLoading: boolean = false
+  unfollowingLoading: boolean = false
 
   constructor(
     public authService: AuthService,
     private httpService: HttpService,
     private dataService: DataService,
     private renderer: Renderer2,
-    public router: Router
+    public router: Router,
+    private location: Location,
+    private route: ActivatedRoute
   ) {
-    this.router.navigate(['dashboard/idhello'])
-    // this._route.params.subscribe((params) => {
-    //   console.log(params)
-    //   // console.log(this.route.snapshot.data)
-    // })
-
     this.dataService.currentUser.subscribe((user) => {
       this.user = user
-
-      // user.posts ? (this.latestPost = user.posts!.pop()) : null
     })
 
     this.dataService.latestPost.subscribe((post) => {
@@ -49,7 +56,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts()
-    // this.getUser()
+    console.log(this.route.snapshot.params['id'])
   }
 
   async getPosts() {
@@ -57,8 +64,14 @@ export class DashboardComponent implements OnInit {
       .Get('post', await this.authService.user.getIdToken())
       .subscribe((res) => {
         this.posts = res
-        // console.log(this.posts)
-        // console.log(this.latestPost)
+      })
+  }
+
+  async getPost() {
+    this.httpService
+      .Get('post/id', await this.authService.user.getIdToken())
+      .subscribe((res) => {
+        this.posts = res
       })
   }
 
@@ -73,35 +86,77 @@ export class DashboardComponent implements OnInit {
   handleSignOut() {
     this.authService.signOut()
   }
-  closePostOverlay() {
-    this.activePost = {}
-    this.postOverlay = false
-  }
-
-  closeLikesOverlay() {
-    if (this.postOverlay === false) this.activePost = {}
-    this.likeOverlay = false
-  }
 
   handlePostOverlay(post: Post) {
     this.activePost = post
     this.postOverlay = true
+
+    this.location.replaceState(`/dashboard/${post.post_id}`)
+    this.renderer.addClass(document.body, 'overflow-hidden')
+  }
+  closePostOverlay() {
+    this.activePost = {}
+    this.postOverlay = false
+    this.location.replaceState(`/dashboard`)
+    this.renderer.removeClass(document.body, 'overflow-hidden')
   }
   handleLikesOverlay(post: Post) {
     this.activePost = post
     this.likeOverlay = true
+    this.renderer.addClass(document.body, 'overflow-hidden')
+  }
+  closeLikesOverlay() {
+    if (this.postOverlay === false) this.activePost = {}
+    this.likeOverlay = false
+    if (this.postOverlay === false)
+      this.renderer.removeClass(document.body, 'overflow-hidden')
   }
 
   testFunction(user: User): boolean {
     const filteredArr = this.user.isfollowing?.filter((follow) => {
       return follow.isfollowing_id === user.user_id
     })
-    console.log(filteredArr)
 
     if (filteredArr!.length > 0) return true
     return false
   }
+
+  async followUser(user: User) {
+    this.followingLoading = true
+    this.httpService
+      .Post(
+        'isfollowing',
+        { isfollowing_id: user.user_id },
+        await this.authService.user.getIdToken()
+      )
+      .subscribe((res: IsFollowing) => {
+        const isfollowing: IsFollowing = {
+          isfollowing_id: res.isfollowing_id,
+          user_id: res.user_id,
+        }
+        this.user.isfollowing?.push(isfollowing)
+
+        this.followingLoading = false
+      })
+  }
+  async unfollowUser(user: User) {
+    this.unfollowingLoading = true
+    this.httpService
+      .delete(
+        'isfollowing',
+        { isfollowing_id: user.user_id },
+        await this.authService.user.getIdToken()
+      )
+      .subscribe((res) => {
+        const isfollowing = this.user.isfollowing?.filter(
+          (isfollowing) => user.user_id !== isfollowing.isfollowing_id
+        )
+        this.user.isfollowing = isfollowing
+
+        this.unfollowingLoading = false
+      })
+  }
   options: AnimationOptions = {
-    path: './assets/beer.json', // download the JSON version of animation in your project directory and add the path to it like ./assets/animations/example.json
+    path: './assets/beer.json',
   }
 }
