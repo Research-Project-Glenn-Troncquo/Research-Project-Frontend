@@ -5,7 +5,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations'
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { HttpService } from 'src/app/http/http.service'
 import { Post } from 'src/app/interface/post'
@@ -43,6 +43,8 @@ import { User } from 'src/app/interface/user'
 export class LikeCommentComponent implements OnInit {
   @Input() post!: Post
   @Input() user!: User
+  @Input() showCommentButton: boolean = false
+  @Output() emitCommentEvent = new EventEmitter()
   showComment: boolean = false
   animationState: boolean = false
 
@@ -64,6 +66,7 @@ export class LikeCommentComponent implements OnInit {
 
   toggleComment() {
     this.showComment = !this.showComment
+    this.emitCommentEvent.emit()
   }
 
   async handleLike() {

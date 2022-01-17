@@ -41,7 +41,7 @@
 
   <div class="mb-6">
     <img
-      class="w-full h-56"
+      class="max-w-full max-h-96 mx-auto object-cover img"
       [src]="post.img_url ? post.img_url : '../../../assets/beer-sfeerfoto.png'"
       alt="atmospheric picture"
     />
@@ -97,7 +97,12 @@
         </svg>
       </button>
     </div>  -->
-    <app-like-comment [post]="post" [user]="loggedInUser"></app-like-comment>
+    <app-like-comment
+      (emitCommentEvent)="toggleComment()"
+      [showCommentButton]="true"
+      [post]="post"
+      [user]="loggedInUser"
+    ></app-like-comment>
   </div>
 
   <div>
@@ -158,19 +163,21 @@
         />
       </div>
 
-      <textarea
-        *ngIf="showComment"
-        class="input text-gray-700 box-border h-20 p-2 w-full outline-none resize-none hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100"
-        placeholder="Add a comment"
-        [(ngModel)]="textAreaValue"
-      ></textarea>
-      <p
-        *ngIf="showComment"
-        class="text-p-orange cursor-pointer hover:bg-yellow-600 hover:bg-opacity-20 rounded-md p-2 px-4"
-        (click)="handleComment()"
-      >
-        Post
-      </p>
+      <div class="w-full flex items-center gap-2">
+        <textarea
+          *ngIf="showComment"
+          class="input text-gray-700 box-border h-20 p-2 w-full outline-none resize-none hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100"
+          placeholder="Add a comment"
+          [(ngModel)]="textAreaValue"
+        ></textarea>
+        <p
+          *ngIf="showComment"
+          class="text-p-orange cursor-pointer hover:bg-yellow-600 hover:bg-opacity-20 rounded-md p-2 px-4"
+          (click)="handleComment()"
+        >
+          Post
+        </p>
+      </div>
     </div>
   </div>
 </div>
