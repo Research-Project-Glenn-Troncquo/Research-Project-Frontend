@@ -24,6 +24,14 @@ import { IsFollowing } from 'src/app/interface/isfollowing'
       ]),
       transition(':leave', [animate('150ms', style({ opacity: 0 }))]),
     ]),
+
+    trigger('fadeUp', [
+      transition(':enter', [
+        style({ opacity: 0, top: '0px' }),
+        animate('150ms', style({ opacity: 1, top: '10px' })),
+      ]),
+      transition(':leave', [animate('50ms', style({ opacity: 0 }))]),
+    ]),
   ],
 })
 export class DashboardComponent implements OnInit {
@@ -35,6 +43,7 @@ export class DashboardComponent implements OnInit {
   likeOverlay: boolean = false
   followingLoading: boolean = false
   unfollowingLoading: boolean = false
+  emojiOverlay: boolean = false
 
   constructor(
     public authService: AuthService,
@@ -87,16 +96,26 @@ export class DashboardComponent implements OnInit {
     this.authService.signOut()
   }
 
-  handlePostOverlay(post: Post) {
-    this.activePost = post
-    this.postOverlay = true
+  handlePostOverlay(post?: Post) {
+    if (post) {
+      this.activePost = post
+      this.postOverlay = true
 
-    this.location.replaceState(`/dashboard/${post.post_id}`)
-    this.renderer.addClass(document.body, 'overflow-hidden')
+      this.location.replaceState(`/dashboard/${post.post_id}`)
+      this.renderer.addClass(document.body, 'overflow-hidden')
+    } else {
+      this.latestPost!.user = this.user
+      this.activePost = this.latestPost
+      this.postOverlay = true
+
+      this.location.replaceState(`/dashboard/${this.latestPost!.post_id}`)
+      this.renderer.addClass(document.body, 'overflow-hidden')
+    }
   }
   closePostOverlay() {
     this.activePost = {}
     this.postOverlay = false
+    this.emojiOverlay = false
     this.location.replaceState(`/dashboard`)
     this.renderer.removeClass(document.body, 'overflow-hidden')
   }
@@ -155,6 +174,26 @@ export class DashboardComponent implements OnInit {
 
         this.unfollowingLoading = false
       })
+  }
+
+  async deleteComment(comment: any) {
+    this.httpService
+      ?.delete('comment', comment, await this.authService.user.getIdToken())
+      .subscribe((res) => {
+        const indexOfComment = this.activePost?.comments?.indexOf(comment)
+        this.activePost?.comments?.splice(indexOfComment!, 1)
+      })
+  }
+
+  handleComment() {}
+
+  addEmoji(event: any) {
+    console.log(event)
+  }
+
+  handleEmojiOverlay() {
+    console.log('clik')
+    this.emojiOverlay = !this.emojiOverlay
   }
   options: AnimationOptions = {
     path: './assets/beer.json',
