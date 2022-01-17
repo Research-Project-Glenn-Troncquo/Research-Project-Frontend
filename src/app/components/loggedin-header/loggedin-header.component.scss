@@ -10,3 +10,17 @@
 
   border-bottom: 8px solid white;
 }
+
+.dropdownsearch ~ div {
+  display: none;
+}
+
+.dropdownsearch:hover ~ div {
+  display: block;
+}
+.dropdownsearch:active ~ div {
+  display: block;
+}
+.dropdownsearch:focus ~ div {
+  display: block;
+}

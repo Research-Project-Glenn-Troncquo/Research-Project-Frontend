@@ -11,7 +11,10 @@
       <ul
         class="gap-4 items-center text-gray-600 font-semibold hidden sm:flex h-full"
       >
-        <li class="relative" routerLinkActive="active">
+        <li
+          class="relative group h-full flex items-center"
+          routerLinkActive="active"
+        >
           <div class="absolute top-1/2 -translate-y-1/2 left-2">
             <svg
               class="absolute z-10"
@@ -33,8 +36,73 @@
           <input
             type="text"
             placeholder="Search"
-            class="text-gray-700 box-border resize-none pl-10 p-1 bg-gray-100 outline-none rounded-md"
+            class="text-gray-700 box-border resize-none pl-10 p-1 bg-gray-100 outline-none rounded-md w-56 input dropdownsearch"
+            [(ngModel)]="searchValue"
+            (keyup)="handleSearchValue()"
           />
+
+          <div
+            class="top-16 left-1/2 transform -translate-x-1/2 w-56 h-auto py-4 bg-white hidden absolute hover:block rounded-md shadow-md"
+            *ngIf="usersFollowing!.length > 0"
+          >
+            <div class="w-56 h-2 absolute z-0 -top-2"></div>
+            <div class="dropdowntriangle z-10"></div>
+            <ul class="flex flex-col items-center">
+              <li
+                class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
+                *ngFor="let user of usersFollowing"
+              >
+                <img
+                  class="w-8 h-8 rounded-full"
+                  [src]="
+                    user!.user!.img_url
+                      ? user!.user!.img_url
+                      : '../../../assets/no-profile.png'
+                  "
+                  alt="profile picture of the user"
+                />
+                <div>
+                  <h3 class="text-sm text-gray-700 font-semibold">
+                    {{ user!.user!.username! }}
+                  </h3>
+                  <p
+                    class="text-sm text-gray-400 break-words overflow-hidden w-full"
+                  >
+                    {{ user!.user!.name! | titlecase }}
+                    {{ user!.user!.lastname! | titlecase }}
+                  </p>
+                </div>
+              </li>
+
+              <ul *ngIf="searchedUsers.length > 0">
+                <li
+                  class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
+                  *ngFor="let searchedUser of searchedUsers"
+                >
+                  <img
+                    class="w-8 h-8 rounded-full"
+                    [src]="
+                      searchedUser!.img_url
+                        ? searchedUser!.img_url
+                        : '../../../assets/no-profile.png'
+                    "
+                    alt="profile picture of the user"
+                  />
+                  <div>
+                    <h3 class="text-sm text-gray-700 font-semibold">
+                      {{ searchedUser!.username! }}
+                    </h3>
+                    <p
+                      class="text-sm text-gray-400 break-words overflow-hidden w-full"
+                    >
+                      {{ searchedUser!.name! | titlecase }}
+                      {{ searchedUser!.lastname! | titlecase }}
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </ul>
+          </div>
         </li>
         <li
           class="relative group h-full flex items-center"
@@ -49,9 +117,10 @@
           />
 
           <div
-            class="top-16 left-1/2 transform -translate-x-1/2 w-40 h-auto py-4 bg-white hidden group-hover:block absolute hover:block rounded-md"
+            class="top-16 left-1/2 transform -translate-x-1/2 w-40 h-auto py-4 bg-white hidden group-hover:block absolute hover:block rounded-md shadow-md"
           >
-            <div class="w-6"><div class="dropdowntriangle"></div></div>
+            <div class="h-2 absolute z-0 -top-2 w-40"></div>
+            <div class="dropdowntriangle z-10"></div>
             <ul class="flex flex-col items-center">
               <li
                 class="hover:bg-gray-100 h-10 pl-4 flex cursor-pointer items-center w-full text-gray-600"

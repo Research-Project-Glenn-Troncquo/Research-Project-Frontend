@@ -2,6 +2,7 @@ import {
   animate,
   group,
   query,
+  stagger,
   style,
   transition,
   trigger,
@@ -14,6 +15,8 @@ export const slider = trigger('routeAnimations', [
   transition('isLeft => isMiddle', slideTo('right')),
   transition('isLeft => isRight', slideTo('left')),
   transition('isRight => isLeft', slideTo('right')),
+  transition('Dashboard => *', fade2()),
+  transition('* <=> *', fade2()),
 ])
 
 function slideTo(direction: any) {
@@ -45,5 +48,87 @@ function slideTo(direction: any) {
     // Required only if you have child animations on the page
     // query(':leave', animateChild()),
     // query(':enter', animateChild()),
+  ]
+}
+
+function fade() {
+  const optional = { optional: true }
+  return [
+    query(
+      ':enter',
+      [
+        style({
+          position: 'absolute',
+          top: 0,
+          width: '100%',
+          opacity: 0,
+        }),
+      ],
+      optional
+    ),
+
+    query(
+      ':leave',
+      [
+        style({
+          position: 'absolute',
+          top: 0,
+          width: '100%',
+          opacity: 1,
+        }),
+      ],
+      optional
+    ),
+
+    query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))]),
+    query(':leave', [animate('300ms ease-out', style({ opacity: 0 }))]),
+  ]
+}
+function fade2() {
+  const optional = { optional: true }
+  return [
+    // query(
+    //   ':enter',
+    //   [
+    //     style({
+    //       position: 'absolute',
+    //       top: 0,
+    //       width: '100%',
+    //       opacity: 0,
+    //     }),
+    //   ],
+    //   optional
+    // ),
+
+    // query(
+    //   ':leave',
+    //   [
+    //     style({
+    //       position: 'absolute',
+    //       top: 0,
+    //       width: '100%',
+    //       opacity: 1,
+    //     }),
+    //   ],
+    //   optional
+    // ),
+
+    // query(
+    //   ':leave',
+    //   [
+    //     style({ position: 'absolute', top: 0, width: '100%', opacity: 1 }),
+    //     stagger('10000', [animate('0.5s ease-out', style({ opacity: 0 }))]),
+    //   ],
+    //   { optional: true }
+    // ),
+
+    query(
+      ':enter',
+      [
+        style({ position: 'absolute', top: 0, width: '100%', opacity: 0 }),
+        stagger(100, [animate('0.5s ease-out', style({ opacity: 1 }))]),
+      ],
+      { optional: true }
+    ),
   ]
 }
