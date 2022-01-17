@@ -92,10 +92,6 @@ export class DashboardComponent implements OnInit {
       })
   }
 
-  handleSignOut() {
-    this.authService.signOut()
-  }
-
   handlePostOverlay(post?: Post) {
     if (post) {
       this.activePost = post

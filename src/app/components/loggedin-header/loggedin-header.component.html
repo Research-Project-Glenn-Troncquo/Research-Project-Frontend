@@ -8,21 +8,77 @@
         <span class="text-p-orange">Drink</span>Buddy
       </h3>
 
-      <ul class="gap-4 items-center text-gray-600 font-semibold hidden sm:flex">
+      <ul
+        class="gap-4 items-center text-gray-600 font-semibold hidden sm:flex h-full"
+      >
         <li class="relative" routerLinkActive="active">
-          <a class="cursor-pointer" routerLink="/post/new">Post</a>
+          <div class="absolute top-1/2 -translate-y-1/2 left-2">
+            <svg
+              class="absolute z-10"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              role="img"
+              class="icon icon-18 fill-current"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.6002 12.0498C9.49758 12.8568 8.13777 13.3333 6.66667 13.3333C2.98477 13.3333 0 10.3486 0 6.66667C0 2.98477 2.98477 0 6.66667 0C10.3486 0 13.3333 2.98477 13.3333 6.66667C13.3333 8.15637 12.8447 9.53194 12.019 10.6419C12.0265 10.6489 12.0338 10.656 12.0411 10.6633L15.2935 13.9157C15.6841 14.3063 15.6841 14.9394 15.2935 15.33C14.903 15.7205 14.2699 15.7205 13.8793 15.33L10.6269 12.0775C10.6178 12.0684 10.6089 12.0592 10.6002 12.0498ZM11.3333 6.66667C11.3333 9.244 9.244 11.3333 6.66667 11.3333C4.08934 11.3333 2 9.244 2 6.66667C2 4.08934 4.08934 2 6.66667 2C9.244 2 11.3333 4.08934 11.3333 6.66667Z"
+              ></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            placeholder="Search"
+            class="text-gray-700 box-border resize-none pl-10 p-1 bg-gray-100 outline-none rounded-md"
+          />
+        </li>
+        <li
+          class="relative group h-full flex items-center"
+          routerLinkActive="active"
+        >
+          <img
+            class="rounded-full w-6 h-6 cursor-pointer"
+            [src]="
+              user?.img_url ? user?.img_url : '../../../assets/no-profile.png'
+            "
+            alt="profile picture of the user"
+          />
+
           <div
-            class="mt-1 w-2 h-2 absolute left-1/2 transform -translate-x-1/2 rounded-full"
-          ></div>
+            class="top-16 left-1/2 transform -translate-x-1/2 w-40 h-auto py-4 bg-white hidden group-hover:block absolute hover:block rounded-md"
+          >
+            <div class="w-6"><div class="dropdowntriangle"></div></div>
+            <ul class="flex flex-col items-center">
+              <li
+                class="hover:bg-gray-100 h-10 pl-4 flex cursor-pointer items-center w-full text-gray-600"
+              >
+                Profile
+              </li>
+              <li
+                class="hover:bg-gray-100 h-10 pl-4 flex cursor-pointer items-center w-full text-gray-600"
+              >
+                Edit profile
+              </li>
+              <li
+                class="hover:bg-gray-100 h-10 pl-4 flex cursor-pointer items-center w-full text-gray-600"
+                (click)="handleSignOut()"
+              >
+                Sign out
+              </li>
+            </ul>
+          </div>
         </li>
 
         <li class="relative" routerLinkActive="active">
-          <a class="cursor-pointer" [routerLink]="['/activity', 'test']"
-            >Activity</a
-          >
-          <div
-            class="mt-1 w-2 h-2 absolute left-1/2 transform -translate-x-1/2 rounded-full"
-          ></div>
+          <app-button
+            class="w-full"
+            name="Upload"
+            (click)="onClick()"
+          ></app-button>
         </li>
       </ul>
 

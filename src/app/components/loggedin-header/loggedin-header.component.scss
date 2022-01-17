@@ -1,0 +1,12 @@
+.dropdowntriangle {
+  position: absolute;
+  top: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-bottom: 8px solid white;
+}
