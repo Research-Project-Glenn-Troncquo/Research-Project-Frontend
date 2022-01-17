@@ -1,3 +1,4 @@
+import { IsFollowing } from './isfollowing';
 import { Post } from './post'
 
 export interface User {
@@ -8,7 +9,7 @@ export interface User {
   email?: string
   password?: string
   posts?: Array<Post>
-  isfollowing?: Array<string>
+  isfollowing?: Array<IsFollowing>
   followers?: Array<string>
   img_url?: string
 }

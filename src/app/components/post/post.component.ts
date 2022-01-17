@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { Post } from 'src/app/interface/post'
 import { User } from 'src/app/interface/user'
 import { Renderer2 } from '@angular/core'
@@ -76,6 +76,9 @@ import {
 export class PostComponent implements OnInit {
   @Input() post!: Post
   @Input() user!: User
+  @Output() emitPostClick = new EventEmitter<Post>()
+  @Output() emitLikesClick = new EventEmitter<Post>()
+
   loggedInUser: User = {}
   showOverlay: boolean = false
   animationState: boolean = false
@@ -93,7 +96,6 @@ export class PostComponent implements OnInit {
   }
 
   constructor(
-    private renderer: Renderer2,
     private dataService: DataService,
     private httpService: HttpService,
     private firebaseService: AuthService
@@ -105,9 +107,7 @@ export class PostComponent implements OnInit {
     })
     // console.log(this.post?.user?.name)
   }
-  ngOnInit(): void {
-    console.log(this.post)
-  }
+  ngOnInit(): void {}
 
   async handleLike() {
     if (this.postLiked) {
@@ -137,8 +137,6 @@ export class PostComponent implements OnInit {
   }
 
   async handleComment() {
-    console.log(this.loggedInUser)
-    console.log(this.textAreaValue)
     if (this.textAreaValue) {
       this.httpService
         ?.Post(
@@ -147,7 +145,6 @@ export class PostComponent implements OnInit {
           await this.firebaseService.user.getIdToken()
         )
         .subscribe((res) => {
-          console.log(res)
           this.post.comments?.push(res)
           this.textAreaValue = ''
         })
@@ -173,5 +170,13 @@ export class PostComponent implements OnInit {
     } catch (e) {
       console.info('could not set textarea-value')
     }
+  }
+
+  handlePostEmit(post: Post) {
+    this.emitPostClick.emit(post)
+  }
+
+  handleLikesClick(post: Post) {
+    this.emitLikesClick.emit(post)
   }
 }

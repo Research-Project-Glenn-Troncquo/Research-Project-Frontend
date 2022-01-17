@@ -7,8 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { InputErrorComponent } from './input-error/input-error.component'
 import { LoggedinHeaderComponent } from './loggedin-header/loggedin-header.component'
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './post/post.component'
 import { PostCommentComponent } from './post-comment/post-comment.component'
+import { LikeCommentComponent } from './like-comment/like-comment.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PostCommentComponent } from './post-comment/post-comment.component'
     LoggedinHeaderComponent,
     PostComponent,
     PostCommentComponent,
+    LikeCommentComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
   exports: [
@@ -28,6 +30,7 @@ import { PostCommentComponent } from './post-comment/post-comment.component'
     InputErrorComponent,
     LoggedinHeaderComponent,
     PostComponent,
+    LikeCommentComponent,
   ],
 })
 export class ComponentsModule {}
