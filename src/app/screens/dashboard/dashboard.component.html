@@ -81,7 +81,10 @@
     </div>
 
     <div class="xl:w-1/2 md:w-2/3 w-full">
-      <div *ngIf="!posts">loading posts ...</div>
+      <div *ngIf="postsLoading">
+        <app-post-ghost></app-post-ghost>
+        <app-post-ghost></app-post-ghost>
+      </div>
       <div *ngIf="posts">
         <div *ngFor="let post of posts">
           <app-post
@@ -97,42 +100,21 @@
     <div class="xl:w-1/4 xl:block sticky top-28 hidden">
       <div>
         <h3 class="text-gray-700 text-3xl font-semibold">Fun facts:</h3>
-        <div class="flex mb-4">
-          <div class="-ml-4">
-            <ng-lottie
-              height="72px"
-              width="72px"
-              [options]="options"
-            ></ng-lottie>
+        <div *ngIf="facts.length > 0">
+          <div class="flex mb-4" *ngFor="let fact of facts">
+            <div class="-ml-4">
+              <ng-lottie
+                height="72px"
+                width="72px"
+                [options]="options"
+              ></ng-lottie>
+            </div>
+            <p class="mt-4 text-gray-500">
+              {{ fact.description }}
+            </p>
           </div>
-          <p class="mt-4 text-gray-500">
-            18 Litres is how much alcohol russians consume each year.
-          </p>
         </div>
-        <div class="flex mb-4">
-          <div class="-ml-4">
-            <ng-lottie
-              height="72px"
-              width="72px"
-              [options]="options"
-            ></ng-lottie>
-          </div>
-          <p class="mt-4 text-gray-500">
-            18 Litres is how much alcohol russians consume each year.
-          </p>
-        </div>
-        <div class="flex mb-4">
-          <div class="-ml-4">
-            <ng-lottie
-              height="72px"
-              width="72px"
-              [options]="options"
-            ></ng-lottie>
-          </div>
-          <p class="mt-4 text-gray-500">
-            18 Litres is how much alcohol russians consume each year.
-          </p>
-        </div>
+        <div *ngIf="facts.length < 1">Loading facts ...</div>
       </div>
     </div>
   </div>

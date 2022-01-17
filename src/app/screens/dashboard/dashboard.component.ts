@@ -11,6 +11,7 @@ import { Location } from '@angular/common'
 import { ActivatedRoute, Route, Router } from '@angular/router'
 import { animate, style, transition, trigger } from '@angular/animations'
 import { IsFollowing } from 'src/app/interface/isfollowing'
+import { Facts } from 'src/app/interface/facts'
 
 @Component({
   selector: 'app-dashboard',
@@ -38,12 +39,14 @@ export class DashboardComponent implements OnInit {
   posts?: Post[]
   user: User = {}
   latestPost?: Post
+  postsLoading: boolean = true
   postOverlay: boolean = false
   activePost?: Post
   likeOverlay: boolean = false
   followingLoading: boolean = false
   unfollowingLoading: boolean = false
   emojiOverlay: boolean = false
+  facts: Facts[] = []
 
   constructor(
     public authService: AuthService,
@@ -65,6 +68,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts()
+    this.getFacts()
     console.log(this.route.snapshot.params['id'])
   }
 
@@ -73,6 +77,7 @@ export class DashboardComponent implements OnInit {
       .Get('post', await this.authService.user.getIdToken())
       .subscribe((res) => {
         this.posts = res
+        this.postsLoading = false
       })
   }
 
@@ -90,6 +95,12 @@ export class DashboardComponent implements OnInit {
       .subscribe((res) => {
         this.user = res
       })
+  }
+
+  async getFacts() {
+    this.httpService.Get('facts').subscribe((res) => {
+      this.facts = res
+    })
   }
 
   handlePostOverlay(post?: Post) {
