@@ -23,6 +23,10 @@ then
     done <modules.tmp.txt
 
     remove_temporary_files
+
+    git add .
+    git commit -m "restore modules from $PARENT_BRANCH because of test failures."
+    git push origin $NEW_BRANCH
     
 
 else
