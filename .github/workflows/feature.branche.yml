@@ -8,8 +8,8 @@ on:
 
 jobs:
   filter_modules:
-    runs-on: ubuntu-latest
     name: Run Angular testing and filter Modules with testing errors
+    runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - name: Checkout repository
