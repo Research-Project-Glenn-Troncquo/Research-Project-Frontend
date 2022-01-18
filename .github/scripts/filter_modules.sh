@@ -7,7 +7,7 @@ remove_temporary_files(){
 
 npm run test:unit > report.tmp.txt
 # cat report.tmp.txt
-grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt > modules.tmp.txt
+grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
 # cat modules.tmp.txt
 
 if [[ -f "modules.tmp.txt" && -s "modules.tmp.txt" ]];
