@@ -49,3 +49,8 @@ jobs:
 
       - name: Script that filters the Modules with testing errors
         run: .github/scripts/filter_modules.sh
+
+      - name: "Check file existence"
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "do_pr"
