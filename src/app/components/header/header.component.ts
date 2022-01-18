@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { DataService } from 'src/app/data.service'
+import { User } from 'src/app/interface/user'
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,12 @@ import { Router } from '@angular/router'
   styles: ['.active { color:#CB5931;} .active div{ background-color:#CB5931;}'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public router: Router) {}
+  user: User = {}
+  constructor(public router: Router, private dataService: DataService) {
+    this.dataService.currentUser.subscribe((user) => {
+      this.user = user
+    })
+  }
   ngOnInit(): void {}
 
   showSidebar: boolean = false

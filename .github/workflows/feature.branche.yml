@@ -1,4 +1,4 @@
-name: Anguler CI/CD
+name: Filter Modules Workflow
 
 on:
   push:
@@ -7,19 +7,72 @@ on:
     branches: [feature/**]
 
 jobs:
-  build_angular:
+  filter_modules:
+    name: Run Angular testing and filter Modules with testing errors
     runs-on: ubuntu-latest
-    name: Run Angular App Through CI/CD Pipeline
+    continue-on-error: true
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Use Node.js 14.15
         uses: actions/setup-node@v1
         with:
           node-version: 14.15
-      - name: step 1
+
+      - name: Setup
         run: npm ci
-      - name: step 2
-        continue-on-error: true
-        run: npm run test:unit
-      - name: step 2
-        run: npm run build
+
+      - name: Set CURRENT_BRANCH
+        run: echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+
+      # - name: Debug CURRENT_BRANCH
+      #   run: echo ${{ env.CURRENT_BRANCH }}
+
+      - name: Set PARENT_BRANCH
+        run: echo "PARENT_BRANCH=develop" >> $GITHUB_ENV
+
+      # - name: Debug PARENT_BRANCH
+      #   run: echo ${{ env.CURRENT_BRANCH }}
+
+      - name: Set TIMESTAMP
+        run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
+      # - name: Debug Timestamp
+      #   run: echo ${{ env.TIMESTAMP }}
+
+      - name: Set NEW_BRANCH
+        run: echo "NEW_BRANCH=${CURRENT_BRANCH}_SUCCESS_${TIMESTAMP}" >> $GITHUB_ENV
+
+      # - name: Debug NEW_BRANCH
+      #   run: echo ${{ env.NEW_BRANCH }}
+
+      - name: Script that filters the Modules with testing errors
+        run: .github/scripts/filter_modules.sh
+
+      - name: 'Check file existence'
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'do_pr'
+
+
+      - name: Create PR title
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          echo "PR_TITLE=[ $NEW_BRANCH ] Modules that passes in all tests" >> $GITHUB_ENV
+          rm do_pr
+
+      - name: Debug NEW_BRANCH
+        run: echo ${{ env.PR_TITLE }}
+
+
+
+      - name: pull-request-action
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: vsoch/pull-request-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_FROM_BRANCH: ${{ env.NEW_BRANCH }}
+          PULL_REQUEST_BRANCH: ${{ env.PARENT_BRANCH }}
+          PULL_REQUEST_TITLE: ${{ env.PR_TITLE }}

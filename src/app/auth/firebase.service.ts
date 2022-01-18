@@ -110,7 +110,7 @@ export class AuthService {
     return signOut(this.auth!)
   }
 
-  async fileUpload(file: any, folder: string) {
+  async fileUpload(file: any, folder: string): Promise<string> {
     const storage = getStorage(this.app)
 
     const random_id = Math.random().toString(36).substr(2, 9)

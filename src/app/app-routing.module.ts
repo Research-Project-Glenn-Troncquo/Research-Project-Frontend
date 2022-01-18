@@ -32,6 +32,7 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
+    data: { animation: 'Dashboard' },
   },
   {
     path: 'dashboard/:id',
@@ -43,6 +44,7 @@ export const routes: Routes = [
     component: AddpostComponent,
     canActivate: [AuthGuard],
     pathMatch: 'full',
+    data: { animation: 'Post' },
   },
   {
     path: 'activity/:id',

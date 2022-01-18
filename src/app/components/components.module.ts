@@ -10,6 +10,7 @@ import { LoggedinHeaderComponent } from './loggedin-header/loggedin-header.compo
 import { PostComponent } from './post/post.component'
 import { PostCommentComponent } from './post-comment/post-comment.component'
 import { LikeCommentComponent } from './like-comment/like-comment.component'
+import { PostGhostComponent } from './post-ghost/post-ghost.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LikeCommentComponent } from './like-comment/like-comment.component'
     PostComponent,
     PostCommentComponent,
     LikeCommentComponent,
+    PostGhostComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
   exports: [
@@ -31,6 +33,7 @@ import { LikeCommentComponent } from './like-comment/like-comment.component'
     LoggedinHeaderComponent,
     PostComponent,
     LikeCommentComponent,
+    PostGhostComponent,
   ],
 })
 export class ComponentsModule {}
