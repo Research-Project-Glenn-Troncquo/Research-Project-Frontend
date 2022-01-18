@@ -1,11 +1,11 @@
 #!/bin/bash
 
-npm run test:unit > report.txt
-# cat report.txt
-grep -E -o "(src.+\/.+\.spec\.ts)" report.txt > modules.report.txt
-# cat modules.report.txt
+npm run test:unit > report.tmp.txt
+# cat report.tmp.txt
+grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt > modules.tmp.txt
+# cat modules.tmp.txt
 
-if [[ -f "modules.report.txt" && -s "modules.report.txt" ]];
+if [[ -f "modules.tmp.txt" && -s "modules.tmp.txt" ]];
 then
     git fetch --all
 
@@ -13,8 +13,11 @@ then
     git checkout -b $NEW_BRANCH
 
     while read module; do
-        echo "restore module $module from $PAREN_BRANCH if there are errors"
-    done <modules.report.txt
+        echo "restore module $module from $PARENT_BRANCH if there are errors"
+        sh -c "git checkout origin/$PARENT_BRANCH -- $module "
+    done <modules.tmp.txt
+
+    
 
 else
     echo "there are no errors"
