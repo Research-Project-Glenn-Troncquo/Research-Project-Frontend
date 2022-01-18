@@ -15,6 +15,7 @@ export class LoggedinHeaderComponent implements OnInit {
   searchValue: string = ''
   searchingUsers: boolean = false
   searchedUsers: User[] = []
+  showSidebar: boolean = false
 
   get usersFollowing(): User[] {
     const usersFollowingArr = this.user.isfollowing?.filter((element) => {

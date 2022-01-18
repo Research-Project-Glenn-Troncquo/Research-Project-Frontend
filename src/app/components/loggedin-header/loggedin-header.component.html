@@ -74,34 +74,31 @@
                 </div>
               </li>
 
-              <!-- <ul *ngIf="searchedUsers.length > 0"> -->
-                <li
-                  class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
-                  *ngFor="let searchedUser of searchedUsers"
-                >
-                  <img
-                    class="w-8 h-8 rounded-full"
-                    [src]="
-                      searchedUser!.img_url
-                        ? searchedUser!.img_url
-                        : '../../../assets/no-profile.png'
-                    "
-                    alt="profile picture of the user"
-                  />
-                  <div>
-                    <h3 class="text-sm text-gray-700 font-semibold">
-                      {{ searchedUser!.username! }}
-                    </h3>
-                    <p
-                      class="text-sm text-gray-400 break-words overflow-hidden w-full"
-                    >
-                      {{ searchedUser!.name! | titlecase }}
-                      {{ searchedUser!.lastname! | titlecase }}
-                    </p>
-                  </div>
-                </li>
-              <!-- </ul> -->
-
+              <li
+                class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
+                *ngFor="let searchedUser of searchedUsers"
+              >
+                <img
+                  class="w-8 h-8 rounded-full"
+                  [src]="
+                    searchedUser!.img_url
+                      ? searchedUser!.img_url
+                      : '../../../assets/no-profile.png'
+                  "
+                  alt="profile picture of the user"
+                />
+                <div>
+                  <h3 class="text-sm text-gray-700 font-semibold">
+                    {{ searchedUser!.username! }}
+                  </h3>
+                  <p
+                    class="text-sm text-gray-400 break-words overflow-hidden w-full"
+                  >
+                    {{ searchedUser!.name! | titlecase }}
+                    {{ searchedUser!.lastname! | titlecase }}
+                  </p>
+                </div>
+              </li>
             </ul>
           </div>
         </li>
@@ -153,7 +150,8 @@
       </ul>
 
       <div
-        class="transition-all sm:hidden cursor-pointer p-2 text-white bg-gray-200 bg-opacity-20 backdrop-blur-sm rounded-full"
+        class="transition-all sm:hidden cursor-pointer p-2 text-white bg-gray-400 bg-opacity-20 backdrop-blur-sm rounded-full"
+        (click)="showSidebar = true"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -173,9 +171,9 @@
         </svg>
       </div>
 
-      <!-- <aside
-        [class.translate-x-[100vw]]="!showSidebar"
+      <aside
         class="ease-out duration-200 fixed w-screen h-screen z-50 inset-0 bg-[#dba062] grid place-items-center gap-12"
+        [class.translate-x-[100vw]]="!showSidebar"
       >
         <div
           class="absolute top-8 right-6 cursor-pointer p-2 bg-gray-200 backdrop-blur-sm rounded-full"
@@ -197,19 +195,28 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </div>
-        <ul class="grid gap-8 text-center font-bold self-end">
+        <ul class="grid gap-8 text-center font-bold self-center">
           <a
             class="transition-all uppercase text-white text-opacity-90 hover:text-opacity-100 outline-none focus:scale-125"
-            href="/"
-            >Home</a
+            routerLink="/"
+            (click)="showSidebar = false"
+            >DASHBOARD</a
           >
           <a
             class="transition-all uppercase text-white text-opacity-90 hover:text-opacity-100 outline-none focus:scale-125"
-            href="/releases"
-            >Info</a
+            routerLink="/search"
+            (click)="showSidebar = false"
+            >Search</a
+          >
+
+          <a
+            class="transition-all uppercase text-white text-opacity-90 hover:text-opacity-100 outline-none focus:scale-125"
+            routerLink="/post/new"
+            (click)="showSidebar = false"
+            >Upload</a
           >
         </ul>
-        <button class="focus-ring relative self-start">
+        <!-- <button class="focus-ring relative self-start">
           <div
             class="py-2 px-3 text-white bg-white/10 rounded-md text-xs flex space-x-2 uppercase justify-between"
           >
@@ -247,8 +254,8 @@
               <div>Nederlands</div>
             </div>
           </div>
-        </button>
-      </aside> -->
+        </button> -->
+      </aside>
     </div>
   </nav>
 </header>
