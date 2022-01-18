@@ -13,7 +13,9 @@
           "
           alt="profile picture of the user"
         />
-        <p class="text-gray-600">Glenn Troncquo</p>
+        <p class="text-gray-600">
+          {{ user.name | titlecase }} {{ user.lastname | titlecase }}
+        </p>
       </div>
       <div class="flex flex-col sm:flex-row gap-2 items-center">
         <app-button
@@ -21,7 +23,11 @@
           type="button"
           name="Discard"
         ></app-button>
-        <app-button type="submit" name="Publish"></app-button>
+        <app-button
+          type="submit"
+          name="Publish"
+          [loading]="loading"
+        ></app-button>
       </div>
     </div>
 

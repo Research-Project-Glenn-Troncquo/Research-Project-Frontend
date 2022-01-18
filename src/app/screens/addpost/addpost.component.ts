@@ -46,6 +46,7 @@ export class AddpostComponent implements OnInit {
   fileData: any
   user: User = {}
   showError: boolean = false
+  submitting: boolean = false
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -108,10 +109,11 @@ export class AddpostComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.loading = true
+
     if (this.postForm.valid) {
       this.showError = false
       // console.log(this.fileName?.value)
-      this.loading = true
 
       // const res = await this.authService.register(user)
 
@@ -144,8 +146,11 @@ export class AddpostComponent implements OnInit {
 
       this.loading = false
 
-      // this.router.navigate(['dashboard'])
-    } else this.showError = true
+      this.router.navigate(['dashboard'])
+    } else {
+      this.showError = true
+      this.loading = false
+    }
     // else this.validateAllFormFields(this.postForm)
   }
 }

@@ -8,6 +8,7 @@ import { HomeComponent } from './screens/home/home.component'
 import { LoadingComponent } from './screens/loading/loading.component'
 import { LoginComponent } from './screens/login/login.component'
 import { RegisterComponent } from './screens/register/register.component'
+import { SearchComponent } from './screens/search/search.component'
 
 export const routes: Routes = [
   {
@@ -49,6 +50,11 @@ export const routes: Routes = [
   {
     path: 'activity/:id',
     component: ActivityComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
     canActivate: [AuthGuard],
   },
   {
