@@ -26,17 +26,23 @@ jobs:
       - name: Set CURRENT_BRANCH
         run: echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
 
-      - name: Debug
+      - name: Debug CURRENT_BRANCH
+        run: echo ${{ env.CURRENT_BRANCH }}
+
+      - name: Set PARENT_BRANCH
+        run: echo "PARENT_BRANCH=develop" >> $GITHUB_ENV
+
+      - name: Debug PARENT_BRANCH
         run: echo ${{ env.CURRENT_BRANCH }}
 
       - name: Set TIMESTAMP
         run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
-      - name: Debug
+      - name: Debug Timestamp
         run: echo ${{ env.TIMESTAMP }}
 
       - name: Set NEW_BRANCH
         run: echo "NEW_BRANCH=${CURRENT_BRANCH}_SUCCESS_${TIMESTAMP}" >> $GITHUB_ENV
 
-      - name: Debug
+      - name: Debug NEW_BRANCH
         run: echo ${{ env.NEW_BRANCH }}
