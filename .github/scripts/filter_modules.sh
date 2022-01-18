@@ -1,3 +1,4 @@
 #!/bin/bash
 
-npm run test:unit
+npm run test:unit >> report.txt
+cat report.txt
