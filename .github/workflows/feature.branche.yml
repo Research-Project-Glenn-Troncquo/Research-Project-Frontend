@@ -23,14 +23,20 @@ jobs:
       - name: Setup
         run: npm ci
 
-      - name: Set NEW_BRANCH
-        run: echo "NEW_BRANCH=${CURRENT_BRANCH}_SUCCESS_${TIMESTAMP}" >> $GITHUB_ENV
+      - name: Set CURRENT_BRANCH
+        run: echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
 
       - name: Debug
-        run: echo ${{ env.NEW_BRANCH }}
+        run: echo ${{ env.CURRENT_BRANCH }}
 
       - name: Set TIMESTAMP
         run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
       - name: Debug
         run: echo ${{ env.TIMESTAMP }}
+
+      - name: Set NEW_BRANCH
+        run: echo "NEW_BRANCH=${CURRENT_BRANCH}_SUCCESS_${TIMESTAMP}" >> $GITHUB_ENV
+
+      - name: Debug
+        run: echo ${{ env.NEW_BRANCH }}
