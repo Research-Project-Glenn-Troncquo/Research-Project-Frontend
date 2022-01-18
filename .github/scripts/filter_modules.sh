@@ -27,5 +27,6 @@ then
 
 else
     echo "there are no errors"
+    remove_temporary_files
 
 fi
