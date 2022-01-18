@@ -81,6 +81,17 @@
     </div>
 
     <div class="xl:w-1/2 md:w-2/3 w-full">
+      <div
+        *ngIf="!postsLoading && posts.length < 1"
+        class="bg-white h-96 flex flex-col items-center justify-center"
+      >
+        <img
+          class="w-40 mb-6"
+          src="../../../assets/camera-svgrepo-com (2).svg"
+          alt="no posts yet image"
+        />
+        <p class="text-lg text-gray-700">There are no posts yet...</p>
+      </div>
       <div *ngIf="postsLoading">
         <app-post-ghost></app-post-ghost>
         <app-post-ghost></app-post-ghost>

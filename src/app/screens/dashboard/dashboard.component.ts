@@ -36,7 +36,7 @@ import { Facts } from 'src/app/interface/facts'
   ],
 })
 export class DashboardComponent implements OnInit {
-  posts?: Post[]
+  posts: Post[] = []
   user: User = {}
   latestPost?: Post
   postsLoading: boolean = true
