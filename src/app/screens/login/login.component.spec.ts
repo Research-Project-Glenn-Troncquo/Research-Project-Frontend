@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { By } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-  import {
+import {
   ActivatedRouteSnapshot,
   ParamMap,
   Router,
@@ -315,7 +315,7 @@ class FakeAuthService implements AuthService {
     this.user = null
   }
 
-  fileUpload(file: any): Promise<string> {
+  fileUpload(file: any, folder: string): Promise<string> {
     return new Promise((resolve) => resolve('true'))
   }
 
