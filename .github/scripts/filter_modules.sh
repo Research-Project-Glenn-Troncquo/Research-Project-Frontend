@@ -12,6 +12,10 @@ then
     echo "Genereate new branch $NEW_BRANCH"
     git checkout -b $NEW_BRANCH
 
+    while read module; do
+        echo "in this module: $module there are testing errors"
+    done <modules.report.txt
+
 else
     echo "there are no errors"
 
