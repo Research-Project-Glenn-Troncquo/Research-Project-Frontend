@@ -17,6 +17,8 @@ then
         sh -c "git checkout origin/$PARENT_BRANCH -- $module "
     done <modules.tmp.txt
 
+    echo "removing temporary files"
+    rm *.tmp.txt
 
     
 
