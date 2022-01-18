@@ -7,7 +7,7 @@ grep -E -o "(src.+\/.+\.spec\.ts)" report.txt > modules.report.txt
 
 if [[ -f "modules.report.txt" && -s "modules.report.txt" ]];
 then
-    echo "there are modules with errors"
+    git fetch remote origin
 
 else
     echo "there are no errors"
