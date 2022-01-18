@@ -59,4 +59,14 @@ jobs:
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          echo "PR_TITLE=[ $NEW_BRANCH ] Modules that passes in all tests"
+          echo "PR_TITLE=[ $NEW_BRANCH ] Modules that passes in all tests" $GITHUB_ENV
+          rm do_pr
+
+      - name: pull-request-action
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: vsoch/pull-request-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST_FROM_BRANCH: ${{ env.NEW_BRANCH }}
+          PULL_REQUEST_BRANCH: ${{ env.PARENT_BRANCH }}
+          PULL_REQUEST_TITLE: ${{ env.PR_TITLE }}
