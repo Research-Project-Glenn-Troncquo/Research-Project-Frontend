@@ -14,18 +14,25 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
 
-    name: Test Build and Deploy Job
+    name: Build and Deploy Job
     steps:
+      - name: get latest updates
+        run: sudo apt-get update
+      - name: update to latest
+        run: sudo apt-get install -y libgbm-dev
       - uses: actions/checkout@v2
-        with:
-          submodules: true
       - name: Use Node.js 14.15
-      - uses: actions/checkout@v2
+        uses: actions/setup-node@v1
         with:
           node-version: 14.15
       - run: npm i
       - run: npm run test
       # - run: npm run lint
+
+
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
