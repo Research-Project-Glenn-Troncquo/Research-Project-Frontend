@@ -132,7 +132,7 @@ describe('Home Component', () => {
 
       const isAccessGranted = guard.checkRoute(fakeUrl)
 
-      expect(isAccessGranted).toBeFalse()
+      expect(isAccessGranted).toBeTrue()
 
       dummyRoute.url[0].path = fakeUrl
       const canActivate = guard.canActivate(
