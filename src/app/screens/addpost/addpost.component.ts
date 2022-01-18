@@ -1,3 +1,10 @@
+import {
+  animate,
+  keyframes,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
@@ -11,11 +18,34 @@ import { User } from 'src/app/interface/user'
   selector: 'app-addpost',
   templateUrl: './addpost.component.html',
   styleUrls: ['./addpost.component.scss'],
+  animations: [
+    trigger('slideIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-15px)' }),
+        animate('150ms', style({ opacity: 1, transform: 'translateX(0px)' })),
+      ]),
+      transition(':leave', [animate('300ms', style({ opacity: 0 }))]),
+    ]),
+    trigger('bounceIn', [
+      transition(':enter', [
+        animate(
+          '0.3s',
+          keyframes([
+            style({ transform: 'scale(0) ' }),
+            style({ transform: 'scale(2) ' }),
+            style({ transform: 'scale(1) ' }),
+          ])
+        ),
+      ]),
+      transition(':leave', [animate('300ms', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class AddpostComponent implements OnInit {
   loading: boolean = false
   fileData: any
   user: User = {}
+  showError: boolean = false
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -53,6 +83,10 @@ export class AddpostComponent implements OnInit {
     return this.file?.value.toString().replace(`C:\\fakepath\\`, '')
   }
 
+  discardChanges() {
+    this.postForm.reset()
+  }
+
   onFileSelected(event: any) {
     this.fileData = event.target.files[0]
   }
@@ -75,6 +109,7 @@ export class AddpostComponent implements OnInit {
 
   async onSubmit() {
     if (this.postForm.valid) {
+      this.showError = false
       // console.log(this.fileName?.value)
       this.loading = true
 
@@ -110,6 +145,7 @@ export class AddpostComponent implements OnInit {
       this.loading = false
 
       // this.router.navigate(['dashboard'])
-    } else this.validateAllFormFields(this.postForm)
+    } else this.showError = true
+    // else this.validateAllFormFields(this.postForm)
   }
 }

@@ -7,15 +7,28 @@
     <div class="flex justify-between mb-10">
       <div class="flex gap-2 items-center">
         <img
-          class="h-20"
-          src="../../../assets/no-profile.png"
+          class="h-20 w-20 rounded-full"
+          [src]="
+            user?.img_url ? user?.img_url : '../../../assets/no-profile.png'
+          "
           alt="profile picture of the user"
         />
         <p class="text-gray-600">Glenn Troncquo</p>
       </div>
       <div class="flex flex-col sm:flex-row gap-2 items-center">
-        <app-button type="button" name="Discard"></app-button>
+        <app-button
+          (click)="discardChanges()"
+          type="button"
+          name="Discard"
+        ></app-button>
         <app-button type="submit" name="Publish"></app-button>
+      </div>
+    </div>
+
+    <div class="flex gap-1">
+      <span *ngIf="showError" @bounceIn>❗</span>
+      <div class="text-gray-400" *ngIf="showError" @slideIn>
+        Not all fields have a value
       </div>
     </div>
 
@@ -74,7 +87,25 @@
         class="w-full h-48 flex justify-center items-center border-dashed border-2"
         for="file-upload"
       >
-        <div>{{ fileName }}</div>
+        <div *ngIf="!fileName" class="flex gap-2">
+          <svg
+            class="text-gray-300 stroke-current items-center"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 8l-5-5-5 5M12 4.2v10.3"
+            />
+          </svg>
+          <p class="text-gray-300 flex items-center">Click to add a photo</p>
+        </div>
+        <div *ngIf="fileName">{{ fileName }}</div>
       </label>
     </div>
   </form>
