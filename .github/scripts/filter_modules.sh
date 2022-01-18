@@ -27,6 +27,8 @@ then
     git add .
     git commit -m "restore modules from $PARENT_BRANCH because of test failures."
     git push origin $NEW_BRANCH
+
+    touch do_pr
     
 
 else
