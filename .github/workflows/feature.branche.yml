@@ -1,28 +1,3 @@
-# name: Filter Modules Workflow
-
-# on:
-#   push:
-#     branches: [feature/**]
-#   pull_request:
-#     branches: [feature/**]
-
-# jobs:
-#   filter_modules:
-#     name: Run Angular testing and filter Modules with testing errors
-#     runs-on: ubuntu-latest
-#     continue-on-error: true
-#     steps:
-#       - name: Checkout repository
-#       - uses: actions/checkout@v2
-
-#       - name: Use Node.js 14.15
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 14.15
-
-#       - name: Project Setup
-#         run: npm ci
-
 name: Filter Modules Workflow
 
 on:
@@ -47,3 +22,6 @@ jobs:
 
       - name: Setup
         run: npm ci
+
+      - name: Get current branch name
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
