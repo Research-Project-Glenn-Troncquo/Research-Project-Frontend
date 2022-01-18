@@ -56,11 +56,17 @@ jobs:
         with:
           files: 'do_pr'
 
+
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
-          echo "PR_TITLE=[ $NEW_BRANCH ] Modules that passes in all tests" $GITHUB_ENV
+          echo "PR_TITLE=[ $NEW_BRANCH ] Modules that passes in all tests" >> $GITHUB_ENV
           rm do_pr
+
+      - name: Debug NEW_BRANCH
+        run: echo ${{ env.PR_TITLE }}
+
+
 
       - name: pull-request-action
         if: steps.check_files.outputs.files_exists == 'true'
