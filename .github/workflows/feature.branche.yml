@@ -28,3 +28,9 @@ jobs:
 
       - name: Debug
         run: echo ${{ env.NEW_BRANCH }}
+
+      - name: Set TIMESTAMP
+        run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Debug
+        run: echo ${{ env.TIMESTAMP }}
