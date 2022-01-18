@@ -55,26 +55,26 @@
                 <img
                   class="w-8 h-8 rounded-full"
                   [src]="
-                    user!.user!.img_url
-                      ? user!.user!.img_url
+                    user!.img_url
+                      ? user!.img_url
                       : '../../../assets/no-profile.png'
                   "
                   alt="profile picture of the user"
                 />
                 <div>
                   <h3 class="text-sm text-gray-700 font-semibold">
-                    {{ user!.user!.username! }}
+                    {{ user!.username! }}
                   </h3>
                   <p
                     class="text-sm text-gray-400 break-words overflow-hidden w-full"
                   >
-                    {{ user!.user!.name! | titlecase }}
-                    {{ user!.user!.lastname! | titlecase }}
+                    {{ user!.name! | titlecase }}
+                    {{ user!.lastname! | titlecase }}
                   </p>
                 </div>
               </li>
 
-              <ul *ngIf="searchedUsers.length > 0">
+              <!-- <ul *ngIf="searchedUsers.length > 0"> -->
                 <li
                   class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
                   *ngFor="let searchedUser of searchedUsers"
@@ -100,7 +100,8 @@
                     </p>
                   </div>
                 </li>
-              </ul>
+              <!-- </ul> -->
+
             </ul>
           </div>
         </li>

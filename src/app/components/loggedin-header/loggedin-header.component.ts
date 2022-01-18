@@ -16,7 +16,7 @@ export class LoggedinHeaderComponent implements OnInit {
   searchingUsers: boolean = false
   searchedUsers: User[] = []
 
-  get usersFollowing() {
+  get usersFollowing(): User[] {
     const usersFollowingArr = this.user.isfollowing?.filter((element) => {
       return element!.user!.username!.includes(this.searchValue) ||
         element!.user!.name!.includes(this.searchValue) ||
@@ -25,7 +25,11 @@ export class LoggedinHeaderComponent implements OnInit {
         : null
     })
 
-    return this.searchValue ? usersFollowingArr : []
+    return this.searchValue
+      ? usersFollowingArr!.map(
+          ({ isfollowing_id, user_id, ...keepAttrs }) => keepAttrs.user!
+        )
+      : []
   }
   constructor(
     private dataService: DataService,
@@ -35,7 +39,7 @@ export class LoggedinHeaderComponent implements OnInit {
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.user = user
-      console.log(this.user.isfollowing)
+      // console.log(this.user.isfollowing)
     })
   }
 
@@ -58,9 +62,21 @@ export class LoggedinHeaderComponent implements OnInit {
         await this.authService.user.getIdToken()
       )
       .subscribe((res: User[]) => {
-        console.log(res)
-        if (res.length > 0) this.searchedUsers = res
-        this.searchingUsers = true
+        // if (res.length > 0)
+        //   this.searchedUsers = res.filter((user: any) => !this.usersFollowing?.includes(user)
+        //   )
+        this.searchedUsers = []
+
+        const results = res!.filter(
+          ({ user_id: id1 }) =>
+            !this.usersFollowing!.some(({ user_id: id2 }) => id2 === id1)
+        )
+
+        for (const user of results) {
+          this.searchedUsers.push(user)
+        }
+
+        this.searchingUsers = false
       })
   }
 }

@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from 'src/app/auth/firebase.service'
+import { DataService } from 'src/app/data.service'
 import { HttpService } from 'src/app/http/http.service'
 import { Post } from 'src/app/interface/post'
+import { User } from 'src/app/interface/user'
 
 @Component({
   selector: 'app-addpost',
@@ -13,12 +15,18 @@ import { Post } from 'src/app/interface/post'
 export class AddpostComponent implements OnInit {
   loading: boolean = false
   fileData: any
+  user: User = {}
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private firebaseSerive: AuthService,
-    private httpService: HttpService
-  ) {}
+    private httpService: HttpService,
+    private dataService: DataService
+  ) {
+    this.dataService.currentUser.subscribe((user) => {
+      this.user = user
+    })
+  }
 
   ngOnInit(): void {}
 
@@ -67,7 +75,7 @@ export class AddpostComponent implements OnInit {
 
   async onSubmit() {
     if (this.postForm.valid) {
-      console.log(this.fileName?.value)
+      // console.log(this.fileName?.value)
       this.loading = true
 
       // const res = await this.authService.register(user)
@@ -76,15 +84,15 @@ export class AddpostComponent implements OnInit {
       //   ? (this.errorMsg = res.errorMsg)
       //   : await this.authService.loginId(res.token)
 
-      console.log(this.fileData)
-      console.log(this.file?.value)
+      // console.log(this.fileData)
+      // console.log(this.file?.value)
 
       const url = await this.firebaseSerive.fileUpload(
         this.fileData,
         `post-pictures`
       )
 
-      console.log(url)
+      // console.log(url)
 
       const post: Post = {
         title: this.title!.value,
@@ -97,7 +105,7 @@ export class AddpostComponent implements OnInit {
         post,
         await this.firebaseSerive.user.getIdToken()
       )
-      console.log(test)
+      // console.log(test)
 
       this.loading = false
 
