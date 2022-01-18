@@ -14,7 +14,7 @@ then
 
     while read module; do
         echo "restore module $module from $PARENT_BRANCH if there are errors"
-        sh -c "git checkout origin/$PARENT_BRANCH -- $module "
+        sh -c "git checkout origin/$PAREN_BRANCH -- $module "
     done <modules.tmp.txt
 
     
