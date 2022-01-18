@@ -47,5 +47,5 @@ jobs:
       - name: Debug NEW_BRANCH
         run: echo ${{ env.NEW_BRANCH }}
 
-      - name: Test to see if scripts run
+      - name: Script that filters the Modules with testing errors
         run: .github/scripts/filter_modules.sh
