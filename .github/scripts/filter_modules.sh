@@ -1,5 +1,10 @@
 #!/bin/bash
 
+remove_temporary_files(){
+    echo "removing temporary files"
+    rm *.tmp.txt
+}
+
 npm run test:unit > report.tmp.txt
 # cat report.tmp.txt
 grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt > modules.tmp.txt
@@ -17,9 +22,7 @@ then
         sh -c "git checkout origin/$PARENT_BRANCH -- $module "
     done <modules.tmp.txt
 
-    echo "removing temporary files"
-    rm *.tmp.txt
-
+    remove_temporary_files
     
 
 else
