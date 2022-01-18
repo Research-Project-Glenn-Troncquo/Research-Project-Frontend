@@ -5,9 +5,9 @@ name: Anguler CI Develop branch
 
 on:
   push:
-    branches: [develop]
+    branches: [feature/**]
   pull_request:
-    branches: [develop]
+    branches: [feature/**]
 
 jobs:
   build_angular:
