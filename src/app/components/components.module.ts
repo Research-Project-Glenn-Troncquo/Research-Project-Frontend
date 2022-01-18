@@ -10,7 +10,8 @@ import { LoggedinHeaderComponent } from './loggedin-header/loggedin-header.compo
 import { PostComponent } from './post/post.component'
 import { PostCommentComponent } from './post-comment/post-comment.component'
 import { LikeCommentComponent } from './like-comment/like-comment.component'
-import { PostGhostComponent } from './post-ghost/post-ghost.component'
+import { PostGhostComponent } from './post-ghost/post-ghost.component';
+import { FollowButtonComponent } from './follow-button/follow-button.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PostGhostComponent } from './post-ghost/post-ghost.component'
     PostCommentComponent,
     LikeCommentComponent,
     PostGhostComponent,
+    FollowButtonComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
   exports: [

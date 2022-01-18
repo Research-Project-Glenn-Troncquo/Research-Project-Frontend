@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Component, Input, OnInit } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { DataService } from 'src/app/data.service'
 import { HttpService } from 'src/app/http/http.service'
@@ -16,8 +16,10 @@ export class LoggedinHeaderComponent implements OnInit {
   searchingUsers: boolean = false
   searchedUsers: User[] = []
   showSidebar: boolean = false
+  @Input() searchPage: boolean = false
 
   get usersFollowing(): User[] {
+    console.log(this.user.isfollowing)
     const usersFollowingArr = this.user.isfollowing?.filter((element) => {
       return element!.user!.username!.includes(this.searchValue) ||
         element!.user!.name!.includes(this.searchValue) ||
@@ -36,7 +38,8 @@ export class LoggedinHeaderComponent implements OnInit {
     private dataService: DataService,
     public authService: AuthService,
     public router: Router,
-    public httpService: HttpService
+    public httpService: HttpService,
+    private route: ActivatedRoute
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.user = user
@@ -63,9 +66,7 @@ export class LoggedinHeaderComponent implements OnInit {
         await this.authService.user.getIdToken()
       )
       .subscribe((res: User[]) => {
-        // if (res.length > 0)
-        //   this.searchedUsers = res.filter((user: any) => !this.usersFollowing?.includes(user)
-        //   )
+        this.dataService.changeSearchResults(res)
         this.searchedUsers = []
 
         const results = res!.filter(
@@ -79,5 +80,9 @@ export class LoggedinHeaderComponent implements OnInit {
 
         this.searchingUsers = false
       })
+  }
+
+  handleEnter() {
+    this.router.navigate(['search'])
   }
 }

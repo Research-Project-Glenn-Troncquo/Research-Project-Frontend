@@ -45,7 +45,6 @@ export const routes: Routes = [
     component: AddpostComponent,
     canActivate: [AuthGuard],
     pathMatch: 'full',
-    data: { animation: 'Post' },
   },
   {
     path: 'activity/:id',
@@ -54,6 +53,11 @@ export const routes: Routes = [
   },
   {
     path: 'search',
+    component: SearchComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'search/:id',
     component: SearchComponent,
     canActivate: [AuthGuard],
   },

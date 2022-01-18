@@ -15,7 +15,7 @@ export const slider = trigger('routeAnimations', [
   transition('isLeft => isMiddle', slideTo('right')),
   transition('isLeft => isRight', slideTo('left')),
   transition('isRight => isLeft', slideTo('right')),
-  transition('Dashboard => *', fade2()),
+  // transition('Dashboard => *', fade2()),
   transition('* <=> *', fade2()),
 ])
 
@@ -117,7 +117,7 @@ function fade2() {
     //   ':leave',
     //   [
     //     style({ position: 'absolute', top: 0, width: '100%', opacity: 1 }),
-    //     stagger('10000', [animate('0.5s ease-out', style({ opacity: 0 }))]),
+    //     stagger('0', [animate('50ms ease-out', style({ opacity: 0 }))]),
     //   ],
     //   { optional: true }
     // ),
