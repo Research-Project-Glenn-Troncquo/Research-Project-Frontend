@@ -13,7 +13,7 @@ then
     git checkout -b $NEW_BRANCH
 
     while read module; do
-        echo "in this module: $module there are testing errors"
+        echo "restore module $module from $PAREN_BRANCH if there are errors"
     done <modules.report.txt
 
 else
