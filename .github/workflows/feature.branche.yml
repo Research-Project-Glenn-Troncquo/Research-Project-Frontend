@@ -23,8 +23,8 @@ jobs:
       - name: Setup
         run: npm ci
 
-      - name: Get current branch name
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+      - name: Set NEW_BRANCH
+        run: echo "NEW_BRANCH=${CURRENT_BRANCH}_SUCCESS_${TIMESTAMP}" >> $GITHUB_ENV
 
       - name: Debug
-        run: echo ${{ env.BRANCH_NAME }}
+        run: echo ${{ env.NEW_BRANCH }}
