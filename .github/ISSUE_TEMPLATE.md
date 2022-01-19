@@ -1,3 +1,5 @@
-title: Testing error
-assignees: Glenn
-labels: bug, enhancement
+---
+title: Hello {{ env.CURRENT_BRANCH }}
+---
+
+Environment variable {{ env.CURRENT_BRANCH }} is great.
