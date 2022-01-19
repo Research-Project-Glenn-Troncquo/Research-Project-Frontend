@@ -3,7 +3,7 @@
     <app-header></app-header>
   </div>
   <div *ngIf="!notLoggedInHeader" class="sticky top-0 z-10">
-    <app-loggedin-header></app-loggedin-header>
+    <app-loggedin-header [searchPage]="searchPage"></app-loggedin-header>
   </div>
 
   <app-loading [loading]="loading"></app-loading>

@@ -36,7 +36,7 @@ import { Facts } from 'src/app/interface/facts'
   ],
 })
 export class DashboardComponent implements OnInit {
-  posts?: Post[]
+  posts: Post[] = []
   user: User = {}
   latestPost?: Post
   postsLoading: boolean = true
@@ -89,13 +89,13 @@ export class DashboardComponent implements OnInit {
       })
   }
 
-  async getUser() {
-    this.httpService
-      .Get('user', await this.authService.user.getIdToken())
-      .subscribe((res) => {
-        this.user = res
-      })
-  }
+  // async getUser() {
+  //   this.httpService
+  //     .Get('user', await this.authService.user.getIdToken())
+  //     .subscribe((res) => {
+  //       this.user = res
+  //     })
+  // }
 
   async getFacts() {
     this.httpService.Get('facts').subscribe((res) => {

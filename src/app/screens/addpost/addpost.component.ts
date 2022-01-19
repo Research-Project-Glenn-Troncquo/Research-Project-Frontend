@@ -1,24 +1,63 @@
+import {
+  animate,
+  keyframes,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from 'src/app/auth/firebase.service'
+import { DataService } from 'src/app/data.service'
 import { HttpService } from 'src/app/http/http.service'
 import { Post } from 'src/app/interface/post'
+import { User } from 'src/app/interface/user'
 
 @Component({
   selector: 'app-addpost',
   templateUrl: './addpost.component.html',
   styleUrls: ['./addpost.component.scss'],
+  animations: [
+    trigger('slideIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-15px)' }),
+        animate('150ms', style({ opacity: 1, transform: 'translateX(0px)' })),
+      ]),
+      transition(':leave', [animate('300ms', style({ opacity: 0 }))]),
+    ]),
+    trigger('bounceIn', [
+      transition(':enter', [
+        animate(
+          '0.3s',
+          keyframes([
+            style({ transform: 'scale(0) ' }),
+            style({ transform: 'scale(2) ' }),
+            style({ transform: 'scale(1) ' }),
+          ])
+        ),
+      ]),
+      transition(':leave', [animate('300ms', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class AddpostComponent implements OnInit {
   loading: boolean = false
   fileData: any
+  user: User = {}
+  showError: boolean = false
+  submitting: boolean = false
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private firebaseSerive: AuthService,
-    private httpService: HttpService
-  ) {}
+    private httpService: HttpService,
+    private dataService: DataService
+  ) {
+    this.dataService.currentUser.subscribe((user) => {
+      this.user = user
+    })
+  }
 
   ngOnInit(): void {}
 
@@ -42,7 +81,17 @@ export class AddpostComponent implements OnInit {
   }
 
   get fileName() {
-    return this.file?.value.toString().replace(`C:\\fakepath\\`, '')
+    try {
+      return this.file
+        ? this.file?.value.toString().replace(`C:\\fakepath\\`, '')
+        : ''
+    } catch (error) {
+      return ''
+    }
+  }
+
+  discardChanges() {
+    this.postForm.reset()
   }
 
   onFileSelected(event: any) {
@@ -66,9 +115,11 @@ export class AddpostComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.loading = true
+
     if (this.postForm.valid) {
-      console.log(this.fileName?.value)
-      this.loading = true
+      this.showError = false
+      // console.log(this.fileName?.value)
 
       // const res = await this.authService.register(user)
 
@@ -76,15 +127,15 @@ export class AddpostComponent implements OnInit {
       //   ? (this.errorMsg = res.errorMsg)
       //   : await this.authService.loginId(res.token)
 
-      console.log(this.fileData)
-      console.log(this.file?.value)
+      // console.log(this.fileData)
+      // console.log(this.file?.value)
 
       const url = await this.firebaseSerive.fileUpload(
         this.fileData,
         `post-pictures`
       )
 
-      console.log(url)
+      // console.log(url)
 
       const post: Post = {
         title: this.title!.value,
@@ -97,11 +148,15 @@ export class AddpostComponent implements OnInit {
         post,
         await this.firebaseSerive.user.getIdToken()
       )
-      console.log(test)
+      // console.log(test)
 
       this.loading = false
 
-      // this.router.navigate(['dashboard'])
-    } else this.validateAllFormFields(this.postForm)
+      this.router.navigate(['dashboard'])
+    } else {
+      this.showError = true
+      this.loading = false
+    }
+    // else this.validateAllFormFields(this.postForm)
   }
 }

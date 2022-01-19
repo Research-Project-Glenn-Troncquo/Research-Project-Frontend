@@ -8,6 +8,7 @@ import { HomeComponent } from './screens/home/home.component'
 import { LoadingComponent } from './screens/loading/loading.component'
 import { LoginComponent } from './screens/login/login.component'
 import { RegisterComponent } from './screens/register/register.component'
+import { SearchComponent } from './screens/search/search.component'
 
 export const routes: Routes = [
   {
@@ -44,11 +45,20 @@ export const routes: Routes = [
     component: AddpostComponent,
     canActivate: [AuthGuard],
     pathMatch: 'full',
-    data: { animation: 'Post' },
   },
   {
     path: 'activity/:id',
     component: ActivityComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'search/:id',
+    component: SearchComponent,
     canActivate: [AuthGuard],
   },
   {

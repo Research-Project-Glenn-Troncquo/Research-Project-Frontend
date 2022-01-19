@@ -11,6 +11,7 @@ import { AuthService } from './auth/firebase.service'
   animations: [slider],
 })
 export class AppComponent {
+  searchPage: boolean = false
   loading = true
 
   get notLoggedInHeader(): boolean {
@@ -22,6 +23,11 @@ export class AppComponent {
   }
 
   constructor(private authService: AuthService, private router: Router) {
+    this.router.events.subscribe((val) => {
+      this.router.url === '/search'
+        ? (this.searchPage = true)
+        : (this.searchPage = false)
+    })
     this.authService.onLoadingState.subscribe((loadingState) => {
       this.loading = loadingState
       this.authService.onLoadingState.unsubscribe()

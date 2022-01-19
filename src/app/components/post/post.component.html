@@ -113,11 +113,11 @@
       <div
         @fadeIn
         *ngFor="let comment of post.comments"
-        class="flex gap-2 mb-2"
+        class="flex gap-2 mb-2 items-center"
       >
         <div class="w-[34px]">
           <img
-            class="h-6 w-6 mt-[2px] rounded-full"
+            class="h-6 w-6 rounded-full"
             [src]="
               comment.user?.img_url
                 ? comment.user?.img_url
