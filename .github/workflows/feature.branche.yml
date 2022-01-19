@@ -58,11 +58,20 @@ jobs:
       - name: Debug ISSUE_DESCRIPTION
         run: echo "${{ secrets.ISSUE_DESCRIPTION }}"
 
-      - name: Make Issue if file exists
-        if: steps.check_files.outputs.files_exists == 'true'
-        uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Make Issue if file exists
+      #   if: steps.check_files.outputs.files_exists == 'true'
+      #   uses: JasonEtco/create-an-issue@v2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: bramiller1989/issue-action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: Issue in ${{ env.CURRENT_BRANCH }}
+        body: ${{ env.ISSUE_DESCRIPTION }}
+        assignees: |
+          bramiller
+          bramiller1989
+
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
