@@ -140,7 +140,7 @@ describe('Home Component', () => {
         fakeRouterState(fakeUrl)
       )
 
-      expect(canActivate).toBeTrue()
+      expect(canActivate).toBeFalse()
     })
 
     it('register button click should go to register page when the user is logged out', () => {
