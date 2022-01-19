@@ -63,14 +63,15 @@ jobs:
       #   uses: JasonEtco/create-an-issue@v2
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Open New GitHub Issue
-        uses: fullStackMiller/open-issue@v1.0.1
+      - name: make issue
+        uses: rishabhgupta/git-action-issue@v2
+        id: Issue
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: Issue in ${{ env.CURRENT_BRANCH }}
-          body: ${{ env.ISSUE_DESCRIPTION }}
-          assignees: |
-            bramiller1989
+          title: Title
+          body: body
+          assignees: 'rishabhgupta'
+    
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
