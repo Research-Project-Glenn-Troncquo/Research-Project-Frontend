@@ -70,9 +70,7 @@ jobs:
           title: Issue in ${{ env.CURRENT_BRANCH }}
           body: ${{ env.ISSUE_DESCRIPTION }}
           assignees: |
-            bramiller
             bramiller1989
-
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
