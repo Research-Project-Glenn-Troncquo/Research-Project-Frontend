@@ -72,8 +72,7 @@ jobs:
           repo-name: Research-Project-Frontend
           issue-title: Custom title for new ISSUE
           issue-body: Custom message for new ISSUE
-          issue-labels: bug # Not mandatory
-          issue-assignees: <username> # Not mandatory
+   
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
