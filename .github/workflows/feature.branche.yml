@@ -8,7 +8,7 @@ on:
 
 jobs:
   filter_modules:
-    name: Run Angular testing and filter Modules with testing errors
+    name: Filter Modules with testing errors
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -46,15 +46,14 @@ jobs:
 
       - name: echo do_pr.txt
         if: steps.check_files.outputs.files_exists == 'true'
-        run: echo "ISSUE_DESCRIPTION=${{ steps.package.outputs.content }}" >> $GITHUB_ENV
+        run: echo "NEW_BRANCH= cat do_pr.txt" >> $GITHUB_ENV
+
+      - name: debug
+        run: echo $GITHUB_ENV
 
       - name: echo do_pr.txt
         if: steps.check_files.outputs.files_exists == 'true'
-        run: echo "${{ steps.package.outputs.content }}"
-
-      - name: echo do_pr.txt
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: echo cat do_pr.txt
+        run: cat do_pr.txt
 
       - name: Debug ISSUE_DESCRIPTION
         run: echo "${{ secrets.ISSUE_DESCRIPTION }}"
