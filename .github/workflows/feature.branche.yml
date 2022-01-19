@@ -63,8 +63,8 @@ jobs:
       #   uses: JasonEtco/create-an-issue@v2
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Debug ISSUE_DESCRIPTION
-        uses: bramiller1989/issue-action@v1
+      - name: Open New GitHub Issue
+        uses: fullStackMiller/open-issue@v1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Issue in ${{ env.CURRENT_BRANCH }}
