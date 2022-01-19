@@ -17,7 +17,7 @@ import { ComponentsModule } from 'src/app/components/components.module'
 import { AuthGuard } from 'src/app/auth/auth.guard'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { LottieModule } from 'ngx-lottie'
-import { playerFactory } from 'src/app/services/lottie.player.service'
+import { playerFactory } from './home.module'
 
 describe('Home Component', () => {
   let component: HomeComponent
