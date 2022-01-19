@@ -81,7 +81,13 @@ export class AddpostComponent implements OnInit {
   }
 
   get fileName() {
-    return this.file?.value.toString().replace(`C:\\fakepath\\`, '')
+    try {
+      return this.file
+        ? this.file?.value.toString().replace(`C:\\fakepath\\`, '')
+        : ''
+    } catch (error) {
+      return ''
+    }
   }
 
   discardChanges() {

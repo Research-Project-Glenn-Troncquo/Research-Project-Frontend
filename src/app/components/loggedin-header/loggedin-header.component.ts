@@ -19,7 +19,7 @@ export class LoggedinHeaderComponent implements OnInit {
   @Input() searchPage: boolean = false
 
   get usersFollowing(): User[] {
-    console.log(this.user.isfollowing)
+    // console.log(this.user.isfollowing)
     const usersFollowingArr = this.user.isfollowing?.filter((element) => {
       return element!.user!.username!.includes(this.searchValue) ||
         element!.user!.name!.includes(this.searchValue) ||

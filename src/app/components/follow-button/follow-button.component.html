@@ -1,1 +1,53 @@
-<p>follow-button works!</p>
+<button
+  *ngIf="testFunction(inputUser!); else notFollowing"
+  class="p-2 px-4 rounded-sm text-gray-700 bg-white border-2 w-24 flex justify-center items-center h-10"
+  (click)="unfollowUser(inputUser!)"
+>
+  <svg
+    *ngIf="unfollowingLoading"
+    class="h-5 w-5 block animate-spin text-gray-300 stroke-current"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle class="opacity-25" cx="12" cy="12" r="10" stroke-width="4"></circle>
+    <path
+      class="opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+    ></path>
+  </svg>
+  <p *ngIf="!unfollowingLoading">Following</p>
+</button>
+
+<ng-template #notFollowing>
+  <button
+    class="p-2 px-4 rounded-sm bg-p-orange text-white w-20 flex justify-center items-center h-10"
+    #notFollowing
+    (click)="followUser(inputUser!)"
+  >
+    <svg
+      *ngIf="followingLoading"
+      class="h-5 w-5 text-white block animate-spin"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      ></path>
+    </svg>
+
+    <p *ngIf="!followingLoading">Follow</p>
+  </button>
+</ng-template>
