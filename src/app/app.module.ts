@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { HomeModule } from './screens/home/home.module'
+// import { HomeModule } from './screens/home/home.module'
 import { LoginModule } from './screens/login/login.module'
 import { RegisterModule } from './screens/register/register.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { ActivityComponent } from './screens/activity/activity.component'
 import { LoadingModule } from './screens/loading/loading.module'
 import { SearchComponent } from './screens/search/search.component'
+import { HomeModule } from './screens/home/home.module'
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { SearchComponent } from './screens/search/search.component'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
+
     ComponentsModule,
     HomeModule,
     LoginModule,

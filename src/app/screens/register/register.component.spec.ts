@@ -114,13 +114,6 @@ describe('RegisterComponent', () => {
 
     // it('onClick call google login function', () => {})
   })
-  it('should have an h3 tag of `Log in`', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Sign up')
-  })
-
-  it('should have an h3 tag of `Log in`', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Sign up')
-  })
 
   it('should have a label tag of `Name` and an input', () => {
     expect(de.query(By.css('label[for=name]')).nativeElement.innerText).toBe(
@@ -136,10 +129,6 @@ describe('RegisterComponent', () => {
     ).toBe('Last Name')
 
     expect(de.queryAll(By.css('input'))[1].nativeElement).toBeDefined()
-  })
-
-  it('should have an h3 tag of `Log in`', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Sign up')
   })
 
   it('should have a label tag of `Username` and an input', () => {
@@ -163,10 +152,6 @@ describe('RegisterComponent', () => {
       de.query(By.css('label[for=password-input]')).nativeElement.innerText
     ).toBe('Password')
     expect(de.queryAll(By.css('input'))[4].nativeElement).toBeDefined()
-  })
-
-  it('should have an h3 tag of `Log in`', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Sign up')
   })
 
   it('should have a label tag of `Confirm Password` and an input', () => {
@@ -215,13 +200,6 @@ describe('RegisterComponent', () => {
         de.queryAll(By.css('app-input-error'))[9].nativeElement.innerText
       ).toContain('Please fill in an email')
     })
-  })
-  it('should have an h3 tag of `Log in`', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Sign up')
-  })
-
-  it('should have an h3 tag of `Log in`', () => {
-    expect(de.query(By.css('h3')).nativeElement.innerText).toBe('Sign up')
   })
 
   //   describe('Password', () => {
