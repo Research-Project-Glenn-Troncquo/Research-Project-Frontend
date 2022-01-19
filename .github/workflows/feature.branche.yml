@@ -68,7 +68,7 @@ jobs:
         uses: GuillaumeFalourd/open-issue-action@v1
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-owner: GuillaumeFalourd
+          repo-owner: Research-Project-Glenn-Troncquo
           repo-name: Research-Project-Frontend
           issue-title: Custom title for new ISSUE
           issue-body: Custom message for new ISSUE
