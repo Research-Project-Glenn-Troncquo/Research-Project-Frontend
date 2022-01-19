@@ -32,10 +32,10 @@ import { SearchComponent } from './screens/search/search.component'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ComponentsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    
+    ComponentsModule,
     HomeModule,
     LoginModule,
     RegisterModule,
