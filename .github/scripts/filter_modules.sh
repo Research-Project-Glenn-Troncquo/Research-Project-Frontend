@@ -9,6 +9,7 @@ npm run test:unit > report.tmp.txt 2> /dev/null &
 wait
 cat report.tmp.txt
 grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
+
 cat modules.tmp.txt
 
 if [[ -f "modules.tmp.txt" && -s "modules.tmp.txt" ]];
@@ -23,8 +24,6 @@ then
         sh -c "git checkout origin/$PARENT_BRANCH -- $module "
     done <modules.tmp.txt
 
-    remove_temporary_files
-
     git config --global user.email "github_actions"
     git config --global user.name "github_actions"
 
@@ -32,7 +31,10 @@ then
     git commit -m "restore modules from $PARENT_BRANCH because of test failures."
     git push origin $NEW_BRANCH
 
-    touch do_pr 
+    # touch do_pr 
+    grep -E -o "[^)]+FAILED[^)]" report.tmp.txt > do_pr.txt
+
+    remove_temporary_files
 
 else
     
