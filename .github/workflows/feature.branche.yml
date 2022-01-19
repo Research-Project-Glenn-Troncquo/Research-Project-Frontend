@@ -63,15 +63,17 @@ jobs:
       #   uses: JasonEtco/create-an-issue@v2
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: make issue
-        uses: rishabhgupta/git-action-issue@v2
-        id: Issue
+      - name: Open new ISSUE on GuillaumeFalourd/poc-github-actions repository
+        # if: contains(github.event.label.name , 'documentation')
+        uses: GuillaumeFalourd/open-issue-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: Title
-          body: body
-          assignees: 'rishabhgupta'
-    
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-owner: GuillaumeFalourd
+          repo-name: Research-Project-Frontend
+          issue-title: Custom title for new ISSUE
+          issue-body: Custom message for new ISSUE
+          issue-labels: bug # Not mandatory
+          issue-assignees: <username> # Not mandatory
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
