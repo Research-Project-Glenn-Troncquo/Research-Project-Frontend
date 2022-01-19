@@ -47,6 +47,9 @@ jobs:
       - name: echo do_pr.txt
         if: steps.check_files.outputs.files_exists == 'true'
         run: echo "ISSUE_DESCRIPTION=${{ steps.package.outputs.content }}" >> $GITHUB_ENV
+
+      - name: echo do_pr.txt
+        if: steps.check_files.outputs.files_exists == 'true'
         run: echo "${{ steps.package.outputs.content }}"
 
       - name: Debug ISSUE_DESCRIPTION
