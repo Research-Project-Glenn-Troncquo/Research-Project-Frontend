@@ -46,7 +46,7 @@ jobs:
 
       - name: echo do_pr.txt
         if: steps.check_files.outputs.files_exists == 'true'
-        run: echo "NEW_BRANCH= cat do_pr.txt" >> $GITHUB_ENV
+        run: echo "ISSUE_DESCRIPTION=$(cat do_pr.txt)" >> $GITHUB_ENV
 
       - name: debug
         run: echo $GITHUB_ENV
