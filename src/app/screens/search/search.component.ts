@@ -1,15 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations'
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { AuthService } from 'src/app/auth/firebase.service'
+import { DataService } from 'src/app/data.service'
+import { HttpService } from 'src/app/http/http.service'
+import { IsFollowing } from 'src/app/interface/isfollowing'
+import { User } from 'src/app/interface/user'
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* <=> *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            stagger('150ms', animate('300ms ease-out', style({ opacity: 1 }))),
+          ],
+          { optional: true }
+        ),
+        query(
+          ':leave',
+          animate('0ms', style({ opacity: 0, position: 'absolute' })),
+          {
+            optional: true,
+          }
+        ),
+      ]),
+    ]),
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('300ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('0ms', style({ opacity: 0, position: 'absolute' })),
+      ]),
+    ]),
+  ],
 })
 export class SearchComponent implements OnInit {
+  // user: User = {}
+  results: boolean = false
 
-  constructor() { }
-
-  ngOnInit(): void {
+  searchResults: User[] = []
+  constructor(private route: ActivatedRoute, private dataService: DataService) {
+    this.dataService.searchResults.subscribe((users: User[]) => {
+      this.searchResults = users
+    })
+    
   }
 
+  ngOnInit(): void {
+    console.log(this.route.snapshot.params['id'])
+  }
 }
