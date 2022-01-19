@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { LottieModule } from 'ngx-lottie'
-import { playerFactory } from '../home/home.module'
+import { playerFactory } from 'src/app/services/lottie.player.service'
 
 import { LoadingComponent } from './loading.component'
 
