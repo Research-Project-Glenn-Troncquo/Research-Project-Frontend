@@ -34,6 +34,8 @@ then
     # touch do_pr 
     grep -E -o "[^)]+FAILED[^)]" report.tmp.txt > do_pr.txt
 
+    cat do_pr.txt
+
     remove_temporary_files
 
 else
