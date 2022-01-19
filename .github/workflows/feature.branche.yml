@@ -77,14 +77,11 @@ jobs:
           issue-title: Custom title for new ISSUE
           issue-body: Custom message for new ISSUE
 
-      - name: Send Issue to Trello
-          runs-on: ubuntu-latest
-          steps:
-            - name: Runs trello manage
-              uses: sisodiya2421/trello-manage@master
-              with:
-                repo-name: ${{ github.repository }}
-                trello-username: ${{ secrets.TRELLO_USERNAME }}
+      - name: Runs trello manage
+        uses: sisodiya2421/trello-manage@master
+          with:
+            repo-name: ${{ github.repository }}
+            trello-username: ${{ secrets.TRELLO_USERNAME }}
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
