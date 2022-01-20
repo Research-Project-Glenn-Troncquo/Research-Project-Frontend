@@ -202,7 +202,7 @@
       </div>
     </div>
 
-    <div class="md:max-w-sm w-auto justify-center">
+    <div class="md:max-w-sm w-auto justify-center md:min-w-[272px]">
       <div class="h-full flex items-center bg-black">
         <img
           class="max-w-full md:max-h-full md:min-w[250px] max-h-80 md:my-auto md:mx-0 postoverlay-img mx-auto object-cover"
@@ -371,7 +371,7 @@
             <div>
               <p
                 class="text-p-orange cursor-pointer hover:bg-yellow-600 hover:bg-opacity-20 rounded-md px-4 flex justify-center items-center py-1"
-                (click)="handleComment()"
+                (click)="handleComment(activePost!)"
               >
                 Post
               </p>

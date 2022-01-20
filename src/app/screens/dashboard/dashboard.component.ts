@@ -47,6 +47,7 @@ export class DashboardComponent implements OnInit {
   unfollowingLoading: boolean = false
   emojiOverlay: boolean = false
   facts: Facts[] = []
+  textAreaValue: string = ''
 
   constructor(
     public authService: AuthService,
@@ -192,7 +193,20 @@ export class DashboardComponent implements OnInit {
       })
   }
 
-  handleComment() {}
+  async handleComment(post: Post) {
+    if (this.textAreaValue) {
+      this.httpService
+        ?.Post(
+          'comment',
+          { post_id: post.post_id, comment: this.textAreaValue },
+          await this.authService.user.getIdToken()
+        )
+        .subscribe((res) => {
+          post.comments?.push(res)
+          this.textAreaValue = ''
+        })
+    }
+  }
 
   addEmoji(event: any) {
     console.log(event)
