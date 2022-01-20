@@ -24,3 +24,7 @@
 .dropdownsearch:focus ~ div {
   display: block;
 }
+
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}

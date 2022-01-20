@@ -3,7 +3,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
 :root {
   font-family: 'Aileron', 'sans-serif';
   background-color: #e8ded3;
@@ -32,4 +31,9 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: #b8936d;
+}
+
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: #0a4c95 #c2d2e4;
 }
