@@ -52,7 +52,7 @@ import {
           ],
           { optional: true }
         ),
-        query(':leave', animate('100ms', style({ opacity: 0 })), {
+        query(':leave', animate('0ms', style({ opacity: 0 })), {
           optional: true,
         }),
       ]),

@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit {
   emojiOverlay: boolean = false
   facts: Facts[] = []
   textAreaValue: string = ''
+  deletePostOverlay: boolean = false
 
   constructor(
     public authService: AuthService,
@@ -209,12 +210,20 @@ export class DashboardComponent implements OnInit {
   }
 
   addEmoji(event: any) {
-    console.log(event)
+    this.textAreaValue += event.emoji.native
+    // console.log(event.emoji.native)
   }
 
   handleEmojiOverlay() {
-    console.log('clik')
     this.emojiOverlay = !this.emojiOverlay
+  }
+
+  handleDeletePostOverlay() {
+    this.deletePostOverlay = true
+  }
+
+  closeDeletePostOverlay() {
+    this.deletePostOverlay = false
   }
   options: AnimationOptions = {
     path: './assets/beer.json',
