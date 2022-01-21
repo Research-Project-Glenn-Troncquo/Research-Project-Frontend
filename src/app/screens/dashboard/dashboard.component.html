@@ -2,7 +2,10 @@
   <div class="flex gap-8 mt-16 items-start">
     <div class="w-1/4 sticky top-24" *ngIf="!user">Loading user...</div>
 
-    <div class="lg:w-1/4 md:w-1/3 md:block sticky hidden top-28" *ngIf="user">
+    <div
+      class="lg:w-1/4 md:w-1/3 md:block sticky hidden top-28"
+      *ngIf="user.username"
+    >
       <div class="bg-white shadow-md rounded-sm relative">
         <img
           class="profile-img rounded-full h-20 w-20 absolute left-1/2 transform -translate-x-1/2 -top-10 shadow-md"
@@ -21,7 +24,7 @@
             <p
               class="following-count group-hover:text-p-orange transition-all ease-out duration-200"
             >
-              {{ user.isfollowing ? user.isfollowing.length : 0 }}
+              {{ user.isfollowing!.length > 0 ? user.isfollowing!.length : 0 }}
             </p>
           </li>
           <li class="flex flex-col items-center border-r-2 w-1/3">
@@ -37,7 +40,7 @@
             <p
               class="activities-count group-hover:text-p-orange transition-all ease-out duration-200"
             >
-              {{ user.posts!.length > 0 ? user.posts!.length  : 0 }}
+              {{ user.posts!.length > 0 ? user.posts!.length : 0 }}
             </p>
           </li>
         </ul>
