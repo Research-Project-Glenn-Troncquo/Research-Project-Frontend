@@ -78,6 +78,7 @@ export class PostComponent implements OnInit {
   @Input() user!: User
   @Output() emitPostClick = new EventEmitter<Post>()
   @Output() emitLikesClick = new EventEmitter<Post>()
+  @Output() emitDeleteOverlay = new EventEmitter()
 
   loggedInUser: User = {}
   showOverlay: boolean = false

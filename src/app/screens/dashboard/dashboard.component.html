@@ -101,6 +101,7 @@
           <app-post
             (emitPostClick)="handlePostOverlay($event)"
             (emitLikesClick)="handleLikesOverlay($event)"
+            (emitDeleteOverlay)="handleDeletePostOverlay()"
             [user]="post.user!"
             [post]="post"
           ></app-post>
@@ -183,7 +184,7 @@
         </div>
       </div>
 
-      <div>
+      <div (click)="handleDeletePostOverlay()">
         <svg
           class="stroke-current text-gray-400 hover:text-gray-500 cursor-pointer"
           xmlns="http://www.w3.org/2000/svg"

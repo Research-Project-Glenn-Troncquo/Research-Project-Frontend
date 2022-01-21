@@ -219,6 +219,7 @@ export class DashboardComponent implements OnInit {
   }
 
   handleDeletePostOverlay() {
+    console.log('hello')
     this.deletePostOverlay = true
   }
 
