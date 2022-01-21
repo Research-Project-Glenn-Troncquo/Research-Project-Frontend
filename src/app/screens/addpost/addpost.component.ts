@@ -148,7 +148,9 @@ export class AddpostComponent implements OnInit {
         post,
         await this.firebaseSerive.user.getIdToken()
       )
-      // console.log(test)
+      console.log(test)
+
+      this.user.posts?.push(test)
 
       this.loading = false
 

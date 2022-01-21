@@ -9,7 +9,7 @@
       </h3>
 
       <ul
-        class="gap-4 items-center text-gray-600 font-semibold hidden sm:flex h-full"
+        class="gap-4 items-center text-gray-600 font-semibold hidden md:flex h-full"
       >
         <li
           class="relative group h-full flex items-center"
@@ -44,39 +44,13 @@
 
           <div
             class="top-16 left-1/2 transform -translate-x-1/2 w-56 h-auto py-4 bg-white hidden absolute hover:block rounded-md shadow-md scrollbar"
-            *ngIf="usersFollowing!.length > 0 && !searchPage"
+            *ngIf="searchedUsers!.length > 0 && !searchPage"
           >
             <div class="w-56 h-2 absolute z-0 -top-2"></div>
             <div class="dropdowntriangle z-10"></div>
             <ul
               class="flex flex-col items-center overflow-y-auto scrollbar max-h-40"
             >
-              <li
-                class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
-                *ngFor="let user of usersFollowing"
-              >
-                <img
-                  class="w-8 h-8 rounded-full"
-                  [src]="
-                    user!.img_url
-                      ? user!.img_url
-                      : '../../../assets/no-profile.png'
-                  "
-                  alt="profile picture of the user"
-                />
-                <div>
-                  <h3 class="text-sm text-gray-700 font-semibold">
-                    {{ user!.username! }}
-                  </h3>
-                  <p
-                    class="text-sm text-gray-400 break-words overflow-hidden w-full"
-                  >
-                    {{ user!.name! | titlecase }}
-                    {{ user!.lastname! | titlecase }}
-                  </p>
-                </div>
-              </li>
-
               <li
                 class="hover:bg-gray-100 h-12 pl-4 flex gap-2 cursor-pointer items-center w-full text-gray-600"
                 *ngFor="let searchedUser of searchedUsers"
@@ -153,7 +127,7 @@
       </ul>
 
       <div
-        class="transition-all sm:hidden cursor-pointer p-2 text-white bg-gray-400 bg-opacity-20 backdrop-blur-sm rounded-full"
+        class="transition-all md:hidden cursor-pointer p-2 text-white bg-gray-400 bg-opacity-20 backdrop-blur-sm rounded-full"
         (click)="showSidebar = true"
       >
         <svg

@@ -18,22 +18,22 @@ export class LoggedinHeaderComponent implements OnInit {
   showSidebar: boolean = false
   @Input() searchPage: boolean = false
 
-  get usersFollowing(): User[] {
-    // console.log(this.user.isfollowing)
-    const usersFollowingArr = this.user.isfollowing?.filter((element) => {
-      return element!.user!.username!.includes(this.searchValue) ||
-        element!.user!.name!.includes(this.searchValue) ||
-        element!.user!.lastname!.includes(this.searchValue)
-        ? element
-        : null
-    })
+  // get usersFollowing(): User[] {
+  //   const usersFollowingArr = this.user.isfollowing?.filter((element) => {
 
-    return this.searchValue
-      ? usersFollowingArr!.map(
-          ({ isfollowing_id, user_id, ...keepAttrs }) => keepAttrs.user!
-        )
-      : []
-  }
+  //     return element!.user!.username!.includes(this.searchValue) ||
+  //       element!.user!.name!.includes(this.searchValue) ||
+  //       element!.user!.lastname!.includes(this.searchValue)
+  //       ? element
+  //       : null
+  //   })
+
+  //   return this.searchValue
+  //     ? usersFollowingArr!.map(
+  //         ({ isfollowing_id, user_id, ...keepAttrs }) => keepAttrs.user!
+  //       )
+  //     : []
+  // }
   constructor(
     private dataService: DataService,
     public authService: AuthService,
@@ -68,15 +68,16 @@ export class LoggedinHeaderComponent implements OnInit {
       .subscribe((res: User[]) => {
         this.dataService.changeSearchResults(res)
         this.searchedUsers = []
+        this.searchedUsers = res
 
-        const results = res!.filter(
-          ({ user_id: id1 }) =>
-            !this.usersFollowing!.some(({ user_id: id2 }) => id2 === id1)
-        )
+        // const results = res!.filter(
+        //   ({ user_id: id1 }) =>
+        //     !this.usersFollowing!.some(({ user_id: id2 }) => id2 === id1)
+        // )
 
-        for (const user of results) {
-          this.searchedUsers.push(user)
-        }
+        // for (const user of results) {
+        //   this.searchedUsers.push(user)
+        // }
 
         this.searchingUsers = false
       })

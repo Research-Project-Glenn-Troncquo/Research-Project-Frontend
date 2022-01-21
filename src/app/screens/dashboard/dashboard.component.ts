@@ -217,13 +217,18 @@ export class DashboardComponent implements OnInit {
         await this.authService.user.getIdToken()
       )
       .subscribe((res) => {
-        console.log(res)
+        this.posts = this.posts.filter(
+          (currPost) => currPost.post_id !== post.post_id
+        )
+
+        this.activePost = {}
+        this.deletePostOverlay = false
+        this.renderer.removeClass(document.body, 'overflow-hidden')
       })
   }
 
   addEmoji(event: any) {
     this.textAreaValue += event.emoji.native
-    // console.log(event.emoji.native)
   }
 
   handleEmojiOverlay() {
@@ -231,7 +236,6 @@ export class DashboardComponent implements OnInit {
   }
 
   handleDeletePostOverlay(post: Post) {
-    console.log('hello')
     this.activePost = post
     this.deletePostOverlay = true
     this.renderer.addClass(document.body, 'overflow-hidden')
