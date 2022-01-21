@@ -78,7 +78,7 @@ export class PostComponent implements OnInit {
   @Input() user!: User
   @Output() emitPostClick = new EventEmitter<Post>()
   @Output() emitLikesClick = new EventEmitter<Post>()
-  @Output() emitDeleteOverlay = new EventEmitter()
+  @Output() emitDeleteOverlay = new EventEmitter<Post>()
 
   loggedInUser: User = {}
   showOverlay: boolean = false
@@ -179,5 +179,9 @@ export class PostComponent implements OnInit {
 
   handleLikesClick(post: Post) {
     this.emitLikesClick.emit(post)
+  }
+
+  handleDeleteClick(post: Post) {
+    this.emitDeleteOverlay.emit(post)
   }
 }

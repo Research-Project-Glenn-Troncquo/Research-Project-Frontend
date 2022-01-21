@@ -209,6 +209,18 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  async deletePost(post: any) {
+    this.httpService
+      ?.delete(
+        'post',
+        { post_id: post.post_id },
+        await this.authService.user.getIdToken()
+      )
+      .subscribe((res) => {
+        console.log(res)
+      })
+  }
+
   addEmoji(event: any) {
     this.textAreaValue += event.emoji.native
     // console.log(event.emoji.native)
@@ -218,13 +230,18 @@ export class DashboardComponent implements OnInit {
     this.emojiOverlay = !this.emojiOverlay
   }
 
-  handleDeletePostOverlay() {
+  handleDeletePostOverlay(post: Post) {
     console.log('hello')
+    this.activePost = post
     this.deletePostOverlay = true
+    this.renderer.addClass(document.body, 'overflow-hidden')
   }
 
   closeDeletePostOverlay() {
+    if (this.postOverlay === false) this.activePost = {}
     this.deletePostOverlay = false
+    if (this.postOverlay === false)
+      this.renderer.removeClass(document.body, 'overflow-hidden')
   }
   options: AnimationOptions = {
     path: './assets/beer.json',
