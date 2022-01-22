@@ -1,149 +1,673 @@
 
-> drink-buddy@0.0.0 test:unit
+> drink-buddy@0.0.0 test:unit /home/runner/work/Research-Project-Frontend/Research-Project-Frontend
 > ng test --watch=false --browsers=ChromeHeadlessCustom
 
-19 01 2022 16:52:09.755:INFO [karma-server]: Karma v6.3.9 server started at http://localhost:9876/
-19 01 2022 16:52:09.758:INFO [launcher]: Launching browsers ChromeHeadlessCustom with concurrency unlimited
-19 01 2022 16:52:09.764:INFO [launcher]: Starting browser ChromeHeadless
-19 01 2022 16:52:15.344:INFO [Chrome Headless 97.0.4692.71 (Windows 10)]: Connected on socket JqZD7OzYbfPBj2g_AAAB with id 52780366
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 0 of 80[32m SUCCESS[39m (0 secs / 0 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 1 of 80[32m SUCCESS[39m (0 secs / 0.094 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 2 of 80[32m SUCCESS[39m (0 secs / 0.127 secs)
-[1A[2K[31mChrome Headless 97.0.4692.71 (Windows 10) Home Component Integration with Auth Service + Auth Guard login button click should go to login page when the user is logged out FAILED[39m
+22 01 2022 14:04:36.448:INFO [karma-server]: Karma v6.3.9 server started at http://localhost:9876/
+22 01 2022 14:04:36.450:INFO [launcher]: Launching browsers ChromeHeadlessCustom with concurrency unlimited
+22 01 2022 14:04:36.454:INFO [launcher]: Starting browser ChromeHeadless
+22 01 2022 14:04:47.607:INFO [Chrome Headless 97.0.4692.71 (Linux x86_64)]: Connected on socket wdZxJwZpfYDHD3l_AAAB with id 72761754
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 0 of 83 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) ButtonComponent should create FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 1 of 83 (1 FAILED) (0 secs / 0.172 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 2 of 83 (1 FAILED) (0 secs / 0.179 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 3 of 83 (1 FAILED) (0 secs / 0.185 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 4 of 83 (1 FAILED) (0 secs / 0.189 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 5 of 83 (1 FAILED) (0 secs / 0.193 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 6 of 83 (1 FAILED) (0 secs / 0.197 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 7 of 83 (1 FAILED) (0 secs / 0.2 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 8 of 83 (1 FAILED) (0 secs / 0.205 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 9 of 83 (1 FAILED) (0 secs / 0.209 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 10 of 83 (1 FAILED) (0 secs / 0.213 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 11 of 83 (1 FAILED) (0 secs / 0.215 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 12 of 83 (1 FAILED) (0 secs / 0.216 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 13 of 83 (1 FAILED) (0 secs / 0.217 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 14 of 83 (1 FAILED) (0 secs / 0.217 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 15 of 83 (1 FAILED) (0 secs / 0.217 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 16 of 83 (1 FAILED) (0 secs / 0.219 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 17 of 83 (1 FAILED) (0 secs / 0.22 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 18 of 83 (1 FAILED) (0 secs / 0.22 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 19 of 83 (1 FAILED) (0 secs / 0.22 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 20 of 83 (1 FAILED) (0 secs / 0.22 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 21 of 83 (1 FAILED) (0 secs / 0.221 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 22 of 83 (1 FAILED) (0 secs / 0.221 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 23 of 83 (1 FAILED) (0 secs / 0.222 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 24 of 83 (1 FAILED) (0 secs / 0.224 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 25 of 83 (1 FAILED) (0 secs / 0.224 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 26 of 83 (1 FAILED) (0 secs / 0.224 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 27 of 83 (1 FAILED) (0 secs / 0.228 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 28 of 83 (1 FAILED) (0 secs / 0.332 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 29 of 83 (1 FAILED) (0 secs / 0.357 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 30 of 83 (1 FAILED) (0 secs / 0.384 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 31 of 83 (1 FAILED) (0 secs / 0.402 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 32 of 83 (1 FAILED) (0 secs / 0.425 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 33 of 83 (1 FAILED) (0 secs / 0.448 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 34 of 83 (1 FAILED) (0 secs / 0.484 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 35 of 83 (1 FAILED) (0 secs / 0.52 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 36 of 83 (1 FAILED) (0 secs / 0.544 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 37 of 83 (1 FAILED) (0 secs / 0.564 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 38 of 83 (1 FAILED) (0 secs / 0.583 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 39 of 83 (1 FAILED) (0 secs / 0.605 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 40 of 83 (1 FAILED) (0 secs / 0.609 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 40 of 83 (1 FAILED) (0 secs / 0.609 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 40 of 83 (1 FAILED) (0 secs / 0.609 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 40 of 83 (1 FAILED) (0 secs / 0.609 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent followers and followings count should be 5 should have a p tag for the amount of followers FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:92:55)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 41 of 83 (2 FAILED) (0 secs / 0.768 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 41 of 83 (2 FAILED) (0 secs / 0.768 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 41 of 83 (2 FAILED) (0 secs / 0.768 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 41 of 83 (2 FAILED) (0 secs / 0.768 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent followers and followings count should be 5 should have a p tag for the amount of followings FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:92:55)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 42 of 83 (3 FAILED) (0 secs / 0.784 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 42 of 83 (3 FAILED) (0 secs / 0.784 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 42 of 83 (3 FAILED) (0 secs / 0.784 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 42 of 83 (3 FAILED) (0 secs / 0.784 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent img for the profile should equal the databinding FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 43 of 83 (4 FAILED) (0 secs / 0.793 secs)
+22 01 2022 14:04:51.534:WARN [web-server]: 404: /_karma_webpack_/testurl
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 43 of 83 (4 FAILED) (0 secs / 0.793 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 43 of 83 (4 FAILED) (0 secs / 0.793 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 43 of 83 (4 FAILED) (0 secs / 0.793 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for latest activities FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 44 of 83 (5 FAILED) (0 secs / 0.813 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 44 of 83 (5 FAILED) (0 secs / 0.813 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 44 of 83 (5 FAILED) (0 secs / 0.813 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 44 of 83 (5 FAILED) (0 secs / 0.813 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for latest activities FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 45 of 83 (6 FAILED) (0 secs / 0.826 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 45 of 83 (6 FAILED) (0 secs / 0.826 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 45 of 83 (6 FAILED) (0 secs / 0.826 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 45 of 83 (6 FAILED) (0 secs / 0.826 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should create FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 46 of 83 (7 FAILED) (0 secs / 0.834 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 46 of 83 (7 FAILED) (0 secs / 0.834 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 46 of 83 (7 FAILED) (0 secs / 0.834 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 46 of 83 (7 FAILED) (0 secs / 0.834 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for followers FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 47 of 83 (8 FAILED) (0 secs / 0.848 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 47 of 83 (8 FAILED) (0 secs / 0.848 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 47 of 83 (8 FAILED) (0 secs / 0.848 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 47 of 83 (8 FAILED) (0 secs / 0.848 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for activities FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 48 of 83 (9 FAILED) (0 secs / 0.861 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 48 of 83 (9 FAILED) (0 secs / 0.861 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 48 of 83 (9 FAILED) (0 secs / 0.861 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 48 of 83 (9 FAILED) (0 secs / 0.861 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent Posts loaded should contain the app-post component FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 49 of 83 (10 FAILED) (0 secs / 0.87 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 49 of 83 (10 FAILED) (0 secs / 0.87 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 49 of 83 (10 FAILED) (0 secs / 0.87 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 49 of 83 (10 FAILED) (0 secs / 0.87 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a div for the username FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 50 of 83 (11 FAILED) (0 secs / 0.883 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 50 of 83 (11 FAILED) (0 secs / 0.883 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 50 of 83 (11 FAILED) (0 secs / 0.883 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 50 of 83 (11 FAILED) (0 secs / 0.883 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for the amount of followers FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	Error: Expected '' to be '0'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/dashboard/dashboard.component.spec.ts:109:37)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 51 of 83 (12 FAILED) (0 secs / 0.9 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 51 of 83 (12 FAILED) (0 secs / 0.9 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 51 of 83 (12 FAILED) (0 secs / 0.9 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 51 of 83 (12 FAILED) (0 secs / 0.9 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for the amount of followers FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	Error: Expected '' to be '0'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/dashboard/dashboard.component.spec.ts:156:38)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 52 of 83 (13 FAILED) (0 secs / 0.936 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 52 of 83 (13 FAILED) (0 secs / 0.936 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 52 of 83 (13 FAILED) (0 secs / 0.936 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 52 of 83 (13 FAILED) (0 secs / 0.936 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for followings FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 53 of 83 (14 FAILED) (0 secs / 0.963 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 53 of 83 (14 FAILED) (0 secs / 0.963 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 53 of 83 (14 FAILED) (0 secs / 0.963 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 53 of 83 (14 FAILED) (0 secs / 0.963 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent activities count should be 5 should have a p tag for the amount of followers FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	Error: Expected '' to be '5'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/dashboard/dashboard.component.spec.ts:171:40)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 54 of 83 (15 FAILED) (0 secs / 0.988 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 54 of 83 (15 FAILED) (0 secs / 0.988 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 54 of 83 (15 FAILED) (0 secs / 0.988 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 54 of 83 (15 FAILED) (0 secs / 0.988 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have a p tag for the amount of followings FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+	Error: Expected '' to be '0'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/dashboard/dashboard.component.spec.ts:95:37)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 55 of 83 (16 FAILED) (0 secs / 1.002 secs)
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 55 of 83 (16 FAILED) (0 secs / 1.002 secs)
+LOG: Object{}
+[1A[2KLOG: Object{}
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 55 of 83 (16 FAILED) (0 secs / 1.002 secs)
+LOG: Object{}
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 55 of 83 (16 FAILED) (0 secs / 1.002 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) DashboardComponent should have an img for the profile FAILED
+	TypeError: Cannot read properties of undefined (reading 'length')
+	    at DashboardComponent_div_3_Template (ng:///DashboardComponent.js:86:61)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	    at refreshChildComponents (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9280:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9534:1)
+	    at renderComponentOrTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9598:1)
+	    at tickRootContext (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10829:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 56 of 83 (17 FAILED) (0 secs / 1.01 secs)
+[1A[2KLOG: undefined
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 56 of 83 (17 FAILED) (0 secs / 1.01 secs)
+LOG: undefined
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 57 of 83 (17 FAILED) (0 secs / 1.02 secs)
+[1A[2KERROR: 'NG0304: 'app-image' is not a known element:
+1. If 'app-image' is an Angular component, then verify that it is part of this module.
+2. If 'app-image' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 57 of 83 (17 FAILED) (0 secs / 1.02 secs)
+ERROR: 'NG0304: 'app-image' is not a known element:
+1. If 'app-image' is an Angular component, then verify that it is part of this module.
+2. If 'app-image' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 58 of 83 (17 FAILED) (0 secs / 1.024 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 59 of 83 (17 FAILED) (0 secs / 1.048 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 60 of 83 (17 FAILED) (0 secs / 1.062 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 61 of 83 (17 FAILED) (0 secs / 1.074 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 62 of 83 (17 FAILED) (0 secs / 1.086 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 63 of 83 (17 FAILED) (0 secs / 1.095 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 64 of 83 (17 FAILED) (0 secs / 1.107 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 65 of 83 (17 FAILED) (0 secs / 1.126 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 66 of 83 (17 FAILED) (0 secs / 1.141 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 67 of 83 (17 FAILED) (0 secs / 1.154 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 68 of 83 (17 FAILED) (0 secs / 1.166 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 69 of 83 (17 FAILED) (0 secs / 1.183 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 70 of 83 (17 FAILED) (0 secs / 1.195 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 71 of 83 (17 FAILED) (0 secs / 1.203 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 72 of 83 (17 FAILED) (0 secs / 1.214 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 73 of 83 (17 FAILED) (0 secs / 1.225 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component Integration with Auth Service + Auth Guard login button click should go to login page when the user is logged out FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
 	Error: Expected true to be false.
 	    at <Jasmine>
 	    at UserContext.<anonymous> (src/app/screens/home/home.component.spec.ts:143:27)
 	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
 	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 3 of 80[31m (1 FAILED)[39m (0 secs / 0.194 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 4 of 80[31m (1 FAILED)[39m (0 secs / 0.2 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 5 of 80[31m (1 FAILED)[39m (0 secs / 0.205 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 6 of 80[31m (1 FAILED)[39m (0 secs / 0.213 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 7 of 80[31m (1 FAILED)[39m (0 secs / 0.223 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 8 of 80[31m (1 FAILED)[39m (0 secs / 0.231 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 9 of 80[31m (1 FAILED)[39m (0 secs / 0.236 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 10 of 80[31m (1 FAILED)[39m (0 secs / 0.239 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 11 of 80[31m (1 FAILED)[39m (0 secs / 0.29 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 12 of 80[31m (1 FAILED)[39m (0 secs / 0.307 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 13 of 80[31m (1 FAILED)[39m (0 secs / 0.322 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 14 of 80[31m (1 FAILED)[39m (0 secs / 0.336 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 15 of 80[31m (1 FAILED)[39m (0 secs / 0.361 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 16 of 80[31m (1 FAILED)[39m (0 secs / 0.379 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 17 of 80[31m (1 FAILED)[39m (0 secs / 0.394 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 18 of 80[31m (1 FAILED)[39m (0 secs / 0.409 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 19 of 80[31m (1 FAILED)[39m (0 secs / 0.423 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 20 of 80[31m (1 FAILED)[39m (0 secs / 0.436 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 21 of 80[31m (1 FAILED)[39m (0 secs / 0.45 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 22 of 80[31m (1 FAILED)[39m (0 secs / 0.46 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 23 of 80[31m (1 FAILED)[39m (0 secs / 0.462 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 23 of 80[31m (1 FAILED)[39m (0 secs / 0.462 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 24 of 80[31m (1 FAILED)[39m (0 secs / 0.469 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 25 of 80[31m (1 FAILED)[39m (0 secs / 0.471 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 26 of 80[31m (1 FAILED)[39m (0 secs / 0.473 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 27 of 80[31m (1 FAILED)[39m (0 secs / 0.475 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 28 of 80[31m (1 FAILED)[39m (0 secs / 0.476 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 29 of 80[31m (1 FAILED)[39m (0 secs / 0.48 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 30 of 80[31m (1 FAILED)[39m (0 secs / 0.481 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 31 of 80[31m (1 FAILED)[39m (0 secs / 0.482 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 32 of 80[31m (1 FAILED)[39m (0 secs / 0.484 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 33 of 80[31m (1 FAILED)[39m (0 secs / 0.489 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 34 of 80[31m (1 FAILED)[39m (0 secs / 0.49 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 35 of 80[31m (1 FAILED)[39m (0 secs / 0.49 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 36 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 37 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 38 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 39 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 40 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 41 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 42 of 80[31m (1 FAILED)[39m (0 secs / 0.491 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 43 of 80[31m (1 FAILED)[39m (0 secs / 0.492 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 44 of 80[31m (1 FAILED)[39m (0 secs / 0.492 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 45 of 80[31m (1 FAILED)[39m (0 secs / 0.492 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 46 of 80[31m (1 FAILED)[39m (0 secs / 0.494 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 47 of 80[31m (1 FAILED)[39m (0 secs / 0.494 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 48 of 80[31m (1 FAILED)[39m (0 secs / 0.494 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 49 of 80[31m (1 FAILED)[39m (0 secs / 0.494 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 50 of 80[31m (1 FAILED)[39m (0 secs / 0.509 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 51 of 80[31m (1 FAILED)[39m (0 secs / 0.518 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 52 of 80[31m (1 FAILED)[39m (0 secs / 0.533 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 53 of 80[31m (1 FAILED)[39m (0 secs / 0.542 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 54 of 80[31m (1 FAILED)[39m (0 secs / 0.548 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 55 of 80[31m (1 FAILED)[39m (0 secs / 0.556 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 56 of 80[31m (1 FAILED)[39m (0 secs / 0.564 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 57 of 80[31m (1 FAILED)[39m (0 secs / 0.576 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 58 of 80[31m (1 FAILED)[39m (0 secs / 0.589 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 59 of 80[31m (1 FAILED)[39m (0 secs / 0.602 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 60 of 80[31m (1 FAILED)[39m (0 secs / 0.613 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 61 of 80[31m (1 FAILED)[39m (0 secs / 0.619 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 62 of 80[31m (1 FAILED)[39m (0 secs / 0.63 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 63 of 80[31m (1 FAILED)[39m (0 secs / 0.638 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 64 of 80[31m (1 FAILED)[39m (0 secs / 0.648 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 64 of 80[31m (1 FAILED)[39m (0 secs / 0.648 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 65 of 80[31m (1 FAILED)[39m (0 secs / 0.691 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 65 of 80[31m (1 FAILED)[39m (0 secs / 0.691 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 66 of 80[31m (1 FAILED)[39m (0 secs / 0.7 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 66 of 80[31m (1 FAILED)[39m (0 secs / 0.7 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 67 of 80[31m (1 FAILED)[39m (0 secs / 0.706 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 67 of 80[31m (1 FAILED)[39m (0 secs / 0.706 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 68 of 80[31m (1 FAILED)[39m (0 secs / 0.715 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 68 of 80[31m (1 FAILED)[39m (0 secs / 0.715 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 69 of 80[31m (1 FAILED)[39m (0 secs / 0.723 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 69 of 80[31m (1 FAILED)[39m (0 secs / 0.723 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 70 of 80[31m (1 FAILED)[39m (0 secs / 0.732 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 70 of 80[31m (1 FAILED)[39m (0 secs / 0.732 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 71 of 80[31m (1 FAILED)[39m (0 secs / 0.74 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 71 of 80[31m (1 FAILED)[39m (0 secs / 0.74 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 72 of 80[31m (1 FAILED)[39m (0 secs / 0.745 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 72 of 80[31m (1 FAILED)[39m (0 secs / 0.745 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 73 of 80[31m (1 FAILED)[39m (0 secs / 0.751 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 73 of 80[31m (1 FAILED)[39m (0 secs / 0.751 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 74 of 80[31m (1 FAILED)[39m (0 secs / 0.76 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 74 of 80[31m (1 FAILED)[39m (0 secs / 0.76 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 75 of 80[31m (1 FAILED)[39m (0 secs / 0.769 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 75 of 80[31m (1 FAILED)[39m (0 secs / 0.769 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 76 of 80[31m (1 FAILED)[39m (0 secs / 0.779 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 76 of 80[31m (1 FAILED)[39m (0 secs / 0.779 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 77 of 80[31m (1 FAILED)[39m (0 secs / 0.791 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 77 of 80[31m (1 FAILED)[39m (0 secs / 0.791 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 78 of 80[31m (1 FAILED)[39m (0 secs / 0.804 secs)
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 78 of 80[31m (1 FAILED)[39m (0 secs / 0.804 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 79 of 80[31m (1 FAILED)[39m (0 secs / 0.811 secs)
-19 01 2022 16:52:18.553:WARN [web-server]: 404: /_karma_webpack_/testurl
-[1A[2KLOG: [36mundefined[39m
-Chrome Headless 97.0.4692.71 (Windows 10): Executed 79 of 80[31m (1 FAILED)[39m (0 secs / 0.811 secs)
-LOG: undefined
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 80 of 80[31m (1 FAILED)[39m (0 secs / 0.819 secs)
-[1A[2KChrome Headless 97.0.4692.71 (Windows 10): Executed 80 of 80[31m (1 FAILED)[39m (0.98 secs / 0.819 secs)
-[31mTOTAL: 1 FAILED, 79 SUCCESS[39m
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 74 of 83 (18 FAILED) (0 secs / 1.247 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component Integration with Auth Service + Auth Guard register button click should go to register page when the user is logged out FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 75 of 83 (19 FAILED) (0 secs / 1.259 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component should have a p tag with `DrinkBuddy is the #1...` FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 76 of 83 (20 FAILED) (0 secs / 1.273 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component should create FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 77 of 83 (21 FAILED) (0 secs / 1.28 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component should have a button of `Log in` FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	Error: Expected '' to be 'Log in'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/home/home.component.spec.ts:73:70)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 78 of 83 (22 FAILED) (0 secs / 1.29 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component should have an h3 tag of `DrinkBuddy` FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 79 of 83 (23 FAILED) (0 secs / 1.301 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component should have a button of `Register` FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+	Error: Expected '' to be 'Register'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/home/home.component.spec.ts:79:70)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 80 of 83 (24 FAILED) (0 secs / 1.312 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64) Home Component should have the `app-footer` FAILED
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	Error: Unexpected synthetic property @fadeIn found. Please make sure that:
+	  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+	  - There is corresponding configuration for the animation named `@fadeIn` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations).
+	    at checkNoSyntheticProp (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:762:1)
+	    at DefaultDomRenderer2.setProperty (node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js:744:1)
+	    at elementPropertyInternal (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10045:1)
+	    at ɵɵproperty (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14806:1)
+	    at ButtonComponent_p_2_Template (ng:///ButtonComponent.js:26:5)
+	    at executeTemplate (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9618:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9484:1)
+	    at refreshEmbeddedViews (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10609:1)
+	    at refreshView (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:9508:1)
+	    at refreshComponent (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:10655:1)
+Chrome Headless 97.0.4692.71 (Linux x86_64): Executed 81 of 83 (25 FAILED) (0 secs / 1.318 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 82 of 83 (25 FAILED) (0 secs / 1.324 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 83 of 83 (25 FAILED) (0 secs / 1.331 secs)
+[1A[2KChrome Headless 97.0.4692.71 (Linux x86_64): Executed 83 of 83 (25 FAILED) (1.668 secs / 1.331 secs)
+TOTAL: 25 FAILED, 58 SUCCESS
