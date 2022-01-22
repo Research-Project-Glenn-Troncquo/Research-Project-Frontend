@@ -13,12 +13,16 @@ export class DataService {
   private latestPostSource = new BehaviorSubject<Post>({})
   latestPost = this.latestPostSource.asObservable()
 
+  private postSource = new BehaviorSubject<Post>({})
+  posts = this.postSource.asObservable()
+
   private searchResultsSource = new BehaviorSubject<User[]>([])
   searchResults = this.searchResultsSource.asObservable()
 
   constructor() {}
   changeUser(user: any) {
     this.userSource.next(user)
+    this.postSource.next(user.posts)
     user.posts ? this.latestPostSource.next(user.posts.pop()) : null
   }
 

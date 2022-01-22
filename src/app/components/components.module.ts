@@ -12,6 +12,7 @@ import { PostCommentComponent } from './post-comment/post-comment.component'
 import { LikeCommentComponent } from './like-comment/like-comment.component'
 import { PostGhostComponent } from './post-ghost/post-ghost.component'
 import { FollowButtonComponent } from './follow-button/follow-button.component'
+import { ImageComponent } from './image/image.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FollowButtonComponent } from './follow-button/follow-button.component'
     LikeCommentComponent,
     PostGhostComponent,
     FollowButtonComponent,
+    ImageComponent,
   ],
   imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
   exports: [
@@ -37,6 +39,7 @@ import { FollowButtonComponent } from './follow-button/follow-button.component'
     LikeCommentComponent,
     PostGhostComponent,
     FollowButtonComponent,
+    ImageComponent,
   ],
 })
 export class ComponentsModule {}
