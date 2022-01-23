@@ -13,7 +13,7 @@ export class DataService {
   private latestPostSource = new BehaviorSubject<Post>({})
   latestPost = this.latestPostSource.asObservable()
 
-  private postSource = new BehaviorSubject<Post>({})
+  private postSource = new BehaviorSubject<Post[]>([])
   posts = this.postSource.asObservable()
 
   private searchResultsSource = new BehaviorSubject<User[]>([])

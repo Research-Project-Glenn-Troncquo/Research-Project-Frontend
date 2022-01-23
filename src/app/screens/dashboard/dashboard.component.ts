@@ -61,12 +61,10 @@ export class DashboardComponent implements OnInit {
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.user = user
-      console.log(this.user)
     })
 
     this.dataService.latestPost.subscribe((post) => {
       this.latestPost = post
-      console.log(this.latestPost)
     })
   }
 
