@@ -64,7 +64,12 @@
         <div
           class="px-4 pb-4 mb-4 flex justify-between items-center group cursor-pointer"
         >
-          <p class="your-activities">Your Activities</p>
+          <p
+            class="your-activities"
+            (click)="handleProfileClick(user.user_id!)"
+          >
+            Your Activities
+          </p>
           <div
             class="group-hover:transform group-hover:translate-x-2 transition-all ease-out duration-200 cursor-pointer"
           >

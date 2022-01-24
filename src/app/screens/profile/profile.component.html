@@ -4,7 +4,9 @@
       <img
         class="h-40 w-full object-cover rounded-t-sm"
         [src]="
-          user.posts ? user.posts[0].img_url : '../../../assets/no-profile.png'
+          user.posts!.length > 0
+            ? user.posts![0].img_url
+            : '../../../assets/no-profile.png'
         "
         alt="profile picture of user"
       />
@@ -20,7 +22,7 @@
           />
           <label class="cursor-pointer" for="file-upload">
             <img
-              class="w-full h-full group-hover:brightness-90"
+              class="w-full h-full rounded-full group-hover:brightness-90"
               [src]="
                 user.img_url ? user.img_url : '../../../assets/no-profile.png'
               "

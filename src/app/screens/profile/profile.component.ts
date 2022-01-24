@@ -30,7 +30,10 @@ export class ProfileComponent implements OnInit {
     })
     this.user_id = this.route.snapshot.params['id']
 
-    this.route.params.subscribe((param) => console.log(param))
+    this.route.params.subscribe((param) => {
+      this.user_id = this.route.snapshot.params['id']
+      this.ngOnInit()
+    })
   }
 
   ngOnInit(): void {
