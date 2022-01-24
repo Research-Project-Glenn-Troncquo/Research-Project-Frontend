@@ -210,6 +210,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async deletePost(post: any) {
+    this.deletePostOverlay = false
     this.httpService
       ?.delete(
         'post',
@@ -221,8 +222,8 @@ export class DashboardComponent implements OnInit {
           (currPost) => currPost.post_id !== post.post_id
         )
 
-        this.activePost = {}
         this.deletePostOverlay = false
+        this.activePost = {}
         this.renderer.removeClass(document.body, 'overflow-hidden')
       })
   }

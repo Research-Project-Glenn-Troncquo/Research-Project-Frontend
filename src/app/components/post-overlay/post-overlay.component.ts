@@ -28,6 +28,7 @@ export class PostOverlayComponent implements OnInit {
   @Output() emitDeletePostOverlay = new EventEmitter<Post>()
   @Output() emitLikesOverlay = new EventEmitter<Post>()
   @Output() emitClosePostOverlay = new EventEmitter()
+  @Output() emitDeleteOverlay = new EventEmitter<Post>()
 
   constructor(
     private httpService: HttpService,
@@ -56,6 +57,7 @@ export class PostOverlayComponent implements OnInit {
   }
 
   handleDeletePostOverlay(post: Post) {
+    console.log('hello')
     this.emitDeletePostOverlay.emit(post)
   }
 
@@ -78,5 +80,9 @@ export class PostOverlayComponent implements OnInit {
 
   addEmoji(event: any) {
     this.textAreaValue += event.emoji.native
+  }
+
+  handleDeleteClick(post: Post) {
+    this.emitDeleteOverlay.emit(post)
   }
 }

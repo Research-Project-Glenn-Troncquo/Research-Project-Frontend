@@ -15,6 +15,8 @@ import { FollowButtonComponent } from './follow-button/follow-button.component'
 import { ImageComponent } from './image/image.component'
 import { PostOverlayComponent } from './post-overlay/post-overlay.component'
 import { PickerModule } from '@ctrl/ngx-emoji-mart'
+import { LikesOverlayComponent } from './likes-overlay/likes-overlay.component'
+import { DeletePostComponent } from './delete-post/delete-post.component'
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart'
     FollowButtonComponent,
     ImageComponent,
     PostOverlayComponent,
+    LikesOverlayComponent,
+    DeletePostComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -50,6 +54,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart'
     FollowButtonComponent,
     ImageComponent,
     PostOverlayComponent,
+    LikesOverlayComponent,
+    DeletePostComponent,
   ],
 })
 export class ComponentsModule {}
