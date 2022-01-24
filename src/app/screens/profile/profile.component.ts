@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
+    this.getFollowings()
   }
 
   async getUser() {
@@ -49,6 +50,14 @@ export class ProfileComponent implements OnInit {
 
     this.user = res
     this.posts = this.user.posts!
+  }
+
+  async getFollowings() {
+    this.httpService
+      .Get('user/followings', await this.authService.user.getIdToken())
+      .subscribe((res) => {
+        console.log(res)
+      })
   }
 
   newFollower(newFollower: IsFollowing) {
