@@ -62,12 +62,12 @@ export const routes: Routes = [
     component: SearchComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AuthGuard],
-    pathMatch: 'full',
-  },
+  // {
+  //   path: 'profile',
+  //   component: ProfileComponent,
+  //   canActivate: [AuthGuard],
+  //   pathMatch: 'full',
+  // },
   {
     path: 'profile/:id',
     component: ProfileComponent,

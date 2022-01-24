@@ -17,6 +17,7 @@ export class LoggedinHeaderComponent implements OnInit {
   searchedUsers: User[] = []
   showSidebar: boolean = false
   @Input() searchPage: boolean = false
+  dropdown: boolean = false
 
   // get usersFollowing(): User[] {
   //   const usersFollowingArr = this.user.isfollowing?.filter((element) => {
@@ -85,5 +86,19 @@ export class LoggedinHeaderComponent implements OnInit {
 
   handleEnter() {
     this.router.navigate(['search'])
+  }
+
+  handleProfileClick(user_id: string) {
+    console.log('hello?')
+    console.log(user_id)
+    this.router.navigate([`profile/${user_id}`])
+  }
+
+  showDropdown() {
+    this.dropdown = true
+  }
+
+  hideDropdown() {
+    this.dropdown = false
   }
 }

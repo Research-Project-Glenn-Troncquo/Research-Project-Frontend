@@ -11,19 +11,26 @@
   border-bottom: 8px solid white;
 }
 
-.dropdownsearch ~ div {
-  display: none;
-}
+// .dropdownsearch ~ .dropdownsearchbox {
+//   display: none;
+// }
 
-.dropdownsearch:hover ~ div {
-  display: block;
-}
-.dropdownsearch:active ~ div {
-  display: block;
-}
-.dropdownsearch:focus ~ div {
-  display: block;
-}
+// .dropdownsearch:hover ~ .dropdownsearchbox {
+//   display: block;
+// }
+// .dropdownsearch:active ~ .dropdownsearchbox {
+//   display: block;
+// }
+// .dropdownsearch:focus ~ .dropdownsearchbox {
+//   display: block;
+// }
+
+// .dropdownsearchbox:focus {
+//   display: block;
+// }
+// .dropdownsearchbox:active {
+//   display: block;
+// }
 
 .scrollbar::-webkit-scrollbar {
   display: none;

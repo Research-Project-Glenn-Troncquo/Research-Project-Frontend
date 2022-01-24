@@ -14,6 +14,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-post',
@@ -99,7 +100,8 @@ export class PostComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private httpService: HttpService,
-    private firebaseService: AuthService
+    private firebaseService: AuthService,
+    public router: Router
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.loggedInUser = user
@@ -183,5 +185,9 @@ export class PostComponent implements OnInit {
 
   handleDeleteClick(post: Post) {
     this.emitDeleteOverlay.emit(post)
+  }
+
+  handleProfileClick(user_id: string) {
+    this.router.navigate([`profile/${user_id}`])
   }
 }

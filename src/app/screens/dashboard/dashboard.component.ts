@@ -247,6 +247,10 @@ export class DashboardComponent implements OnInit {
     if (this.postOverlay === false)
       this.renderer.removeClass(document.body, 'overflow-hidden')
   }
+
+  handleProfileClick(user_id: string) {
+    this.router.navigate([`profile/${user_id}`])
+  }
   options: AnimationOptions = {
     path: './assets/beer.json',
   }

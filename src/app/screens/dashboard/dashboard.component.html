@@ -1,6 +1,8 @@
 <div class="container mx-auto px-4">
   <div class="flex gap-8 mt-16 items-start">
-    <div class="w-1/4 sticky top-24" *ngIf="!user">Loading user...</div>
+    <div class="w-1/4 sticky top-24" *ngIf="!user.username">
+      Loading user...
+    </div>
 
     <div
       class="lg:w-1/4 md:w-1/3 md:block sticky hidden top-28"
@@ -15,6 +17,7 @@
 
         <div
           class="username flex justify-center pt-14 font-semibold text-xl mb-4 transition-all ease-out duration-200 hover:text-p-orange cursor-pointer"
+          (click)="handleProfileClick(user.user_id!)"
         >
           {{ user.username }}
         </div>
