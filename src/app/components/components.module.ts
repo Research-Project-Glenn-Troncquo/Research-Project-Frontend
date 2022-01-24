@@ -13,6 +13,8 @@ import { LikeCommentComponent } from './like-comment/like-comment.component'
 import { PostGhostComponent } from './post-ghost/post-ghost.component'
 import { FollowButtonComponent } from './follow-button/follow-button.component'
 import { ImageComponent } from './image/image.component'
+import { PostOverlayComponent } from './post-overlay/post-overlay.component'
+import { PickerModule } from '@ctrl/ngx-emoji-mart'
 
 @NgModule({
   declarations: [
@@ -27,8 +29,15 @@ import { ImageComponent } from './image/image.component'
     PostGhostComponent,
     FollowButtonComponent,
     ImageComponent,
+    PostOverlayComponent,
   ],
-  imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PickerModule,
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -40,6 +49,7 @@ import { ImageComponent } from './image/image.component'
     PostGhostComponent,
     FollowButtonComponent,
     ImageComponent,
+    PostOverlayComponent,
   ],
 })
 export class ComponentsModule {}
