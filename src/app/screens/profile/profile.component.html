@@ -96,7 +96,13 @@
     </div>
 
     <div class="bg-white rounded-sm" *ngFor="let post of posts">
-      <app-post [user]="user!" [post]="post"></app-post>
+      <app-post
+        [user]="user!"
+        [post]="post"
+        (emitPostClick)="handlePostOverlay($event)"
+        (emitLikesClick)="handleLikesOverlay($event)"
+        (emitDeleteOverlay)="handleDeletePostOverlay($event)"
+      ></app-post>
     </div>
   </div>
 
@@ -106,3 +112,26 @@
     </p>
   </div>
 </div>
+
+<app-post-overlay
+  (emitDeletePostOverlay)="handleDeletePostOverlay($event)"
+  (emitClosePostOverlay)="closePostOverlay()"
+  (emitLikesOverlay)="handleLikesOverlay($event)"
+  [postOverlay]="postOverlay"
+  [activePost]="activePost"
+  [user]="user"
+></app-post-overlay>
+
+<app-likes-overlay
+  [activePost]="activePost"
+  [likeOverlay]="likeOverlay"
+  [user]="user"
+  (emitCloseLikesOverlay)="closeLikesOverlay()"
+></app-likes-overlay>
+
+<app-delete-post
+  [deletePostOverlay]="deletePostOverlay"
+  [activePost]="activePost"
+  (emitDeletePostOverlay)="closeDeletePostOverlay()"
+  (emitDeletePost)="deletePost($event)"
+></app-delete-post>

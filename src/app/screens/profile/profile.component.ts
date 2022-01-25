@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Renderer2 } from '@angular/core'
 import { HttpService } from 'src/app/http/http.service'
 import { User } from 'src/app/interface/user'
 import { DataService } from 'src/app/data.service'
@@ -21,12 +21,20 @@ export class ProfileComponent implements OnInit {
   randomUsers: User[] = []
   userLoaded: boolean = false
   profilePicture: any
+  postsLoading: boolean = true
+  postOverlay: boolean = false
+  activePost?: Post
+  likeOverlay: boolean = false
+  deletePostOverlay: boolean = false
+  emojiOverlay: boolean = false
+
   constructor(
     private httpService: HttpService,
     private dataService: DataService,
     public authService: AuthService,
     private route: ActivatedRoute,
-    private firebaseSerive: AuthService
+    private firebaseSerive: AuthService,
+    private renderer: Renderer2
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.userSelf = user
@@ -107,22 +115,65 @@ export class ProfileComponent implements OnInit {
     } catch (error) {}
   }
 
-  async onSubmit() {
-    // const url = await this.firebaseSerive.fileUpload(
-    //   this.fileData,
-    //   `post-pictures`
-    // )
-    // const post: Post = {
-    //   title: this.title!.value,
-    //   description: this.description!.value,
-    //   img_url: url,
-    // }
-    // const test = await this.httpService.post(
-    //   'post',
-    //   post,
-    //   await this.firebaseSerive.user.getIdToken()
-    // )
-    // console.log(test)
-    // this.user.posts?.push(test)
+  handleDeletePostOverlay(post: Post) {
+    this.activePost = post
+    this.deletePostOverlay = true
+    this.renderer.addClass(document.body, 'overflow-hidden')
+  }
+  closePostOverlay() {
+    this.activePost = {}
+    this.postOverlay = false
+    this.emojiOverlay = false
+    this.renderer.removeClass(document.body, 'overflow-hidden')
+  }
+  handleLikesOverlay(post: Post) {
+    this.activePost = post
+    this.likeOverlay = true
+    this.renderer.addClass(document.body, 'overflow-hidden')
+  }
+  closeLikesOverlay() {
+    if (this.postOverlay === false) this.activePost = {}
+    this.likeOverlay = false
+    if (this.postOverlay === false)
+      this.renderer.removeClass(document.body, 'overflow-hidden')
+  }
+  async deletePost(post: any) {
+    this.deletePostOverlay = false
+    this.postOverlay = false
+    this.httpService
+      ?.delete(
+        'post',
+        { post_id: post.post_id },
+        await this.authService.user.getIdToken()
+      )
+      .subscribe((res) => {
+        this.posts = this.posts.filter(
+          (currPost) => currPost.post_id !== post.post_id
+        )
+
+        this.deletePostOverlay = false
+        this.activePost = {}
+        this.renderer.removeClass(document.body, 'overflow-hidden')
+      })
+  }
+  closeDeletePostOverlay() {
+    if (this.postOverlay === false) this.activePost = {}
+    this.deletePostOverlay = false
+    if (this.postOverlay === false)
+      this.renderer.removeClass(document.body, 'overflow-hidden')
+  }
+
+  handlePostOverlay(post?: Post) {
+    if (post) {
+      this.activePost = post
+      this.userSelf.user_id === this.user.user_id
+        ? (this.activePost.user = this.userSelf)
+        : (this.activePost.user = this.user)
+      this.postOverlay = true
+
+      this.renderer.addClass(document.body, 'overflow-hidden')
+    } else {
+      this.renderer.addClass(document.body, 'overflow-hidden')
+    }
   }
 }

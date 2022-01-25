@@ -91,14 +91,6 @@ export class DashboardComponent implements OnInit {
       })
   }
 
-  // async getUser() {
-  //   this.httpService
-  //     .Get('user', await this.authService.user.getIdToken())
-  //     .subscribe((res) => {
-  //       this.user = res
-  //     })
-  // }
-
   async getFacts() {
     this.httpService.Get('facts').subscribe((res) => {
       this.facts = res
