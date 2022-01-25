@@ -5,6 +5,7 @@ import { ComponentsModule } from 'src/app/components/components.module'
 import { LottieModule } from 'ngx-lottie'
 import { PickerModule } from '@ctrl/ngx-emoji-mart'
 import { playerFactory } from 'src/app/services/lottie.player.service'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -12,6 +13,7 @@ import { playerFactory } from 'src/app/services/lottie.player.service'
     CommonModule,
     ComponentsModule,
     PickerModule,
+    FormsModule,
     LottieModule.forRoot({ player: playerFactory }),
   ],
 })

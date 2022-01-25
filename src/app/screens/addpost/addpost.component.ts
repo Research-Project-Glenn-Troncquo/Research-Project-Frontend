@@ -119,23 +119,12 @@ export class AddpostComponent implements OnInit {
 
     if (this.postForm.valid) {
       this.showError = false
-      // console.log(this.fileName?.value)
 
-      // const res = await this.authService.register(user)
-
-      // res.errorMsg
-      //   ? (this.errorMsg = res.errorMsg)
-      //   : await this.authService.loginId(res.token)
-
-      // console.log(this.fileData)
-      // console.log(this.file?.value)
-
+      console.log(this.fileData)
       const url = await this.firebaseSerive.fileUpload(
         this.fileData,
         `post-pictures`
       )
-
-      // console.log(url)
 
       const post: Post = {
         title: this.title!.value,
@@ -148,7 +137,9 @@ export class AddpostComponent implements OnInit {
         post,
         await this.firebaseSerive.user.getIdToken()
       )
-      // console.log(test)
+      this.dataService.addPost(test)
+
+      this.user.posts?.push(test)
 
       this.loading = false
 
@@ -157,6 +148,5 @@ export class AddpostComponent implements OnInit {
       this.showError = true
       this.loading = false
     }
-    // else this.validateAllFormFields(this.postForm)
   }
 }
