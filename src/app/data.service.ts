@@ -29,4 +29,25 @@ export class DataService {
   changeSearchResults(users: User[]) {
     this.searchResultsSource.next(users)
   }
+
+  deletePost(post: Post) {
+    let updatedPosts: Post[] = []
+    this.posts.subscribe((posts) => (updatedPosts = posts)).unsubscribe()
+
+    updatedPosts = updatedPosts.filter(
+      (currPost) => currPost.post_id !== post.post_id
+    )
+
+    this.postSource.next(updatedPosts)
+    this.latestPostSource.next(updatedPosts[0])
+  }
+
+  addPost(post: Post) {
+    let updatedPosts: Post[] = []
+    this.posts.subscribe((posts) => (updatedPosts = posts)).unsubscribe()
+    updatedPosts.unshift(post)
+
+    this.postSource.next(updatedPosts)
+    this.latestPostSource.next(updatedPosts[0])
+  }
 }

@@ -215,6 +215,8 @@ export class DashboardComponent implements OnInit {
           (currPost) => currPost.post_id !== post.post_id
         )
 
+        this.dataService.deletePost(post)
+
         this.deletePostOverlay = false
         this.activePost = {}
         this.renderer.removeClass(document.body, 'overflow-hidden')
