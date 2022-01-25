@@ -10,6 +10,7 @@ import { LoginComponent } from './screens/login/login.component'
 import { ProfileComponent } from './screens/profile/profile.component'
 import { RegisterComponent } from './screens/register/register.component'
 import { SearchComponent } from './screens/search/search.component'
+import { SettingsComponent } from './screens/settings/settings.component'
 
 export const routes: Routes = [
   {
@@ -62,15 +63,14 @@ export const routes: Routes = [
     component: SearchComponent,
     canActivate: [AuthGuard],
   },
-  // {
-  //   path: 'profile',
-  //   component: ProfileComponent,
-  //   canActivate: [AuthGuard],
-  //   pathMatch: 'full',
-  // },
   {
     path: 'profile/:id',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [AuthGuard],
   },
   {
