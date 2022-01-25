@@ -211,6 +211,7 @@ export class DashboardComponent implements OnInit {
 
   async deletePost(post: any) {
     this.deletePostOverlay = false
+    this.postOverlay = false
     this.httpService
       ?.delete(
         'post',

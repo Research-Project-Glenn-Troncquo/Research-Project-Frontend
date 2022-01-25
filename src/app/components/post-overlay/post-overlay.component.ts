@@ -23,6 +23,7 @@ export class PostOverlayComponent implements OnInit {
   @Input() postOverlay: boolean = false
   @Input() activePost?: Post
   @Input() user!: User
+  // @Input() loggedInUser: User
   textAreaValue: string = ''
   emojiOverlay: boolean = false
   @Output() emitDeletePostOverlay = new EventEmitter<Post>()
@@ -38,6 +39,7 @@ export class PostOverlayComponent implements OnInit {
   ngOnInit(): void {}
 
   closePostOverlay() {
+    console.log('hello')
     this.emitClosePostOverlay.emit()
   }
 
@@ -57,7 +59,6 @@ export class PostOverlayComponent implements OnInit {
   }
 
   handleDeletePostOverlay(post: Post) {
-    console.log('hello')
     this.emitDeletePostOverlay.emit(post)
   }
 
@@ -83,6 +84,7 @@ export class PostOverlayComponent implements OnInit {
   }
 
   handleDeleteClick(post: Post) {
+    
     this.emitDeleteOverlay.emit(post)
   }
 }
