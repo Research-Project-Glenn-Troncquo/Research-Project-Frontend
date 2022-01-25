@@ -47,8 +47,6 @@ export class DashboardComponent implements OnInit {
   unfollowingLoading: boolean = false
   emojiOverlay: boolean = false
   facts: Facts[] = []
-  textAreaValue: string = ''
-  deletePostOverlay: boolean = false
 
   constructor(
     public authService: AuthService,
@@ -90,6 +88,14 @@ export class DashboardComponent implements OnInit {
         this.posts = res
       })
   }
+
+  // async getUser() {
+  //   this.httpService
+  //     .Get('user', await this.authService.user.getIdToken())
+  //     .subscribe((res) => {
+  //       this.user = res
+  //     })
+  // }
 
   async getFacts() {
     this.httpService.Get('facts').subscribe((res) => {
@@ -186,64 +192,15 @@ export class DashboardComponent implements OnInit {
       })
   }
 
-  async handleComment(post: Post) {
-    if (this.textAreaValue) {
-      this.httpService
-        ?.Post(
-          'comment',
-          { post_id: post.post_id, comment: this.textAreaValue },
-          await this.authService.user.getIdToken()
-        )
-        .subscribe((res) => {
-          post.comments?.push(res)
-          this.textAreaValue = ''
-        })
-    }
-  }
-
-  async deletePost(post: any) {
-    this.deletePostOverlay = false
-    this.postOverlay = false
-    this.httpService
-      ?.delete(
-        'post',
-        { post_id: post.post_id },
-        await this.authService.user.getIdToken()
-      )
-      .subscribe((res) => {
-        this.posts = this.posts.filter(
-          (currPost) => currPost.post_id !== post.post_id
-        )
-
-        this.deletePostOverlay = false
-        this.activePost = {}
-        this.renderer.removeClass(document.body, 'overflow-hidden')
-      })
-  }
+  handleComment() {}
 
   addEmoji(event: any) {
-    this.textAreaValue += event.emoji.native
+    console.log(event)
   }
 
   handleEmojiOverlay() {
+    console.log('clik')
     this.emojiOverlay = !this.emojiOverlay
-  }
-
-  handleDeletePostOverlay(post: Post) {
-    this.activePost = post
-    this.deletePostOverlay = true
-    this.renderer.addClass(document.body, 'overflow-hidden')
-  }
-
-  closeDeletePostOverlay() {
-    if (this.postOverlay === false) this.activePost = {}
-    this.deletePostOverlay = false
-    if (this.postOverlay === false)
-      this.renderer.removeClass(document.body, 'overflow-hidden')
-  }
-
-  handleProfileClick(user_id: string) {
-    this.router.navigate([`profile/${user_id}`])
   }
   options: AnimationOptions = {
     path: './assets/beer.json',
