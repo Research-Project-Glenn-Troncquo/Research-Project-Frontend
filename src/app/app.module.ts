@@ -39,6 +39,7 @@ import { SettingsComponent } from './screens/settings/settings.component'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
 
     ComponentsModule,
     HomeModule,

@@ -19,11 +19,14 @@ export class ProfileComponent implements OnInit {
   user_id: string = ''
   userFound: boolean = false
   randomUsers: User[] = []
+  userLoaded: boolean = false
+  profilePicture: any
   constructor(
     private httpService: HttpService,
     private dataService: DataService,
     public authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private firebaseSerive: AuthService
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.userSelf = user
@@ -34,6 +37,10 @@ export class ProfileComponent implements OnInit {
       this.user_id = this.route.snapshot.params['id']
       this.ngOnInit()
     })
+  }
+
+  get sameUser() {
+    return this.user.user_id === this.userSelf.user_id
   }
 
   ngOnInit(): void {
@@ -55,6 +62,7 @@ export class ProfileComponent implements OnInit {
 
     this.user = res
     this.posts = this.user.posts!
+    this.userLoaded = true
   }
 
   async getFollowings() {
@@ -71,5 +79,50 @@ export class ProfileComponent implements OnInit {
 
   removeFollower(newFollowers: IsFollowing[]) {
     this.user.followers?.pop()
+  }
+
+  async handleProfilePicture(picture: any) {
+    try {
+      const htmlInput = picture.currentTarget as HTMLInputElement
+      const fileData = htmlInput.files![0]
+
+      const url = await this.firebaseSerive.fileUpload(
+        fileData,
+        `profile-pictures`
+      )
+
+      const user: User = {
+        name: this.userSelf.name,
+        lastname: this.userSelf.lastname,
+        username: this.userSelf.username,
+        email: this.userSelf.email,
+        img_url: url,
+      }
+
+      this.httpService
+        .Post('user/profile', user, await this.authService.user.getIdToken())
+        .subscribe((res: User) => {
+          this.user.img_url = res.img_url
+        })
+    } catch (error) {}
+  }
+
+  async onSubmit() {
+    // const url = await this.firebaseSerive.fileUpload(
+    //   this.fileData,
+    //   `post-pictures`
+    // )
+    // const post: Post = {
+    //   title: this.title!.value,
+    //   description: this.description!.value,
+    //   img_url: url,
+    // }
+    // const test = await this.httpService.post(
+    //   'post',
+    //   post,
+    //   await this.firebaseSerive.user.getIdToken()
+    // )
+    // console.log(test)
+    // this.user.posts?.push(test)
   }
 }
