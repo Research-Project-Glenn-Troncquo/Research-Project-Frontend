@@ -1,0 +1,36 @@
+.hover {
+  opacity: 0;
+}
+
+.delete-hover:hover .hover {
+  opacity: 0.5;
+}
+
+.hover:hover {
+  opacity: 1 !important;
+}
+
+.maxh {
+  max-height: 50%;
+}
+
+.height {
+  height: 80%;
+  max-height: 36.5rem;
+}
+
+.height::-webkit-scrollbar {
+  display: none;
+}
+
+.postoverlay-img {
+  min-height: 50%;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.test {
+  height: calc(100% - 50px);
+}

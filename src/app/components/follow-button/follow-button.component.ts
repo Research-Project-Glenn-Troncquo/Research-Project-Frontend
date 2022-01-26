@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { DataService } from 'src/app/data.service'
 import { HttpService } from 'src/app/http/http.service'
@@ -15,6 +15,9 @@ export class FollowButtonComponent implements OnInit {
   @Input() inputUser: User = {}
   followingLoading: boolean = false
   unfollowingLoading: boolean = false
+  @Output() emitNewFollower = new EventEmitter<IsFollowing>()
+  @Output() removeFollower = new EventEmitter<IsFollowing[]>()
+
   constructor(
     private httpService: HttpService,
     private authService: AuthService,
@@ -49,7 +52,7 @@ export class FollowButtonComponent implements OnInit {
           isfollowing_id: res.isfollowing_id,
           user_id: res.user_id,
         }
-
+        this.emitNewFollower.emit(isfollowing)
         isfollowing.user = this.user
         this.user.isfollowing?.push(isfollowing)
 
@@ -68,7 +71,10 @@ export class FollowButtonComponent implements OnInit {
         const isfollowing = this.user.isfollowing?.filter(
           (isfollowing) => user.user_id !== isfollowing.isfollowing_id
         )
+        this.removeFollower.emit(isfollowing)
+        console.log(isfollowing)
         this.user.isfollowing = isfollowing
+        console.log(this.user.isfollowing)
 
         this.unfollowingLoading = false
       })

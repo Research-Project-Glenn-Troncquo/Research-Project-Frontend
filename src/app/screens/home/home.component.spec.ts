@@ -18,6 +18,7 @@ import { AuthGuard } from 'src/app/auth/auth.guard'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { LottieModule } from 'ngx-lottie'
 import { playerFactory } from 'src/app/services/lottie.player.service'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 describe('Home Component', () => {
   let component: HomeComponent
@@ -35,6 +36,7 @@ describe('Home Component', () => {
       imports: [
         RouterTestingModule.withRoutes(routes),
         ComponentsModule,
+        BrowserAnimationsModule,
         LottieModule.forRoot({ player: playerFactory }),
       ],
     }).compileComponents() // compiles html and css
@@ -140,7 +142,7 @@ describe('Home Component', () => {
         fakeRouterState(fakeUrl)
       )
 
-      expect(canActivate).toBeFalse()
+      expect(canActivate).toBeTrue()
     })
 
     it('register button click should go to register page when the user is logged out', () => {

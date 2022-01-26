@@ -28,9 +28,12 @@
     >
       <li
         *ngFor="let user of searchResults"
-        class="flex p-4 justify-between w-full items-center"
+        class="flex p-4 justify-between w-full items-center cursor-pointer hover:bg-gray-100"
       >
-        <div class="flex gap-2">
+        <div
+          class="flex gap-2 items-center"
+          (click)="handleProfileClick(user.user_id!)"
+        >
           <img
             class="w-10 h-10 rounded-full"
             [src]="

@@ -1,9 +1,10 @@
 <button
-  class="flex bg-p-orange text-white text-center rounded-lg px-8 py-2 hover:opacity-80 duration-300 shadow-md justify-center w-full items-center relative"
+  class="flex bg-p-orange text-white text-center rounded-lg px-8 py-2 hover:opacity-80 duration-300 shadow-md justify-center w-full items-center relative min-w-[132px]"
   (click)="handleClick()"
   [type]="type"
 >
-  <div class="left-2 top-1/2 -translate-y-1/2 absolute" *ngIf="loading">
+  <div @fadeIn class="flex justify-center items-center" *ngIf="loading">
+    <p class="opacity-0">.</p>
     <svg
       class="h-5 w-5 text-white animate-spin text-center flex justify-center items-center"
       xmlns="http://www.w3.org/2000/svg"
@@ -25,5 +26,5 @@
       ></path>
     </svg>
   </div>
-  <p>{{ name }}</p>
+  <p @fadeIn *ngIf="!loading">{{ name }}</p>
 </button>

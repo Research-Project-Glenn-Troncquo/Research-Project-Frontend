@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [feature/**]
 
+env:
+  TRELLO_KEY: ${{ secrets.TRELLO_KEY }}
+  TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+
 jobs:
   filter_modules:
     name: Filter Modules with testing errors
@@ -58,11 +62,26 @@ jobs:
       - name: Debug ISSUE_DESCRIPTION
         run: echo "${{ secrets.ISSUE_DESCRIPTION }}"
 
-      - name: Make Issue if file exists
-        if: steps.check_files.outputs.files_exists == 'true'
-        uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Make Issue if file exists
+      #   if: steps.check_files.outputs.files_exists == 'true'
+      #   uses: JasonEtco/create-an-issue@v2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open new ISSUE on GuillaumeFalourd/poc-github-actions repository
+        # if: contains(github.event.label.name , 'documentation')
+        uses: GuillaumeFalourd/open-issue-action@v1
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-owner: Research-Project-Glenn-Troncquo
+          repo-name: Research-Project-Frontend
+          issue-title: Custom title for new ISSUE
+          issue-body: Custom message for new ISSUE
+
+      - name: Runs trello manage
+        uses: sisodiya2421/trello-manage@master
+        with:
+          repo-name: ${{ github.repository }}
+          trello-username: ${{ secrets.TRELLO_USERNAME }}
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'

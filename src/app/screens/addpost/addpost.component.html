@@ -7,13 +7,13 @@
     <div class="flex justify-between mb-10">
       <div class="flex gap-2 items-center">
         <img
-          class="h-20 w-20 rounded-full"
+          class="w-12 h-12 sm:h-20 sm:w-20 rounded-full"
           [src]="
             user?.img_url ? user?.img_url : '../../../assets/no-profile.png'
           "
           alt="profile picture of the user"
         />
-        <p class="text-gray-600">
+        <p class="text-gray-600 w-16">
           {{ user.name | titlecase }} {{ user.lastname | titlecase }}
         </p>
       </div>
@@ -51,12 +51,6 @@
         for="title"
         >Add a title</label
       >
-      <!-- <app-input-error
-        errorMsg="Please fill in a title"
-        [show]="title?.errors?.['required'] && title?.invalid && (title?.dirty || title?.touched) ? true : false"
-        errorName="title"
-        (emitClickEvent)="handleErrorEmit($event)"
-      ></app-input-error> -->
     </div>
     <div class="relative pt-6 mb-6">
       <textarea
@@ -73,12 +67,6 @@
         for="description"
         >Add a description</label
       >
-      <!-- <app-input-error
-        errorMsg="Please fill in a name"
-        [show]="description?.errors?.['required'] && description?.invalid && (description?.dirty || description?.touched) ? true : false"
-        errorName="description"
-        (emitClickEvent)="handleErrorEmit($event)"
-      ></app-input-error> -->
     </div>
 
     <div>

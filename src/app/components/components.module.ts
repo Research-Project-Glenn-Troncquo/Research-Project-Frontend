@@ -12,6 +12,11 @@ import { PostCommentComponent } from './post-comment/post-comment.component'
 import { LikeCommentComponent } from './like-comment/like-comment.component'
 import { PostGhostComponent } from './post-ghost/post-ghost.component'
 import { FollowButtonComponent } from './follow-button/follow-button.component'
+import { ImageComponent } from './image/image.component'
+import { PostOverlayComponent } from './post-overlay/post-overlay.component'
+import { PickerModule } from '@ctrl/ngx-emoji-mart'
+import { LikesOverlayComponent } from './likes-overlay/likes-overlay.component'
+import { DeletePostComponent } from './delete-post/delete-post.component'
 
 @NgModule({
   declarations: [
@@ -25,8 +30,18 @@ import { FollowButtonComponent } from './follow-button/follow-button.component'
     LikeCommentComponent,
     PostGhostComponent,
     FollowButtonComponent,
+    ImageComponent,
+    PostOverlayComponent,
+    LikesOverlayComponent,
+    DeletePostComponent,
   ],
-  imports: [AppRoutingModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PickerModule,
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -37,6 +52,10 @@ import { FollowButtonComponent } from './follow-button/follow-button.component'
     LikeCommentComponent,
     PostGhostComponent,
     FollowButtonComponent,
+    ImageComponent,
+    PostOverlayComponent,
+    LikesOverlayComponent,
+    DeletePostComponent,
   ],
 })
 export class ComponentsModule {}
