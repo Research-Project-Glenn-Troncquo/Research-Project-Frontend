@@ -75,7 +75,7 @@ jobs:
           repo-owner: Research-Project-Glenn-Troncquo
           repo-name: Research-Project-Frontend
           issue-title: Testing failed
-          issue-body: cat do_pr.txt
+          issue-body: ${{ secrets.PARENT_BRANCH }}
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
