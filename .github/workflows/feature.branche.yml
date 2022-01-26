@@ -60,7 +60,7 @@ jobs:
         run: cat do_pr.txt
 
       - name: Debug ISSUE_DESCRIPTION
-        run: echo "${{ secrets.ISSUE_DESCRIPTION }}"
+        run: echo ${{ secrets.ISSUE_DESCRIPTION }}
 
       # - name: Make Issue if file exists
       #   if: steps.check_files.outputs.files_exists == 'true'
@@ -75,7 +75,7 @@ jobs:
           repo-owner: Research-Project-Glenn-Troncquo
           repo-name: Research-Project-Frontend
           issue-title: Testing failed
-          issue-body: ${{ secrets.ISSUE_DESCRIPTION }}
+          issue-body: cat do_pr.txt
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
