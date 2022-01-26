@@ -52,7 +52,12 @@ export class AuthGuard implements CanActivate {
   }
 
   checkRoute(route: string) {
-    if (route === '' || route === 'login' || route === 'register') {
+    if (
+      route === '' ||
+      route === 'login' ||
+      route === 'register' ||
+      route === 'test'
+    ) {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/dashboard'])
         return false

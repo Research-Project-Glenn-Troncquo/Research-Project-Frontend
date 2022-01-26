@@ -77,6 +77,8 @@ export const routes: Routes = [
   {
     path: 'test',
     component: TestComponent,
+
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
