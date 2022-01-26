@@ -2,4 +2,4 @@
 
 npm run build
 
-ls
+rm -r src/app/screens/test
