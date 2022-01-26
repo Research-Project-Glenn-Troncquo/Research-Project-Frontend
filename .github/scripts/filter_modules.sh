@@ -31,7 +31,9 @@ then
     git commit -m "restore modules from $PARENT_BRANCH because of test failures."
     git push origin $NEW_BRANCH
 
-    # curl --request POST --url "https://api.trello.com/1/cards?idList=61f16f2aa1468557c219ebfa&key=74d79d8a81bca9fc82038ff912c6891a&token=2bace6d2535988d020e84a2615964f5f7f26c19c4888f9ce94fe0430850d3d14&name=testingerror&desc=$PARENT_BRANCH"
+    $TEST=(cat do_pr.txt)
+
+    curl --request POST --url "https://api.trello.com/1/cards?idList=61f16f2aa1468557c219ebfa&key=74d79d8a81bca9fc82038ff912c6891a&token=2bace6d2535988d020e84a2615964f5f7f26c19c4888f9ce94fe0430850d3d14&name=testingerror&desc=$TEST"
 
     # touch do_pr 
     # grep -E -o "[^)]+FAILED[^)]" report.tmp.txt > do_pr.txt
