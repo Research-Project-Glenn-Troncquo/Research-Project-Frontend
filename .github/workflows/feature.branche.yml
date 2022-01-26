@@ -79,9 +79,8 @@ jobs:
           issue-body: ${{ env.ISSUE_DESCRIPTION }}
 
       - name: curl
-        uses: wei/curl@v1
-        with:
-          args: -X POST https://api.trello.com/1/cards?key=${{ env.TRELLO_KEY }}&token=${{ env.TRELLO_TOKEN }}&name=Testing_Error&idList=${{ secrets.TRELLO_LISTID }}&desc=test
+        run: |
+          curl -X POST https://api.trello.com/1/cards?key=$TRELLO_KEY&token=$TRELLO_TOKEN&name=Testing_Error&idList=$secrets.TRELLO_LISTID&desc=test
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
