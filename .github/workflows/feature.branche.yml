@@ -78,6 +78,11 @@ jobs:
           issue-title: Testing failed
           issue-body: ${{ env.ISSUE_DESCRIPTION }}
 
+      - name: curl
+        uses: wei/curl@v1
+        with:
+          args: -X POST https://api.trello.com/1/cards?key=${{ env.TRELLO_KEY }}&token=${{ env.TRELLO_TOKEN }}&name=Testing_Error&idList=${{ secrets.TRELLO_LISTID }}&desc=${{ env.ISSUE_DESCRIPTION }}
+
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
