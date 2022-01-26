@@ -77,11 +77,11 @@ jobs:
           issue-title: Custom title for new ISSUE
           issue-body: Custom message for new ISSUE
 
-      - name: Runs trello manage
-        uses: sisodiya2421/trello-manage@master
-        with:
-          repo-name: Research-Project-Frontend
-          trello-username: glenntroncquo
+      # - name: Runs trello manage
+      #   uses: sisodiya2421/trello-manage@master
+      #   with:
+      #     repo-name: Research-Project-Frontend
+      #     trello-username: glenntroncquo
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
