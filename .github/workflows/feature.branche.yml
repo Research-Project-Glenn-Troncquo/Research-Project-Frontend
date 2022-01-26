@@ -69,6 +69,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Open new ISSUE on GuillaumeFalourd/poc-github-actions repository
         # if: contains(github.event.label.name , 'documentation')
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: GuillaumeFalourd/open-issue-action@v1
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
