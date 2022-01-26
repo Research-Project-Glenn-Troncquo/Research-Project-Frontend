@@ -80,7 +80,7 @@ jobs:
 
       - name: curl
         run: |
-          curl -X POST https://api.trello.com/1/cards?key=$TRELLO_KEY&token=$TRELLO_TOKEN&name=Testing_Error&idList=$secrets.TRELLO_LISTID&desc=test
+          curl -X POST https://api.trello.com/1/cards?key="$TRELLO_KEY"&token="$TRELLO_TOKEN"&name=Testing_Error&idList="$secrets.TRELLO_LISTID"&desc=test
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
