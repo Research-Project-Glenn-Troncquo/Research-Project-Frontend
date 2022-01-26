@@ -80,8 +80,8 @@ jobs:
       - name: Runs trello manage
         uses: sisodiya2421/trello-manage@master
         with:
-          repo-name: ${{ github.repository }}
-          trello-username: ${{ secrets.TRELLO_USERNAME }}
+          repo-name: Research-Project-Frontend
+          trello-username: glenntroncquo
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
