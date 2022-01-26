@@ -11,6 +11,7 @@ import { ProfileComponent } from './screens/profile/profile.component'
 import { RegisterComponent } from './screens/register/register.component'
 import { SearchComponent } from './screens/search/search.component'
 import { SettingsComponent } from './screens/settings/settings.component'
+import { TestComponent } from './screens/test/test.component'
 
 export const routes: Routes = [
   {
@@ -72,6 +73,10 @@ export const routes: Routes = [
     path: 'settings',
     component: SettingsComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'test',
+    component: TestComponent,
   },
   {
     path: '**',
