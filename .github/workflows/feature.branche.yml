@@ -74,14 +74,8 @@ jobs:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           repo-owner: Research-Project-Glenn-Troncquo
           repo-name: Research-Project-Frontend
-          issue-title: Custom title for new ISSUE
-          issue-body: Custom message for new ISSUE
-
-      # - name: Runs trello manage
-      #   uses: sisodiya2421/trello-manage@master
-      #   with:
-      #     repo-name: Research-Project-Frontend
-      #     trello-username: glenntroncquo
+          issue-title: Testing failed
+          issue-body: ${{ secrets.ISSUE_DESCRIPTION }}
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
