@@ -35,7 +35,6 @@ then
     # grep -E -o "[^)]+FAILED[^)]" report.tmp.txt > do_pr.txt
     grep -E -o "[^)]+FAILED$" report.tmp.txt > do_pr.txt
 
-    echo "hier"
     cat do_pr.txt
 
     remove_temporary_files
