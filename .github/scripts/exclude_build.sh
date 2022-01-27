@@ -22,10 +22,10 @@ cat modules.tmp.txt
 if [[ -f "modules.tmp.txt" && -s "modules.tmp.txt" ]];
 then
 
-    while read module; do
+    # while read module; do
         
 
-    done <modules.tmp.txt
+    # done <modules.tmp.txt
 
 
     remove_temporary_files
