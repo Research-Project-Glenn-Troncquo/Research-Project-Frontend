@@ -1,4 +1,4 @@
-name: Filter Modules Workflow
+name: Angular CI Feature branch
 
 on:
   push:
