@@ -2,7 +2,7 @@
 
 # npm run build
 
-# rm -r src/app/screens/test
+
 npm install -g @angular/cli
 
 remove_temporary_files() {
@@ -14,7 +14,11 @@ npm run test:unit > report.tmp.txt 2> /dev/null &
 wait
 cat report.tmp.txt
 grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
-grep -E -o "\/([^\/]+)\/?$" modules.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
+grep -E -o "\/([^\/]+)\/?$" modules.tmp.txt | xargs -I {} dirname {} > modules.tmp.
+
+rm -r src/app/screens/login
+ng generate component screens/login
+ng generate module screens/login
 
 
 cat modules.tmp.txt
@@ -26,6 +30,8 @@ then
         
 
     # done <modules.tmp.txt
+    
+    cat modules.tmp.txt
 
 
     remove_temporary_files
