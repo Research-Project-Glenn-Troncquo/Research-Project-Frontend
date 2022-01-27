@@ -163,7 +163,7 @@ describe('Home Component', () => {
         fakeRouterState(fakeUrl)
       )
 
-      expect(canActivate).toBeTrue()
+      expect(canActivate).toBeFalse()
     })
   })
 })

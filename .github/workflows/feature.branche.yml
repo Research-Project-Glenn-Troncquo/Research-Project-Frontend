@@ -60,7 +60,7 @@ jobs:
         run: cat do_pr.txt
 
       - name: Debug ISSUE_DESCRIPTION
-        run: echo "${{ secrets.ISSUE_DESCRIPTION }}"
+        run: echo ${{ env.ISSUE_DESCRIPTION }}
 
       # - name: Make Issue if file exists
       #   if: steps.check_files.outputs.files_exists == 'true'
@@ -69,19 +69,19 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Open new ISSUE on GuillaumeFalourd/poc-github-actions repository
         # if: contains(github.event.label.name , 'documentation')
+        if: steps.check_files.outputs.files_exists == 'true'
         uses: GuillaumeFalourd/open-issue-action@v1
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           repo-owner: Research-Project-Glenn-Troncquo
           repo-name: Research-Project-Frontend
-          issue-title: Custom title for new ISSUE
-          issue-body: Custom message for new ISSUE
+          issue-title: Testing failed
+          issue-body: ${{ env.ISSUE_DESCRIPTION }}
 
-      - name: Runs trello manage
-        uses: sisodiya2421/trello-manage@master
-        with:
-          repo-name: ${{ github.repository }}
-          trello-username: ${{ secrets.TRELLO_USERNAME }}
+      - name: curl
+        run: |
+          curl --request POST --url "https://api.trello.com/1/cards?idList=61f16f2aa1468557c219ebfa&key=74d79d8a81bca9fc82038ff912c6891a&token=2bace6d2535988d020e84a2615964f5f7f26c19c4888f9ce94fe0430850d3d14&name=testingerror" --data-urlencode "desc=$ISSUE_DESCRIPTION"
+          
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
