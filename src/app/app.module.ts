@@ -23,7 +23,8 @@ import { SearchComponent } from './screens/search/search.component'
 import { HomeModule } from './screens/home/home.module'
 import { ProfileComponent } from './screens/profile/profile.component'
 import { SettingsComponent } from './screens/settings/settings.component';
-import { TestComponent } from './screens/test/test.component'
+import { TestComponent } from './screens/test/test.component';
+import { LoginnComponent } from './src/app/screens/loginn/loginn.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TestComponent } from './screens/test/test.component'
     ProfileComponent,
     SettingsComponent,
     TestComponent,
+    LoginnComponent,
   ],
   imports: [
     BrowserModule,
