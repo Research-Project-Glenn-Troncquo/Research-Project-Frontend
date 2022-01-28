@@ -16,23 +16,25 @@ cat report.tmp.txt
 grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
 grep -E -o "\/([^\/]+)\/?$" modules.tmp.txt | xargs -I {} dirname {} > modules.tmp.
 
-rm -r src/app/screens/login
-ng generate component screens/login
-ng generate module screens/login
-
 
 cat modules.tmp.txt
 
 if [[ -f "modules.tmp.txt" && -s "modules.tmp.txt" ]];
 then
 
-    # while read module; do
-        
+    while read module; do
+        rm -r src/app/screens/login
+        ng generate component screens/$module
+        ng generate module screens/$modue
+        cp ../templates/template.html ../../src/app/screens/$module/$module.component.html
 
-    # done <modules.tmp.txt
+
+        echo "$module"     
+
+    done <modules.tmp.txt
     
     cat modules.tmp.txt
-    echo "why are we in the loop?"
+
 
 
     remove_temporary_files
