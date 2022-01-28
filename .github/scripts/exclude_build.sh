@@ -32,6 +32,7 @@ then
     # done <modules.tmp.txt
     
     cat modules.tmp.txt
+    echo "why are we in the loop?"
 
 
     remove_temporary_files
