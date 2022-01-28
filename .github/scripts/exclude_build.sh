@@ -13,25 +13,28 @@ remove_temporary_files() {
 npm run test:unit > report.tmp.txt 2> /dev/null &
 wait
 cat report.tmp.txt
+
 grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
-grep -E -o "\/([^\/]+)\/?$" modules.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
+grep -E -o '/[^\/]*$' modules.tmp.txt > folders.tmp.txt
+grep -E -o '[a-zA-Z]+' folders.tmp.txt > screens.tmp.txt
+
 
 
 cat modules.tmp.txt
 
 if [[ -f "modules.tmp.txt" && -s "modules.tmp.txt" ]];
-then
+    then
 
-    while read module; do
+    while read screen; do
         rm -r src/app/screens/login
-        ng generate component screens/$module
-        ng generate module screens/$modue
-        cp .github/templates/template.html src/app/screens/$module/$module.component.html
+        ng generate component screens/$screen
+        ng generate module screens/$screen
+        cp .github/templates/template.html src/app/screens/$screen/$screen.component.html
 
 
-        echo "$module"     
+        echo "$screen"     
 
-    done <modules.tmp.txt
+    done <screens.tmp.txt
     
     cat modules.tmp.txt
 
