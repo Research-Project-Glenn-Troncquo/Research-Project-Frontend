@@ -14,7 +14,7 @@ npm run test:unit > report.tmp.txt 2> /dev/null &
 wait
 cat report.tmp.txt
 grep -E -o "(src.+\/.+\.spec\.ts)" report.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
-grep -E -o "\/([^\/]+)\/?$" modules.tmp.txt | xargs -I {} dirname {} > modules.tmp.
+grep -E -o "\/([^\/]+)\/?$" modules.tmp.txt | xargs -I {} dirname {} > modules.tmp.txt
 
 
 cat modules.tmp.txt
@@ -26,7 +26,7 @@ then
         rm -r src/app/screens/login
         ng generate component screens/$module
         ng generate module screens/$modue
-        cp ../templates/template.html ../../src/app/screens/$module/$module.component.html
+        cp .github/templates/template.html src/app/screens/$module/$module.component.html
 
 
         echo "$module"     
