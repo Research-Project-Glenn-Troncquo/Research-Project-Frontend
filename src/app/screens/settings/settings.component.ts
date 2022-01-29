@@ -14,6 +14,7 @@ import { forbiddenNameValidator } from 'src/app/services/validator.service'
 export class SettingsComponent implements OnInit {
   user: User = {}
   profilePicture: any
+  loading: boolean = false
   constructor(
     private formBuilder: FormBuilder,
     private dataService: DataService,
@@ -22,7 +23,10 @@ export class SettingsComponent implements OnInit {
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.user = user
-      console.log(this.user)
+      this.settingsForm.controls['name'].setValue(this.user.name)
+      this.settingsForm.controls['lastname'].setValue(this.user.lastname)
+      this.settingsForm.controls['email'].setValue(this.user.email)
+      this.settingsForm.controls['username'].setValue(this.user.username)
     })
   }
 
@@ -92,5 +96,37 @@ export class SettingsComponent implements OnInit {
           this.user.img_url = res.img_url
         })
     } catch (error) {}
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach((field) => {
+      const control = formGroup.get(field) //{3}
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true })
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control) //{6}
+      }
+    })
+  }
+
+  async onSubmit() {
+    if (this.settingsForm.valid) {
+      this.loading = true
+
+      const user: User = {
+        name: this.name!.value,
+        lastname: this.lastname!.value,
+        username: this.username!.value,
+        email: this.email!.value,
+      }
+
+      this.httpService
+        .Post('user/mail', user, await this.firebaseService.user.getIdToken())
+        .subscribe((res: User) => {
+          console.log(res)
+        })
+
+      this.loading = false
+    } else this.validateAllFormFields(this.settingsForm)
   }
 }
