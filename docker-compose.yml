@@ -22,6 +22,7 @@ services:
       - docker.orm.config
     depends_on:
       - mariadb
+    restart: on-failure
 
 volumes:
   drinkbuddy-volume:
