@@ -9,6 +9,6 @@ describe('End to End test', () => {
   })
 
   it('has a title', () => {
-    cy.contains('DrinkBuddy')
+    cy.contains('DrinkBuddsqfdy')
   })
 })

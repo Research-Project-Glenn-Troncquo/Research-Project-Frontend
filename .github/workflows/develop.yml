@@ -24,9 +24,6 @@ jobs:
       - name: Exclude files with testing errors from build
         run: .github/scripts/exclude_build.sh
 
-      - name: Run Angular
-        run: ng serve
-
       - uses: cypress-io/github-action@v2
         with:
           build: npm run cy:run
