@@ -1,0 +1,142 @@
+
+> drink-buddy@0.0.0 test:unit /home/runner/work/Research-Project-Frontend/Research-Project-Frontend
+> ng test --watch=false --browsers=ChromeHeadlessCustom
+
+30 01 2022 09:45:53.855:INFO [karma-server]: Karma v6.3.9 server started at http://localhost:9876/
+30 01 2022 09:45:53.857:INFO [launcher]: Launching browsers ChromeHeadlessCustom with concurrency unlimited
+30 01 2022 09:45:53.861:INFO [launcher]: Starting browser ChromeHeadless
+30 01 2022 09:46:05.053:INFO [Chrome Headless 97.0.4692.99 (Linux x86_64)]: Connected on socket G20zkIv93qCTOhIxAAAB with id 38897813
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 0 of 66 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 1 of 66 SUCCESS (0 secs / 0.153 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 2 of 66 SUCCESS (0 secs / 0.174 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 3 of 66 SUCCESS (0 secs / 0.178 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 4 of 66 SUCCESS (0 secs / 0.181 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 5 of 66 SUCCESS (0 secs / 0.184 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 6 of 66 SUCCESS (0 secs / 0.187 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 7 of 66 SUCCESS (0 secs / 0.19 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 8 of 66 SUCCESS (0 secs / 0.193 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 9 of 66 SUCCESS (0 secs / 0.197 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 10 of 66 SUCCESS (0 secs / 0.203 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 11 of 66 SUCCESS (0 secs / 0.206 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 12 of 66 SUCCESS (0 secs / 0.22 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) LoginComponent should have a button `Log in` should show error if an input is empty FAILED
+	Error: Expected 'Please fill in a password' to contain 'Please fill in a passworde'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/login/login.component.spec.ts:273:9)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 13 of 66 (1 FAILED) (0 secs / 0.359 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 14 of 66 (1 FAILED) (0 secs / 0.374 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 15 of 66 (1 FAILED) (0 secs / 0.399 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 16 of 66 (1 FAILED) (0 secs / 0.415 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 17 of 66 (1 FAILED) (0 secs / 0.431 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 18 of 66 (1 FAILED) (0 secs / 0.444 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) LoginComponent should have a div with Log in with Google  FAILED
+	Expected 'Email
+	Password' to be 'Log in with Google'.
+	Error: Expected 'Email
+	Password' to be 'Log in with Google'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/login/login.component.spec.ts:107:69)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 19 of 66 (2 FAILED) (0 secs / 0.454 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) LoginComponent should have an anchor tag `Sign up`  FAILED
+	TypeError: Cannot read properties of undefined (reading 'nativeElement')
+	    at UserContext.<anonymous> (src/app/screens/login/login.component.spec.ts:222:14)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+	    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+	    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+	    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+	    at <Jasmine>
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 20 of 66 (3 FAILED) (0 secs / 0.463 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) LoginComponent should have an anchor tag `Sign up` onClick should go to the register page FAILED
+	TypeError: Cannot read properties of undefined (reading 'nativeElement')
+	    at UserContext.<anonymous> (src/app/screens/login/login.component.spec.ts:229:28)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:371:1)
+	    at Zone.run (node_modules/zone.js/fesm2015/zone.js:134:1)
+	    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:567:1)
+	    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:582:1)
+	    at <Jasmine>
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 21 of 66 (4 FAILED) (0 secs / 0.472 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) LoginComponent should have a p tag `Dont have an account yet?` FAILED
+	Error: Expected 'Sign up' to be 'Don't have an account yet?'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/login/login.component.spec.ts:211:65)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 22 of 66 (5 FAILED) (0 secs / 0.482 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 23 of 66 (5 FAILED) (0 secs / 0.492 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 24 of 66 (5 FAILED) (0 secs / 0.5 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 25 of 66 (5 FAILED) (0 secs / 0.51 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 26 of 66 (5 FAILED) (0 secs / 0.521 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 27 of 66 (5 FAILED) (0 secs / 0.531 secs)
+[1A[2KERROR: 'NG0304: 'app-button' is not a known element:
+1. If 'app-button' is an Angular component, then verify that it is part of this module.
+2. If 'app-button' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 27 of 66 (5 FAILED) (0 secs / 0.531 secs)
+ERROR: 'NG0304: 'app-button' is not a known element:
+1. If 'app-button' is an Angular component, then verify that it is part of this module.
+2. If 'app-button' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 28 of 66 (5 FAILED) (0 secs / 0.536 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 29 of 66 (5 FAILED) (0 secs / 0.542 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 30 of 66 (5 FAILED) (0 secs / 0.544 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 31 of 66 (5 FAILED) (0 secs / 0.603 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 32 of 66 (5 FAILED) (0 secs / 0.648 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 33 of 66 (5 FAILED) (0 secs / 0.67 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 34 of 66 (5 FAILED) (0 secs / 0.694 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 35 of 66 (5 FAILED) (0 secs / 0.716 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 36 of 66 (5 FAILED) (0 secs / 0.733 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) RegisterComponent should have a div with Sign up with Google  FAILED
+	Expected 'Name
+	Last Name
+	Username
+	Email
+	Password
+	Confirm Password' to be 'Sign up with Google'.
+	Error: Expected 'Name
+	Last Name
+	Username
+	Email
+	Password
+	Confirm Password' to be 'Sign up with Google'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/register/register.component.spec.ts:110:69)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 37 of 66 (6 FAILED) (0 secs / 0.749 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 38 of 66 (6 FAILED) (0 secs / 0.765 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 39 of 66 (6 FAILED) (0 secs / 0.786 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 40 of 66 (6 FAILED) (0 secs / 0.8 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 41 of 66 (6 FAILED) (0 secs / 0.824 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 42 of 66 (6 FAILED) (0 secs / 0.846 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 43 of 66 (6 FAILED) (0 secs / 0.862 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 44 of 66 (6 FAILED) (0 secs / 0.871 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 45 of 66 (6 FAILED) (0 secs / 0.879 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 46 of 66 (6 FAILED) (0 secs / 0.885 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 47 of 66 (6 FAILED) (0 secs / 0.891 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 48 of 66 (6 FAILED) (0 secs / 0.896 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 49 of 66 (6 FAILED) (0 secs / 0.907 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 50 of 66 (6 FAILED) (0 secs / 0.913 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 51 of 66 (6 FAILED) (0 secs / 0.914 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 52 of 66 (6 FAILED) (0 secs / 0.914 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 53 of 66 (6 FAILED) (0 secs / 0.916 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 54 of 66 (6 FAILED) (0 secs / 0.916 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 55 of 66 (6 FAILED) (0 secs / 0.916 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 56 of 66 (6 FAILED) (0 secs / 0.916 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 57 of 66 (6 FAILED) (0 secs / 0.917 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 58 of 66 (6 FAILED) (0 secs / 0.917 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 59 of 66 (6 FAILED) (0 secs / 0.919 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 60 of 66 (6 FAILED) (0 secs / 0.92 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 61 of 66 (6 FAILED) (0 secs / 0.921 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 62 of 66 (6 FAILED) (0 secs / 0.921 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 63 of 66 (6 FAILED) (0 secs / 0.922 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 64 of 66 (6 FAILED) (0 secs / 0.923 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 65 of 66 (6 FAILED) (0 secs / 0.923 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 66 of 66 (6 FAILED) (0 secs / 0.923 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 66 of 66 (6 FAILED) (1.158 secs / 0.923 secs)
+TOTAL: 6 FAILED, 60 SUCCESS
