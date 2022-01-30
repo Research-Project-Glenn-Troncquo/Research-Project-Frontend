@@ -4,7 +4,7 @@ import { User } from 'src/app/interface/user'
 import { DataService } from 'src/app/data.service'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { Post } from 'src/app/interface/post'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { IsFollowing } from 'src/app/interface/isfollowing'
 
 @Component({
@@ -27,14 +27,16 @@ export class ProfileComponent implements OnInit {
   likeOverlay: boolean = false
   deletePostOverlay: boolean = false
   emojiOverlay: boolean = false
+  followers: any = { followings: [], followers: [] }
 
   constructor(
     private httpService: HttpService,
     private dataService: DataService,
     public authService: AuthService,
     private route: ActivatedRoute,
-    private firebaseSerive: AuthService,
-    private renderer: Renderer2
+    private firebaseService: AuthService,
+    private renderer: Renderer2,
+    public router: Router
   ) {
     this.dataService.currentUser.subscribe((user) => {
       this.userSelf = user
@@ -53,7 +55,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
-    this.getFollowings()
+    // this.getFollowings()
+    this.getFollowers()
   }
 
   async getUser() {
@@ -73,14 +76,6 @@ export class ProfileComponent implements OnInit {
     this.userLoaded = true
   }
 
-  async getFollowings() {
-    this.httpService
-      .Get('user/followings', await this.authService.user.getIdToken())
-      .subscribe((res) => {
-        console.log(res)
-      })
-  }
-
   newFollower(newFollower: IsFollowing) {
     this.user.followers?.push(newFollower.user_id!)
   }
@@ -94,7 +89,7 @@ export class ProfileComponent implements OnInit {
       const htmlInput = picture.currentTarget as HTMLInputElement
       const fileData = htmlInput.files![0]
 
-      const url = await this.firebaseSerive.fileUpload(
+      const url = await this.firebaseService.fileUpload(
         fileData,
         `profile-pictures`
       )
@@ -177,5 +172,18 @@ export class ProfileComponent implements OnInit {
     } else {
       this.renderer.addClass(document.body, 'overflow-hidden')
     }
+  }
+
+  async getFollowers() {
+    this.httpService
+      .Get('user/followers', await this.firebaseService.user.getIdToken())
+      .subscribe((res) => {
+        this.followers = res
+        console.log(this.followers.followings.length)
+      })
+  }
+
+  handleProfileClick(user_id: string) {
+    this.router.navigate([`profile/${user_id}`])
   }
 }

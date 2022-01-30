@@ -22,7 +22,7 @@ import { LoadingModule } from './screens/loading/loading.module'
 import { SearchComponent } from './screens/search/search.component'
 import { HomeModule } from './screens/home/home.module'
 import { ProfileComponent } from './screens/profile/profile.component'
-import { SettingsComponent } from './screens/settings/settings.component';
+import { SettingsComponent } from './screens/settings/settings.component'
 import { TestComponent } from './screens/test/test.component'
 
 @NgModule({

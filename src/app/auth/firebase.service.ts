@@ -137,4 +137,14 @@ export class AuthService {
         this.dataService?.changeUser(res)
       })
   }
+
+  resetPassword(email: string) {
+    return new Promise((resolve, reject) => {
+      sendPasswordResetEmail(this.auth!, email)
+        .then(() => {
+          resolve(true)
+        })
+        .catch((error) => resolve(false))
+    })
+  }
 }

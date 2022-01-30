@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from './auth/auth.guard'
+import { PasswordComponent } from './components/password/password.component'
 import { ActivityComponent } from './screens/activity/activity.component'
 import { AddpostComponent } from './screens/addpost/addpost.component'
 import { DashboardComponent } from './screens/dashboard/dashboard.component'
@@ -77,6 +78,12 @@ export const routes: Routes = [
   {
     path: 'test',
     component: TestComponent,
+
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'forgotpassword',
+    component: PasswordComponent,
 
     canActivate: [AuthGuard],
   },

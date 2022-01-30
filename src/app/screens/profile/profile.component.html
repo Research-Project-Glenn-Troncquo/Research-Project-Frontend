@@ -106,10 +106,71 @@
     </div>
   </div>
 
-  <div class="w-1/3 bg-white rounded-sm hidden lg:block sticky top-20">
-    <p class="text-gray-700 font-semibold text-lg bg-white">
-      Users that you follow:
-    </p>
+  <div class="w-1/3">
+    <div
+      class="bg-white rounded-sm hidden lg:block top-20 p-4 height overflow-y-auto mb-4"
+    >
+      <p class="text-gray-700 font-semibold text-lg bg-white">
+        Users that you follow
+      </p>
+
+      <ul *ngIf="followers.followings.length > 0">
+        <li
+          *ngFor="let user of followers.followings"
+          class="hover:bg-gray-100 h-12 flex gap-2 cursor-pointer items-center w-full text-gray-600"
+          (click)="handleProfileClick(user.user_id!)"
+        >
+          <img
+            class="w-8 h-8 rounded-full"
+            [src]="
+              user!.img_url ? user!.img_url : '../../../assets/no-profile.png'
+            "
+            alt="profile picture of the user"
+          />
+          <div>
+            <h3 class="text-sm text-gray-700 font-semibold">
+              {{ user!.username! }}
+            </h3>
+            <p class="text-sm text-gray-400 break-words overflow-hidden w-full">
+              {{ user!.name! | titlecase }}
+              {{ user!.lastname! | titlecase }}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="bg-white rounded-sm hidden lg:block sticky top-20 p-4 height overflow-y-auto"
+    >
+      <p class="text-gray-700 font-semibold text-lg bg-white">
+        Users that follow you
+      </p>
+
+      <ul *ngIf="followers.followers.length > 0">
+        <li
+          *ngFor="let user of followers.followers"
+          class="hover:bg-gray-100 h-12 flex gap-2 cursor-pointer items-center w-full text-gray-600"
+          (click)="handleProfileClick(user.user_id!)"
+        >
+          <img
+            class="w-8 h-8 rounded-full"
+            [src]="
+              user!.img_url ? user!.img_url : '../../../assets/no-profile.png'
+            "
+            alt="profile picture of the user"
+          />
+          <div>
+            <h3 class="text-sm text-gray-700 font-semibold">
+              {{ user!.username! }}
+            </h3>
+            <p class="text-sm text-gray-400 break-words overflow-hidden w-full">
+              {{ user!.name! | titlecase }}
+              {{ user!.lastname! | titlecase }}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
