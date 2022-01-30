@@ -56,7 +56,7 @@ export class AuthGuard implements CanActivate {
       route === '' ||
       route === 'login' ||
       route === 'register' ||
-      route === 'test'
+      route === 'forgotpassword'
     ) {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/dashboard'])
