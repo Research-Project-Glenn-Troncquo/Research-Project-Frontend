@@ -16,7 +16,8 @@ import { ImageComponent } from './image/image.component'
 import { PostOverlayComponent } from './post-overlay/post-overlay.component'
 import { PickerModule } from '@ctrl/ngx-emoji-mart'
 import { LikesOverlayComponent } from './likes-overlay/likes-overlay.component'
-import { DeletePostComponent } from './delete-post/delete-post.component'
+import { DeletePostComponent } from './delete-post/delete-post.component';
+import { PasswordComponent } from './password/password.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DeletePostComponent } from './delete-post/delete-post.component'
     PostOverlayComponent,
     LikesOverlayComponent,
     DeletePostComponent,
+    PasswordComponent,
   ],
   imports: [
     AppRoutingModule,
