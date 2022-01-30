@@ -13,16 +13,16 @@ services:
     ports:
       - 9999:8080
 
-  api:
-    image: glenntroncquo/research-project-backend:1.0.0
-    ports:
-      - 3001:3001
-    env_file:
-      - docker.orm.config
-    command: bash -c 'while !</dev/tcp/mariadb/3306; do sleep 1; done; npm start'
-    depends_on:
-      - mariadb
-    restart: on-failure
+  # api:
+  #   image: glenntroncquo/research-project-backend:1.0.0
+  #   ports:
+  #     - 3001:3001
+  #   env_file:
+  #     - docker.orm.config
+  #   command: bash -c 'while !</dev/tcp/mariadb/3306; do sleep 1; done; npm start'
+  #   depends_on:
+  #     - mariadb
+  #   restart: on-failure
 
 volumes:
   drinkbuddy-volume:
