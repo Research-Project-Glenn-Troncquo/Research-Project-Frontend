@@ -45,6 +45,7 @@
         id="title"
         placeholder="Add a title"
         formControlName="title"
+        name="title"
       />
       <label
         class="absolute block text-gray-400 transition-all ease-out duration-300 pl-2"
@@ -60,6 +61,7 @@
         id="description"
         placeholder="Add a description"
         formControlName="description"
+        name="description"
       ></textarea>
 
       <label
@@ -72,13 +74,14 @@
     <div>
       <input
         class="hidden"
+        name="file"
         type="file"
         id="file-upload"
         formControlName="file"
         (change)="onFileSelected($event)"
       />
       <label
-        class="w-full h-48 flex justify-center items-center border-dashed border-2 cursor-pointer"
+        class="w-full h-48 flex justify-center items-center border-dashed border-2 cursor-pointer file"
         for="file-upload"
       >
         <div *ngIf="!fileName" class="flex gap-2">
