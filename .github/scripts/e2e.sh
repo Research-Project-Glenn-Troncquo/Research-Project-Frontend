@@ -1,4 +1,6 @@
-docker-compose up
+docker --version
+
+# docker-compose up
 
 ng serve
 
