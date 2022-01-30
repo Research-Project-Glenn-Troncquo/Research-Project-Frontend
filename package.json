@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test:unit": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "test": "ng test",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "cy:run": "npm run start & sleep 18 && cypress run --browser chrome --spec ./cypress/integration/sample.spec.js"
   },
   "private": true,
   "dependencies": {
