@@ -29,6 +29,7 @@ jobs:
         with:
           browser: chrome
           headless: true
+          start: npm run dev
 
 
       - name: Build And Deploy
