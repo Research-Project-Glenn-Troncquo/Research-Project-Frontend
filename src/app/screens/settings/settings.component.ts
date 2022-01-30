@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/auth/firebase.service'
 import { DataService } from 'src/app/data.service'
 import { HttpService } from 'src/app/http/http.service'
+import { IsFollowing } from 'src/app/interface/isfollowing'
 import { User } from 'src/app/interface/user'
 import { forbiddenNameValidator } from 'src/app/services/validator.service'
 
@@ -15,6 +16,7 @@ export class SettingsComponent implements OnInit {
   user: User = {}
   profilePicture: any
   loading: boolean = false
+  following: IsFollowing[] = []
   constructor(
     private formBuilder: FormBuilder,
     private dataService: DataService,

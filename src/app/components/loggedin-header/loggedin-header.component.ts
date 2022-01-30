@@ -89,8 +89,6 @@ export class LoggedinHeaderComponent implements OnInit {
   }
 
   handleProfileClick(user_id: string) {
-    console.log('hello?')
-    console.log(user_id)
     this.router.navigate([`profile/${user_id}`])
   }
 
