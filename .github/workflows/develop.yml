@@ -25,6 +25,12 @@ jobs:
         run: .github/scripts/exclude_build.sh
 
 
+      - uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
