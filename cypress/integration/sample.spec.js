@@ -1,7 +1,10 @@
 /// <reference types="cupres">
+import Chance from 'chance'
+
+const chance = new Chance()
 
 describe('End to End test', () => {
-  const email = 'glennekeeee@gmail.com'
+  const email = chance.email()
   const password = 'StrongPassword1@'
 
   beforeEach(() => {
@@ -9,6 +12,12 @@ describe('End to End test', () => {
   })
 
   it('has a title', () => {
-    cy.contains('DrinkBuddsqfdy')
+    cy.contains('DrinkBuddy')
+    cy.contains('Log in')
+    cy.contains('Register')
+  })
+
+  it('blocks protected routes', () => {
+    cy.contains('Log in').click()
   })
 })

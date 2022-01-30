@@ -1,0 +1,25 @@
+services:
+  mariadb:
+    image: mariadb:10.5.12
+    ports:
+      - 3307:3306
+    env_file:
+      - .env
+    volumes:
+      - drinkbuddy-volume:/var/lib/mysql
+    
+
+  adminer:
+    image: adminer:4.8.1
+    ports:
+      - 9999:8080
+
+  api:
+    image: glenntroncquo/research-project-backend:1.0.0
+    ports:
+      - 3001:3001
+    env_file:
+      - docker.orm.config
+
+volumes:
+  drinkbuddy-volume:
