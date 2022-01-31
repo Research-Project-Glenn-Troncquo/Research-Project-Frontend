@@ -2,6 +2,8 @@
 
 remove_temporary_files() {
     echo "removing temporary files"
+    # rm report.tmp.txt
+    # rm modules.tmp.txt
     rm *.tmp.txt
 }
 
@@ -24,6 +26,12 @@ then
         sh -c "git checkout origin/$PARENT_BRANCH -- $module "
     done <modules.tmp.txt
 
+    grep -E -o "[^)]+FAILED$" report.tmp.txt > do_pr.txt
+
+    cat do_pr.txt
+
+    remove_temporary_files
+
     git config --global user.email "github_actions"
     git config --global user.name "github_actions"
 
@@ -33,11 +41,7 @@ then
 
     # touch do_pr 
     # grep -E -o "[^)]+FAILED[^)]" report.tmp.txt > do_pr.txt
-    grep -E -o "[^)]+FAILED$" report.tmp.txt > do_pr.txt
-
-    cat do_pr.txt
-
-    remove_temporary_files
+    
 
 else
     
