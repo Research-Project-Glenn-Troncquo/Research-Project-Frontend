@@ -33,7 +33,8 @@ jobs:
         run: cat response.txt
 
       - name: set the value
-        run: echo "TEST=curl https://httpbin.org/json" >> $GITHUB_ENV
+        run: echo "EOF=$cat response.txt" >> $GITHUB_ENV
+          
 
       - name: Debug EOF
         run: echo ${{ env.EOF }}
