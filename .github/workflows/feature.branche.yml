@@ -52,10 +52,6 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: echo "ISSUE_DESCRIPTION=$(cat do_pr.txt)" >> $GITHUB_ENV
 
-      - name: remove do_pr.txt
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: rm do_pr.txt
-
       # - name: debug
       #   run: echo $GITHUB_ENV
 
@@ -86,6 +82,10 @@ jobs:
         run: |
           curl --request POST --url "https://api.trello.com/1/cards?idList=61f16f2aa1468557c219ebfa&key=74d79d8a81bca9fc82038ff912c6891a&token=2bace6d2535988d020e84a2615964f5f7f26c19c4888f9ce94fe0430850d3d14&name=testingerror" --data-urlencode "desc=$ISSUE_DESCRIPTION"
           
+
+      # - name: remove do_pr.txt
+      #   if: steps.check_files.outputs.files_exists == 'true'
+      #   run: .github/scripts/remove_tmp.sh
 
       - name: Create PR title
         if: steps.check_files.outputs.files_exists == 'true'
