@@ -112,4 +112,8 @@ export class LoginComponent implements OnInit {
   handleRoute() {
     this.router.navigate(['register'])
   }
+
+  handleForgotPassword() {
+    this.router.navigate(['forgotpassword'])
+  }
 }

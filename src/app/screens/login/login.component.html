@@ -65,6 +65,7 @@
           Email
         </label>
         <input
+          name="email"
           class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
           id="email-input"
           type="text"
@@ -84,6 +85,7 @@
         </label>
         <input
           class="border-2 rounded-md w-full box-border p-2 outline-none mb-5"
+          name="password"
           autocomplete="on"
           id="password-input"
           type="password"
@@ -115,6 +117,12 @@
         (click)="onSubmit()"
       ></app-button>
     </div>
+    <p
+      class="text-p-orange mb-5 font-semibold text-center hover:underline cursor-pointer"
+      (click)="handleForgotPassword()"
+    >
+      Forgot password?
+    </p>
 
     <div class="pt-5 border-t-2">
       <p class="text-center">Don't have an account yet?</p>
