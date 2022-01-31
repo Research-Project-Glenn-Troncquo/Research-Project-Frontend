@@ -32,7 +32,7 @@ jobs:
 
       - name: set the value
         run: |
-          echo "EOF=$(cat do_pr.txt)" >> $GITHUB_ENV
+          echo "EOF=$(cat response.txt)" >> $GITHUB_ENV
 
       - name: Debug EOF
         run: echo ${{ env.EOF }}
