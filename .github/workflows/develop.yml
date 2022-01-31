@@ -33,8 +33,7 @@ jobs:
         run: cat response.txt
 
       - name: set the value
-        run: |
-          echo "EOF=$(cat response.txt)" >> $GITHUB_ENV
+        run: echo "TEST=$(cat response.txt)" >> $GITHUB_ENV
 
       - name: Debug EOF
         run: echo ${{ env.EOF }}
