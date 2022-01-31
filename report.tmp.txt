@@ -1,0 +1,104 @@
+
+> drink-buddy@0.0.0 test:unit /home/runner/work/Research-Project-Frontend/Research-Project-Frontend
+> ng test --watch=false --browsers=ChromeHeadlessCustom
+
+31 01 2022 17:48:46.728:INFO [karma-server]: Karma v6.3.9 server started at http://localhost:9876/
+31 01 2022 17:48:46.730:INFO [launcher]: Launching browsers ChromeHeadlessCustom with concurrency unlimited
+31 01 2022 17:48:46.732:INFO [launcher]: Starting browser ChromeHeadless
+31 01 2022 17:48:57.872:INFO [Chrome Headless 97.0.4692.99 (Linux x86_64)]: Connected on socket 9ege9gTm97UIJlxXAAAB with id 75237502
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 0 of 65 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 1 of 65 SUCCESS (0 secs / 0.165 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 2 of 65 SUCCESS (0 secs / 0.171 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 3 of 65 SUCCESS (0 secs / 0.187 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 4 of 65 SUCCESS (0 secs / 0.192 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 5 of 65 SUCCESS (0 secs / 0.196 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 6 of 65 SUCCESS (0 secs / 0.199 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 7 of 65 SUCCESS (0 secs / 0.203 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 8 of 65 SUCCESS (0 secs / 0.205 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 9 of 65 SUCCESS (0 secs / 0.208 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 10 of 65 SUCCESS (0 secs / 0.211 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 11 of 65 SUCCESS (0 secs / 0.214 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) ActivityComponent should create FAILED
+	NullInjectorError: R3InjectorError(DynamicTestModule)[ActivatedRoute -> ActivatedRoute]: 
+	  NullInjectorError: No provider for ActivatedRoute!
+	error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'ActivatedRoute', 'ActivatedRoute' ] })
+	NullInjectorError: R3InjectorError(DynamicTestModule)[ActivatedRoute -> ActivatedRoute]: 
+	  NullInjectorError: No provider for ActivatedRoute!
+	    at NullInjector.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11120:1)
+	    at R3Injector.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11287:1)
+	    at R3Injector.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11287:1)
+	    at NgModuleRef$1.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25352:1)
+	    at Object.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25066:1)
+	    at lookupTokenUsingModuleInjector (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3354:1)
+	    at getOrCreateInjectable (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3466:1)
+	    at ɵɵdirectiveInject (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14756:1)
+	    at NodeInjectorFactory.ActivityComponent_Factory [as factory] (ng:///ActivityComponent/ɵfac.js:4:45)
+	    at getNodeInjectable (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3561:1)
+	Error: Expected undefined to be truthy.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/activity/activity.component.spec.ts:23:23)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 12 of 65 (1 FAILED) (0 secs / 0.318 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 13 of 65 (1 FAILED) (0 secs / 0.322 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 14 of 65 (1 FAILED) (0 secs / 0.363 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 15 of 65 (1 FAILED) (0 secs / 0.387 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 16 of 65 (1 FAILED) (0 secs / 0.397 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 17 of 65 (1 FAILED) (0 secs / 0.419 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 18 of 65 (1 FAILED) (0 secs / 0.432 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 19 of 65 (1 FAILED) (0 secs / 0.444 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 20 of 65 (1 FAILED) (0 secs / 0.456 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 21 of 65 (1 FAILED) (0 secs / 0.468 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 22 of 65 (1 FAILED) (0 secs / 0.48 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 23 of 65 (1 FAILED) (0 secs / 0.506 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 24 of 65 (1 FAILED) (0 secs / 0.521 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 25 of 65 (1 FAILED) (0 secs / 0.536 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 26 of 65 (1 FAILED) (0 secs / 0.55 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 27 of 65 (1 FAILED) (0 secs / 0.561 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 28 of 65 (1 FAILED) (0 secs / 0.601 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 29 of 65 (1 FAILED) (0 secs / 0.62 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 30 of 65 (1 FAILED) (0 secs / 0.638 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 31 of 65 (1 FAILED) (0 secs / 0.656 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 32 of 65 (1 FAILED) (0 secs / 0.673 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 33 of 65 (1 FAILED) (0 secs / 0.686 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 34 of 65 (1 FAILED) (0 secs / 0.723 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 35 of 65 (1 FAILED) (0 secs / 0.744 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 36 of 65 (1 FAILED) (0 secs / 0.762 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 37 of 65 (1 FAILED) (0 secs / 0.779 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 38 of 65 (1 FAILED) (0 secs / 0.797 secs)
+[1A[2KERROR: 'NG0304: 'app-button' is not a known element:
+1. If 'app-button' is an Angular component, then verify that it is part of this module.
+2. If 'app-button' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 38 of 65 (1 FAILED) (0 secs / 0.797 secs)
+ERROR: 'NG0304: 'app-button' is not a known element:
+1. If 'app-button' is an Angular component, then verify that it is part of this module.
+2. If 'app-button' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 39 of 65 (1 FAILED) (0 secs / 0.802 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 40 of 65 (1 FAILED) (0 secs / 0.814 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 41 of 65 (1 FAILED) (0 secs / 0.821 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 42 of 65 (1 FAILED) (0 secs / 0.828 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 43 of 65 (1 FAILED) (0 secs / 0.834 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 44 of 65 (1 FAILED) (0 secs / 0.847 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 45 of 65 (1 FAILED) (0 secs / 0.861 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 46 of 65 (1 FAILED) (0 secs / 0.87 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 47 of 65 (1 FAILED) (0 secs / 0.879 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 48 of 65 (1 FAILED) (0 secs / 0.88 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 49 of 65 (1 FAILED) (0 secs / 0.88 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 50 of 65 (1 FAILED) (0 secs / 0.88 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 51 of 65 (1 FAILED) (0 secs / 0.881 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 52 of 65 (1 FAILED) (0 secs / 0.881 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 53 of 65 (1 FAILED) (0 secs / 0.881 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 54 of 65 (1 FAILED) (0 secs / 0.882 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 55 of 65 (1 FAILED) (0 secs / 0.882 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 56 of 65 (1 FAILED) (0 secs / 0.882 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 57 of 65 (1 FAILED) (0 secs / 0.882 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 58 of 65 (1 FAILED) (0 secs / 0.882 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 59 of 65 (1 FAILED) (0 secs / 0.883 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 60 of 65 (1 FAILED) (0 secs / 0.885 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 61 of 65 (1 FAILED) (0 secs / 0.885 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 62 of 65 (1 FAILED) (0 secs / 0.885 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 63 of 65 (1 FAILED) (0 secs / 0.885 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 64 of 65 (1 FAILED) (0 secs / 0.888 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 65 of 65 (1 FAILED) (0 secs / 0.891 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 65 of 65 (1 FAILED) (1.144 secs / 0.891 secs)
+TOTAL: 1 FAILED, 64 SUCCESS
