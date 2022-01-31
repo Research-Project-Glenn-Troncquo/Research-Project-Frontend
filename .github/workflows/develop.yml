@@ -20,7 +20,6 @@ jobs:
         with:
           submodules: true
       - run: npm ci
-      - run: npm run test:unit
 
       - name: Exclude files with testing errors from build
         run: .github/scripts/exclude_build.sh
