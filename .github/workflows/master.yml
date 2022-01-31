@@ -1,0 +1,61 @@
+name: Azure CI/CD Master/Main branch
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - master
+
+jobs:
+  test_build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+
+    name: Build and Deploy Job
+    steps:
+      - name: get latest updates
+        run: sudo apt-get update
+
+      - name: update to latest
+        run: sudo apt-get install -y libgbm-dev
+
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Use Node.js 14.15
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.15
+      - run: npm ci
+      # - run: npm run test:unit
+
+
+      # - uses: actions/checkout@v2
+      #   with:
+      #     submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_HAPPY_CLIFF_035983703 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'upload'
+          app_location: '/'
+          api_location: ''
+          output_location: 'dist/DrinkBuddy'
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_HAPPY_CLIFF_035983703 }}
+          action: 'close'
