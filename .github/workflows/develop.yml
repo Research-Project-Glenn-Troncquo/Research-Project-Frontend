@@ -24,8 +24,8 @@ jobs:
       - name: Exclude files with testing errors from build
         run: .github/scripts/exclude_build.sh
       
-      - name: Run end2end test
-        run: .github/scripts/e2e.sh
+      # - name: Run end2end test
+      #   run: .github/scripts/e2e.sh
 
       - name: Build the stack
         run: docker-compose up
