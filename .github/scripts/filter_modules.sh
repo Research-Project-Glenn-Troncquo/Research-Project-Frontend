@@ -3,6 +3,8 @@
 remove_temporary_files() {
     echo "removing temporary files"
     rm *.tmp.txt
+    rm report.tmp.txt
+    rm 
 }
 
 npm run test:unit > report.tmp.txt 2> /dev/null &

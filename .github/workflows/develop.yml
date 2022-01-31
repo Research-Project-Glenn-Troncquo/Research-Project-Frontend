@@ -19,28 +19,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      # - run: npm ci
-      # - run: npm run build
+      - run: npm ci
+      - run: npm run build
 
-      # - name: Exclude files with testing errors from build
-      #   run: .github/scripts/exclude_build.sh
-
-      - name: set the value
-        id: step_one
-        run: curl https://httpbin.org/json >> response.txt
-
-      - name: echo
-        run: cat response.txt
-
-      - name: set the value
-        run: echo "EOF=$cat response.txt" >> $GITHUB_ENV
-          
-
-      - name: Debug EOF
-        run: echo ${{ env.EOF }}
-
-      # - name: Run end2end test
-      #   run: .github/scripts/e2e.sh
+      - name: Exclude files with testing errors from build
+        run: .github/scripts/exclude_build.sh
 
       - name: Build the stack
         run: docker-compose up -d
