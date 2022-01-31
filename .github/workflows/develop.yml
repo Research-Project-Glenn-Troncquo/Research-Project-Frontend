@@ -28,11 +28,11 @@ jobs:
       - name: set the value
         id: step_one
         run: |
-          echo "EOF=$(curl https://httpbin.org/json)" >> $GITHUB_ENV
+          echo curl https://httpbin.org/json >> response.txt
 
       - name: set the value
         run: |
-          echo curl https://httpbin.org/json
+          echo "EOF=$(cat do_pr.txt)" >> $GITHUB_ENV
 
       - name: Debug EOF
         run: echo ${{ env.EOF }}
