@@ -1,0 +1,88 @@
+
+> drink-buddy@0.0.0 test:unit /home/runner/work/Research-Project-Frontend/Research-Project-Frontend
+> ng test --watch=false --browsers=ChromeHeadlessCustom
+
+31 01 2022 17:54:27.578:INFO [karma-server]: Karma v6.3.9 server started at http://localhost:9876/
+31 01 2022 17:54:27.580:INFO [launcher]: Launching browsers ChromeHeadlessCustom with concurrency unlimited
+31 01 2022 17:54:27.585:INFO [launcher]: Starting browser ChromeHeadless
+31 01 2022 17:54:42.246:INFO [Chrome Headless 97.0.4692.99 (Linux x86_64)]: Connected on socket NImfkhZ4x7_aDrspAAAB with id 30671480
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 0 of 64 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 1 of 64 SUCCESS (0 secs / 0.203 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 2 of 64 SUCCESS (0 secs / 0.288 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 3 of 64 SUCCESS (0 secs / 0.332 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 4 of 64 SUCCESS (0 secs / 0.357 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 5 of 64 SUCCESS (0 secs / 0.381 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 6 of 64 SUCCESS (0 secs / 0.406 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 7 of 64 SUCCESS (0 secs / 0.43 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 8 of 64 SUCCESS (0 secs / 0.456 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 9 of 64 SUCCESS (0 secs / 0.481 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 10 of 64 SUCCESS (0 secs / 0.516 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 11 of 64 SUCCESS (0 secs / 0.547 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 12 of 64 SUCCESS (0 secs / 0.571 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 13 of 64 SUCCESS (0 secs / 0.575 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 14 of 64 SUCCESS (0 secs / 0.578 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 15 of 64 SUCCESS (0 secs / 0.594 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 16 of 64 SUCCESS (0 secs / 0.62 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 17 of 64 SUCCESS (0 secs / 0.635 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 18 of 64 SUCCESS (0 secs / 0.648 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 19 of 64 SUCCESS (0 secs / 0.661 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 20 of 64 SUCCESS (0 secs / 0.673 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 21 of 64 SUCCESS (0 secs / 0.691 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 22 of 64 SUCCESS (0 secs / 0.709 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 23 of 64 SUCCESS (0 secs / 0.726 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 24 of 64 SUCCESS (0 secs / 0.744 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 25 of 64 SUCCESS (0 secs / 0.754 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64) LoginComponent should have a button `Log in` should show error if an input is empty FAILED
+	Error: Expected 'Please fill in a password' to contain 'Please fill in a passworde'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (src/app/screens/login/login.component.spec.ts:263:9)
+	    at ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:372:1)
+	    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:287:1)
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 26 of 64 (1 FAILED) (0 secs / 0.88 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 27 of 64 (1 FAILED) (0 secs / 0.894 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 28 of 64 (1 FAILED) (0 secs / 0.909 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 29 of 64 (1 FAILED) (0 secs / 0.923 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 30 of 64 (1 FAILED) (0 secs / 0.926 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 31 of 64 (1 FAILED) (0 secs / 0.929 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 32 of 64 (1 FAILED) (0 secs / 0.934 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 33 of 64 (1 FAILED) (0 secs / 0.937 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 34 of 64 (1 FAILED) (0 secs / 0.94 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 35 of 64 (1 FAILED) (0 secs / 0.943 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 36 of 64 (1 FAILED) (0 secs / 0.945 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 37 of 64 (1 FAILED) (0 secs / 0.949 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 38 of 64 (1 FAILED) (0 secs / 0.952 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 39 of 64 (1 FAILED) (0 secs / 0.953 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 40 of 64 (1 FAILED) (0 secs / 0.954 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 41 of 64 (1 FAILED) (0 secs / 0.955 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 42 of 64 (1 FAILED) (0 secs / 0.955 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 43 of 64 (1 FAILED) (0 secs / 0.956 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 44 of 64 (1 FAILED) (0 secs / 0.957 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 45 of 64 (1 FAILED) (0 secs / 0.958 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 46 of 64 (1 FAILED) (0 secs / 0.959 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 47 of 64 (1 FAILED) (0 secs / 0.959 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 48 of 64 (1 FAILED) (0 secs / 0.959 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 49 of 64 (1 FAILED) (0 secs / 0.959 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 50 of 64 (1 FAILED) (0 secs / 0.96 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 51 of 64 (1 FAILED) (0 secs / 0.96 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 52 of 64 (1 FAILED) (0 secs / 0.96 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 53 of 64 (1 FAILED) (0 secs / 0.961 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 54 of 64 (1 FAILED) (0 secs / 0.961 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 55 of 64 (1 FAILED) (0 secs / 0.966 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 56 of 64 (1 FAILED) (0 secs / 0.982 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 57 of 64 (1 FAILED) (0 secs / 0.99 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 58 of 64 (1 FAILED) (0 secs / 0.998 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 59 of 64 (1 FAILED) (0 secs / 1.015 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 60 of 64 (1 FAILED) (0 secs / 1.027 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 61 of 64 (1 FAILED) (0 secs / 1.039 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 62 of 64 (1 FAILED) (0 secs / 1.049 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 63 of 64 (1 FAILED) (0 secs / 1.061 secs)
+[1A[2KERROR: 'NG0304: 'app-button' is not a known element:
+1. If 'app-button' is an Angular component, then verify that it is part of this module.
+2. If 'app-button' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+Chrome Headless 97.0.4692.99 (Linux x86_64): Executed 63 of 64 (1 FAILED) (0 secs / 1.061 secs)
+ERROR: 'NG0304: 'app-button' is not a known element:
+1. If 'app-button' is an Angular component, then verify that it is part of this module.
+2. If 'app-button' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 64 of 64 (1 FAILED) (0 secs / 1.066 secs)
+[1A[2KChrome Headless 97.0.4692.99 (Linux x86_64): Executed 64 of 64 (1 FAILED) (1.286 secs / 1.066 secs)
+TOTAL: 1 FAILED, 63 SUCCESS
