@@ -28,7 +28,7 @@ jobs:
       #   run: .github/scripts/e2e.sh
 
       - name: Build the stack
-        run: docker-compose up
+        run: docker-compose up -d
 
       - uses: cypress-io/github-action@v2
         with:
