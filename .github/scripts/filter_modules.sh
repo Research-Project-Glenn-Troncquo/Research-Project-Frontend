@@ -2,8 +2,8 @@
 
 remove_temporary_files() {
     echo "removing temporary files"
-    rm report.tmp.txt
-    rm modules.tmp.txt
+    # rm report.tmp.txt
+    # rm modules.tmp.txt
     rm *.tmp.txt
 }
 
