@@ -26,8 +26,6 @@ then
         sh -c "git checkout origin/$PARENT_BRANCH -- $module "
     done <modules.tmp.txt
 
-    grep -E -o "[^)]+FAILED$" report.tmp.txt > do_pr.txt
-
     cat do_pr.txt
 
     remove_temporary_files
@@ -38,6 +36,8 @@ then
     git add .
     git commit -m "restore modules from $PARENT_BRANCH because of test failures."
     git push origin $NEW_BRANCH
+    
+    grep -E -o "[^)]+FAILED$" report.tmp.txt > do_pr.txt
 
     # touch do_pr 
     # grep -E -o "[^)]+FAILED[^)]" report.tmp.txt > do_pr.txt
