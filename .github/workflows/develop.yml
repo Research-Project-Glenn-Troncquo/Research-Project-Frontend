@@ -25,8 +25,8 @@ jobs:
       - name: Exclude files with testing errors from build
         run: .github/scripts/exclude_build.sh
 
-      - name: Build the stack
-        run: docker-compose up -d
+      # - name: Build the stack
+      #   run: docker-compose up -d
 
       # - uses: cypress-io/github-action@v2
       #   with:
