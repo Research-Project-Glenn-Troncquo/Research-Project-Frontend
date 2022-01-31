@@ -30,7 +30,7 @@ jobs:
         run: curl https://httpbin.org/json >> response.txt
 
       - name: echo
-        run: echo cat response.txt
+        run: cat response.txt
 
       - name: set the value
         run: |
