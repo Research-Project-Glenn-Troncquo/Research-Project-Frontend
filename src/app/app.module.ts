@@ -17,7 +17,6 @@ import { DashboardModule } from './screens/dashboard/dashboard.module'
 import { AddpostComponent } from './screens/addpost/addpost.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
-import { ActivityComponent } from './screens/activity/activity.component'
 import { LoadingModule } from './screens/loading/loading.module'
 import { SearchComponent } from './screens/search/search.component'
 import { HomeModule } from './screens/home/home.module'
@@ -29,7 +28,6 @@ import { TestComponent } from './screens/test/test.component'
   declarations: [
     AppComponent,
     AddpostComponent,
-    ActivityComponent,
     SearchComponent,
     ProfileComponent,
     SettingsComponent,

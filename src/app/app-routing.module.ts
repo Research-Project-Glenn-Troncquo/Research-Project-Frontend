@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from './auth/auth.guard'
 import { PasswordComponent } from './components/password/password.component'
-import { ActivityComponent } from './screens/activity/activity.component'
 import { AddpostComponent } from './screens/addpost/addpost.component'
 import { DashboardComponent } from './screens/dashboard/dashboard.component'
 import { HomeComponent } from './screens/home/home.component'
@@ -50,11 +49,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     pathMatch: 'full',
   },
-  {
-    path: 'activity/:id',
-    component: ActivityComponent,
-    canActivate: [AuthGuard],
-  },
+  // {
+  //   path: 'activity/:id',
+  //   component: ActivityComponent,
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: 'search',
     component: SearchComponent,

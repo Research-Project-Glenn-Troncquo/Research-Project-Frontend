@@ -178,7 +178,7 @@ describe('LoginComponent', () => {
 
       expect(
         de.queryAll(By.css('app-input-error'))[1].nativeElement.innerText
-      ).toContain('Please fill in a password')
+      ).toContain('Please fill in a passworde')
 
       // fixture.whenStable().then(() => {})
     })
