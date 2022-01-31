@@ -27,18 +27,11 @@ jobs:
 
       - name: set the value
         id: step_one
+        run: curl https://httpbin.org/json >> response.txt
+
+      - name: set the value
         run: |
-          echo curl https://httpbin.org/json
-
-      - name: Make Request
-        id: myRequest
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "https://httpbin.org/json"
-
-      - name: set output to env
-        run: echo "ISSUE_DESCRIPTION=${{ steps.myRequest.outputs.response }}" >> $GITHUB_ENV
-        # run: echo ${{ steps.myRequest.outputs.response }}
+          echo "EOF=$(cat response.txt)" >> $GITHUB_ENV
 
       - name: Debug EOF
         run: echo ${{ env.EOF }}
