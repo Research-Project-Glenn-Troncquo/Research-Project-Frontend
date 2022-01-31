@@ -32,6 +32,14 @@ jobs:
           node-version: 14.15
       - run: npm ci
       - run: npm run test:unit
+
+      - name: Build the stack
+        run: docker-compose up -d
+
+      - uses: cypress-io/github-action@v2
+        with:
+          build: npm run cy:run
+          wait-on: http://localhost:4200
       
 
 
