@@ -47,3 +47,4 @@ describe('End to End test', () => {
     cy.contains('Lekker biertje drinken in het nieuwe café')
   })
 })
+
