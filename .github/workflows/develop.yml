@@ -30,6 +30,10 @@ jobs:
         run: |
           echo "EOF=$(curl https://httpbin.org/json)" >> $GITHUB_ENV
 
+      - name: set the value
+        run: |
+          echo curl https://httpbin.org/json
+
       - name: Debug EOF
         run: echo ${{ env.EOF }}
 
