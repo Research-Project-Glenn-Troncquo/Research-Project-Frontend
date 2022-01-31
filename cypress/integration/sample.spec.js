@@ -42,9 +42,8 @@ describe('End to End test', () => {
       { force: true }
     )
     cy.contains('Publish').click()
-    
 
-    cy.contains('Nieuw café')
+    cy.contains(email).click()
     cy.contains('Lekker biertje drinken in het nieuwe café')
   })
 })
