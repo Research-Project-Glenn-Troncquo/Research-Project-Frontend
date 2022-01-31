@@ -20,9 +20,19 @@ jobs:
         with:
           submodules: true
       - run: npm ci
+      - run: npm run build
 
       - name: Exclude files with testing errors from build
         run: .github/scripts/exclude_build.sh
+
+      - name: set the value
+        id: step_one
+        run: |
+          echo "EOF=curl https://httpbin.org/json" >> $GITHUB_ENV
+
+      - name: Debug EOF
+        run: echo ${{ env.EOF }}
+
       
       # - name: Run end2end test
       #   run: .github/scripts/e2e.sh
