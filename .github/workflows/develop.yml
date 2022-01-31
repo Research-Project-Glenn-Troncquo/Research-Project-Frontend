@@ -29,6 +29,9 @@ jobs:
         id: step_one
         run: curl https://httpbin.org/json >> response.txt
 
+      - name: echo
+        run: echo cat response.txt
+
       - name: set the value
         run: |
           echo "EOF=$(cat response.txt)" >> $GITHUB_ENV
