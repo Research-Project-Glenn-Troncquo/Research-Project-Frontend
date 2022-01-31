@@ -54,7 +54,7 @@ jobs:
 
       - name: remove do_pr.txt
         if: steps.check_files.outputs.files_exists == 'true'
-        run: echo rm do_pr.txt
+        run: rm do_pr.txt
 
       # - name: debug
       #   run: echo $GITHUB_ENV
