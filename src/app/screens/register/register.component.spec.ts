@@ -105,16 +105,6 @@ describe('RegisterComponent', () => {
     // })
   })
 
-  describe('should have a div with Sign up with Google', () => {
-    it('', () => {
-      expect(de.queryAll(By.css('div'))[3].nativeElement.innerText).toBe(
-        'Sign up with Google'
-      )
-    })
-
-    // it('onClick call google login function', () => {})
-  })
-
   it('should have a label tag of `Name` and an input', () => {
     expect(de.query(By.css('label[for=name]')).nativeElement.innerText).toBe(
       'Name'
@@ -289,4 +279,5 @@ export class FakeAuthService implements AuthService {
   getUser(): Promise<any> {
     return new Promise((resolve) => resolve(true))
   }
+  resetPassword(email: string): any {}
 }

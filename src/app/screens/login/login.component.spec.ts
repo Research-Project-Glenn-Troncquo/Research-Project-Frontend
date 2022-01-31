@@ -102,16 +102,6 @@ describe('LoginComponent', () => {
     })
   })
 
-  describe('should have a div with Log in with Google', () => {
-    it('', () => {
-      expect(de.queryAll(By.css('div'))[3].nativeElement.innerText).toBe(
-        'Log in with Google'
-      )
-    })
-
-    // it('onClick call google login function', () => {})
-  })
-
   it('should have a label tag of `Email` and an input', () => {
     expect(
       de.query(By.css('label[for=email-input]')).nativeElement.innerText
@@ -322,4 +312,5 @@ class FakeAuthService implements AuthService {
   getUser(): Promise<any> {
     return new Promise((resolve) => resolve(true))
   }
+  resetPassword(email: string): any {}
 }
