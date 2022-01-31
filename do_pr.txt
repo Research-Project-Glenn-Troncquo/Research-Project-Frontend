@@ -1,0 +1,1 @@
+ LoginComponent should have a button `Log in` should show error if an input is empty FAILED
