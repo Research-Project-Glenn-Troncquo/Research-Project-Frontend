@@ -154,7 +154,7 @@ describe('LoginComponent', () => {
 
       expect(
         de.queryAll(By.css('app-input-error'))[0].nativeElement.innerText
-      ).toContain('Please fill in an email')
+      ).toContain('Please fill in an emailllll')
     })
   })
 
